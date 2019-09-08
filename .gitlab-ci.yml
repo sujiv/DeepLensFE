@@ -1,14 +1,13 @@
 variables:
-  RELEASE_NAME: "projectx1"
+  RELEASE_NAME: "SERVICE_NAME"
   SERVICE_PORT: 80
   REGISTRY_URL: 279716074232.dkr.ecr.us-east-1.amazonaws.com/pgdockrepo
-
 
 stages:
   - Build
   - ReleaseCleanup
   - ReleaseDeploy
-
+  - Validation
 
 Build:
   stage: Build
@@ -24,7 +23,6 @@ ReleaseCleanup:
    -  cd ./helm && /usr/local/bin/helm delete --purge $RELEASE_NAME && exit 0
    allow_failure: true
 
-
 ReleaseDeploy:
    stage: ReleaseDeploy
    script:
@@ -32,3 +30,10 @@ ReleaseDeploy:
    - sed -i s/#BUILD_ID#/$CI_PIPELINE_ID/g ./helm/service/values.yaml 
    - sed -i s/#SERVICE_PORT#/$SERVICE_PORT/g ./helm/service/values.yaml
    - cd ./helm && /usr/local/bin/helm install service --name $RELEASE_NAME
+   
+Validation:
+    stage: Validation
+    script:
+    - sleep 45
+    - if [ `curl -s -o /dev/null -I -w "%{http_code}" https://pgsandbox.altimetrik.com/$RELEASE_NAME/` = "200" ]; then exit 0; else exit 1; fi
+    allow_failure: false
