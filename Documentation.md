@@ -1,4 +1,5 @@
 # DeepLens Surveillance Front-End Project
+
 	Created on		: Feb 21, 2020
 	Project Manager : Vandan Kumar Manni
 	Developers		: Sujiv Shrestha, Ogabeg Yuldasov, Amanuel Tekelemariam
@@ -150,6 +151,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMjE3NTM4Nyw1NTEyMjgzNSwtMzMyND
-U1MzYzXX0=
+eyJoaXN0b3J5IjpbLTk3NDYyNjQxMywtNjAyMTc1Mzg3LDU1MT
+IyODM1LC0zMzI0NTUzNjNdfQ==
 -->
