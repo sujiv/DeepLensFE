@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>arrow-left@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Design-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Deep_Lens_Surveillance-Design-2" transform="translate(-90.000000, -96.000000)" stroke="#003379" stroke-width="2">
+            <g id="Group-6" transform="translate(91.000000, 95.000000)">
+                <g id="arrow-left" transform="translate(0.000000, 2.000000)">
+                    <line x1="10" y1="5" x2="0" y2="5" id="Path"></line>
+                    <polyline id="Path" points="5 10 0 5 5 0"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
