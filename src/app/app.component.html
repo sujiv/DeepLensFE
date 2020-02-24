@@ -1,20 +1,14 @@
-<div class="header-row shadow-sm nav">
-  <img class="client-logo" src="../assets/SVG/Logo 2x.png"/>
-</div>
-<div class="navbar-column shadow-sm">
-<!--  <ul >-->
-<!--  <li class="ui-menu">-->
-<!--  </li>-->
-<!--  <li class="ui-menu">-->
-<!--  </li>-->
-<!--  </ul>-->
-<a><img class="tool-icon" src="../assets/PNG/Camera.png"/></a>
-  <br>
-<a><img class="tool-icon" src="../assets/PNG/activity.png"/></a>
-
-</div>
-<!--<div class="shadow-none p-3 mb-5 bg-light rounded">No shadow</div>-->
-<!--<div class="shadow-sm p-3 mb-5 bg-white rounded">Small shadow</div>-->
-<!--<div class="shadow p-3 mb-5 bg-white rounded">Regular shadow</div>-->
-<!--<div class="shadow-lg p-3 mb-5 bg-white rounded">Larger shadow</div>-->
-<router-outlet></router-outlet>
+<nz-layout>
+  <nz-header id="header">
+    <img src="../../../assets/SVG/Logo 2x.png" id="logo"/>
+  </nz-header>
+  <nz-layout>
+    <nz-sider id="sidebar">
+      <a routerLink="/camera">CAMERA</a>
+      <a routerLink="/history">HISTORY</a>
+    </nz-sider>
+    <router-outlet></router-outlet>
+<!--    <nz-content>Content</nz-content>-->
+  </nz-layout>
+  <nz-footer>Footer</nz-footer>
+</nz-layout>
