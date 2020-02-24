@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="39px" viewBox="0 0 40 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-163.6%" y="-163.6%" width="427.3%" height="427.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="6" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Design-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Deep_Lens_Surveillance-Design-2" transform="translate(-1130.000000, -17.000000)">
+            <g id="Group-2" transform="translate(1144.500000, 31.000000)">
+                <circle id="Oval" fill="#00C500" cx="5.5" cy="5.5" r="5.5"></circle>
+                <circle id="Oval" fill="#00EB00" filter="url(#filter-1)" cx="5.5" cy="5.5" r="5.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>
