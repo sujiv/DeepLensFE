@@ -107,6 +107,7 @@
       <workItem from="1582432730363" duration="4531000" />
       <workItem from="1582555847845" duration="1136000" />
       <workItem from="1582566354775" duration="5437000" />
+      <workItem from="1582571945607" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="Info File renamed">
       <created>1582313978402</created>
@@ -129,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582571592670</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="branch commit">
+      <created>1582572160627</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582572160627</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,7 +148,8 @@
     <MESSAGE value="Info File renamed" />
     <MESSAGE value="Basic Template initial." />
     <MESSAGE value="Main Structure Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main Structure Done" />
+    <MESSAGE value="branch commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="branch commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="402" y="62" key="#Angular_CLI_Server" timestamp="1582356732488">
@@ -151,11 +160,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1582405073150" />
-    <state x="548" y="0" key="CommitChangelistDialog2" timestamp="1582571589919">
+    <state x="548" y="0" key="CommitChangelistDialog2" timestamp="1582572263441">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="390" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582557105129" />
-    <state x="548" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582571589919" />
+    <state x="548" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582572263441" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1582412946624">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -201,11 +210,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="693" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582571661715" />
-    <state x="412" y="221" key="git4idea.merge.GitPullDialog" timestamp="1582572131867">
+    <state x="412" y="221" key="git4idea.merge.GitPullDialog" timestamp="1582572177939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="293" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1582350648570" />
-    <state x="412" y="221" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582572131867" />
+    <state x="412" y="221" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582572177939" />
     <state x="400" y="172" key="jetbrains.nodejs.interpreters-dialog" timestamp="1582405062793">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
