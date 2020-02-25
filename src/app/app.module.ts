@@ -27,6 +27,8 @@ registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
+    SidebuttonsComponent,
+    SbuttonComponent
   ],
   imports: [
     BrowserModule,

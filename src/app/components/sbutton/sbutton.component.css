@@ -1,0 +1,22 @@
+.link{
+  height: 51px;
+  width: 61px;
+  text-align: center;
+
+}
+
+.clicked{
+  height: 51px;
+  width: 61px;
+  background-color: #003379;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.img {
+  vertical-align: middle;
+}

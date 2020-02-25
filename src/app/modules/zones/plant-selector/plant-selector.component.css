@@ -1,0 +1,18 @@
+.lbl{
+  height: 18px;
+  width: 102px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#plant{
+  box-sizing: border-box;
+  height: 44px;
+  width: 403px;
+  border: 1px solid #E9E9E9;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}

@@ -3,12 +3,12 @@
     <img src="../../../assets/SVG/Logo 2x.png" id="logo"/>
   </nz-header>
   <nz-layout>
-    <nz-sider id="sidebar">
-      <a routerLink="/camera">CAMERA</a>
-      <a routerLink="/history">HISTORY</a>
+    <nz-sider nzWidth="61" id="sidebar">
+      <app-sidebuttons></app-sidebuttons>
     </nz-sider>
-    <router-outlet></router-outlet>
-<!--    <nz-content>Content</nz-content>-->
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
   </nz-layout>
   <nz-footer>Footer</nz-footer>
 </nz-layout>
