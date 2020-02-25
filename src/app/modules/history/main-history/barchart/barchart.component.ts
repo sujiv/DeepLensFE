@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
 import {Label} from 'ng2-charts';
-import {HistoryService} from '../services/history.service';
-import {ThreatsSummary} from '../models/threats-summary';
-import {Data} from '@angular/router';
+import {HistoryService} from '../../../../services/history.service';
+import {ThreatsSummary} from '../../../../models/threats-summary';
 
 @Component({
   selector: 'app-barchart',
@@ -11,7 +10,7 @@ import {Data} from '@angular/router';
   styleUrls: ['./barchart.component.css']
 })
 export class BarchartComponent implements OnInit {
-
+myDate: Date = new Date();
   constructor(private historyService: HistoryService) {
   }
 
@@ -60,7 +59,7 @@ export class BarchartComponent implements OnInit {
     }
     this.barChartLabels = myLabels;
     // @ts-ignore
-    this.barChartData = [{data: myData, Label: 'Number of Threats'}];
+    this.barChartData = [{data: myData, label: 'Number of Threats'}];
   }
 
 
