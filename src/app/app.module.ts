@@ -9,12 +9,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { SidebuttonsComponent } from './components/sidebuttons/sidebuttons.component';
+import { SbuttonComponent } from './components/sbutton/sbutton.component';
+import {ZonesModule} from "./modules/zones/zones.module";
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebuttonsComponent,
+    SbuttonComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,8 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ZonesModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+
+<!--  <a routerLink="/camera">-->
+<!--    <img id="sidebarCam" src="../assets/SVG/Camera.svg" height="20" width="28"/></a>-->
+<a [routerLink]= setUrl() (click)="onClick()">
+  <div [ngClass]="setClass()">
+    <span class = "helper"></span>
+    <img  class = "imgHolder" [src]= setSrc() height="20" width="28"/>
+  </div>
+</a>

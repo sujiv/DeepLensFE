@@ -6,7 +6,8 @@
 }
 
 #sidebar {
-  height: 998px;
+  /*height: 998px;*/
+  height:500px;
   width: 61px;
   border-radius: 2px;
   background-color: #FFFFFF;
@@ -21,3 +22,5 @@
   margin-top: 20px;
 
 }
+
+
