@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainCameraComponent} from './modules/camera/main-camera/main-camera.component';
+import {BarchartComponent} from './modules/history/main-history/barchart/barchart.component';
 import {MainHistoryComponent} from './modules/history/main-history/main-history.component';
 import {MainZonesComponent} from "./modules/zones/main-zones/main-zones.component";
 
