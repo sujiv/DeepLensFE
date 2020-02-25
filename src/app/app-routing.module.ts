@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainCameraComponent} from './modules/camera/main-camera/main-camera.component';
-import {MainHistoryComponent} from './modules/history/main-history/main-history.component';
+import {BarchartComponent} from './barchart/barchart.component';
 
 
 const routes: Routes = [
   // {path: 'zones', component: CameraComponent},
   {path: 'camera', component: MainCameraComponent},
-  {path: 'history', component: MainHistoryComponent}
+  {path: 'history', component: BarchartComponent}
 ];
 
 @NgModule({

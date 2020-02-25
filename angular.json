@@ -24,9 +24,11 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css"
+              "src/styles.css"
+
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -93,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
               "src/styles.css"
             ],
@@ -127,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "DeepLensFE"
+  "defaultProject": "DeepLensFE",
+  "cli": {
+    "analytics": false
+  }
 }

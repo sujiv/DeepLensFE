@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainHistoryComponent } from './main-history/main-history.component';
 
+import {NgZorroAntdModule} from 'ng-zorro-antd';
+import {AppModule} from '../../app.module';
+
+// import {PieChartComponent} from "./main-history/pie-chart/pie-chart.component";
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
-  declarations: [MainHistoryComponent],
+  declarations: [
+],
   imports: [
-    CommonModule
+    CommonModule,
+    NgZorroAntdModule,
+    AppModule,
+    ChartsModule
   ]
 })
 export class HistoryModule { }
