@@ -1,3 +1,7 @@
+* {
+  font-family: Antenna-Regular;
+}
+
 #header {
   height: 70px;
   border-radius: 2px;
@@ -20,4 +24,17 @@
   margin-left: 50px;
   margin-top: 20px;
 
+}
+#icon-operational {
+  height: 40px;
+  width: 40px;
+}
+/*************USING FLEX**********/
+.header-nav-container {
+  float: right;
+  flex-direction: row-reverse;
+}
+#profile-button {
+  cursor: pointer;
+  margin-left: 20px;
 }
