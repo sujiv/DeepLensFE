@@ -9,12 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { SidebuttonsComponent } from './components/sidebuttons/sidebuttons.component';
+import { SbuttonComponent } from './components/sbutton/sbutton.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebuttonsComponent,
+    SbuttonComponent
   ],
   imports: [
     BrowserModule,
