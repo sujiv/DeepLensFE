@@ -36,5 +36,5 @@ Validation:
     script:
     - sleep 45
     - if [ `curl -s -o /dev/null -I -w "%{http_code}" https://pgsandbox.altimetrik.com/$RELEASE_NAME/` = "200" ]; then exit 0; else exit 1; fi
-    allow_failure: true
+    allow_failure: false
   
