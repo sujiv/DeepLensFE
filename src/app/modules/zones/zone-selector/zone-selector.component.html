@@ -4,4 +4,22 @@
   <select id="zone" class="sel">
     <option *ngFor="let i of [1,2,3]; let j = idx" value="{{i}}" [selected]="j === 2" >Zone {{ i }}</option>
   </select>
+  <div id="vid_info">
+    <div class="left">
+      <span class="info">CODEC:{{ codec }}</span><br/>
+      <span class="info">FORMAT:{{ format }}</span>
+    </div>
+    <div class="right">
+      <span class="info">DURATION: {{ duration }}</span><br/>
+      <span class="info">FRAME RATE: {{ frameRate }}</span>
+    </div>
+  </div>
+  <div id="allCams" *ngFor="let i of getRows()">
+    <div class="camRows" *ngFor="let c of getCams(0)">
+      <app-cams [camSummary] = "c" class="cells"></app-cams>
+    </div><br/>
+    <div class="camRows" *ngFor="let c of getCams(1)">
+      <app-cams [camSummary] = "c" class="cells"></app-cams>
+    </div>
+  </div>
 </div>

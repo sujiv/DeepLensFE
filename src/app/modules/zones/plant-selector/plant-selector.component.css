@@ -22,7 +22,8 @@ div{
 }
 
 .sel{
-  padding-left: 24px;
+  padding-left: 20px;
+  /*padding-left: 24px;*/
   height: 17px;
   width: 291px;
   color: #6879A4;
