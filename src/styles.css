@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Antenna-Regular;
+  color: #003379;
+}
+
+h1 {
+  font-family: Antenna-Bold;
+  font-size: 24px!important;
+  color: #003379;
+}

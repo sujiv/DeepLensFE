@@ -1,0 +1,23 @@
+<div class="threat">
+  <div class="container">
+    <div class="row threat-media-info">
+      <div class="col-7 threat-media-info-paragraph">
+        <p> CODEC: {{codec}}</p>
+        <p> FORMAT: {{format}}</p>
+      </div>
+      <div class="col-5 threat-media-info-paragraph">
+        <p class="float-right">DURATION: {{duration}}</p>
+        <p class="float-right">FRAME RATE: {{frameRate}}</p>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="threat-body">
+    <span class="text-white">[TIMESTAMP]: {{timestamp}}</span>
+    <p>[LABEL]: {{label}}</p>
+    <p>[CONFIDENCE]: <span class="text-danger">{{confidence}}</span></p>
+    <p>[INSTANCES]: {{instances}}</p>
+    <hr>
+  </div>
+  <a class="btn-view-threat" [href]="">VIEW THREAT</a>
+</div>
