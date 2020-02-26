@@ -16,10 +16,10 @@
   </div>
   <div id="allCams" *ngFor="let i of getRows()">
     <div class="camRows" *ngFor="let c of getCams(0)">
-      <app-cams [camSummary] = "c" class="cells"></app-cams>
+      <app-cams [camSummary] = "c" [zid] = zoneid class="cells"></app-cams>
     </div><br/>
     <div class="camRows" *ngFor="let c of getCams(1)">
-      <app-cams [camSummary] = "c" class="cells"></app-cams>
+      <app-cams [camSummary] = "c" [zid] = zoneid class="cells"></app-cams>
     </div>
   </div>
 </div>

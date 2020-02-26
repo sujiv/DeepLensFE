@@ -8,7 +8,8 @@ import {MainZonesComponent} from "./modules/zones/main-zones/main-zones.componen
 
 const routes: Routes = [
   {path: 'camera', component: MainZonesComponent},
-  {path: 'camera/1', component: MainCameraComponent},
+  {path: '', component: MainZonesComponent},
+  {path: 'zones/:zid/cameras/:cid', component: MainCameraComponent},
   {path: 'history', component: MainHistoryComponent}
 ];
 

@@ -22,6 +22,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {SidebuttonsComponent} from "./components/sidebuttons/sidebuttons.component";
 import {SbuttonComponent} from "./components/sbutton/sbutton.component";
 import {ZonesModule} from "./modules/zones/zones.module";
+import {CameraModule} from "./modules/camera/camera.module";
 
 registerLocaleData(en);
 
@@ -56,6 +57,7 @@ registerLocaleData(en);
     MatSelectModule,
     MatNativeDateModule,
     // MatMomentDateModule,
+    CameraModule,
     HistoryModule,
     ZonesModule
   ],

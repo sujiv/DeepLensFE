@@ -9,6 +9,7 @@ import { CameraZoneService } from "../../../services/camera-zone.service";
 })
 export class ZoneSelectorComponent implements OnInit {
   title: string = "Chennai Vehicle & Engine Assembly Plant";
+  zoneid: string = "";
   codec: string = "H264";
   format:string = "QUICKTIME/MOV";
   duration: string = "2 SEC";
