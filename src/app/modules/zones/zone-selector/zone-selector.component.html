@@ -1,7 +1,7 @@
 <div id="z_inp">
-  <p id="z_title">{{ title }}</p>
+  <span id="z_title">{{ title }}</span><br/>
   <label for="zone" class="lbl">Choose Zone</label><br/>
-  <select id="zone">
-    <option *ngFor="let i of [1,2,3]; let j = idx" value="{{i}}" [selected]="j === 2">Zone {{ i }}</option>
+  <select id="zone" class="sel">
+    <option *ngFor="let i of [1,2,3]; let j = idx" value="{{i}}" [selected]="j === 2" >Zone {{ i }}</option>
   </select>
 </div>

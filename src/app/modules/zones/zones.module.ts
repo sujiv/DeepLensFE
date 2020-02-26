@@ -11,6 +11,6 @@ import { ZoneSelectorComponent } from './zone-selector/zone-selector.component';
   imports: [
     CommonModule
   ],
-  exports:[PlantSelectorComponent]
+  exports: [PlantSelectorComponent, MainZonesComponent]
 })
 export class ZonesModule { }

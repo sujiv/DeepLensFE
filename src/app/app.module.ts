@@ -19,6 +19,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {HistoryModule} from './modules/history/history.module';
 import {MatNativeDateModule} from '@angular/material/core';
+import {SidebuttonsComponent} from "./components/sidebuttons/sidebuttons.component";
+import {SbuttonComponent} from "./components/sbutton/sbutton.component";
+import {ZonesModule} from "./modules/zones/zones.module";
 
 registerLocaleData(en);
 
@@ -51,9 +54,10 @@ registerLocaleData(en);
     MatDatepickerModule,
     MatRadioModule,
     MatSelectModule,
-    HistoryModule,
     MatNativeDateModule,
     // MatMomentDateModule,
+    HistoryModule,
+    ZonesModule
   ],
 
   exports: [
