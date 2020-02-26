@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
+import {MatDatepicker} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-filter-history',
@@ -7,7 +8,7 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./filter-history.component.css']
 })
 export class FilterHistoryComponent  {
-
+  startDate = new Date(2020, 0, 1);
 //  // OnInit contactName = '';
 //  //  contactAddress = '';
 //  //  contactSource = 'direct';
@@ -50,7 +51,7 @@ export class FilterHistoryComponent  {
 //     // Prevent Saturday and Sunday from being selected.
 //     return day !== 0 && day !== 6 ;
 //   }
-  filter() {
-    console.log();
+  filter(picker: MatDatepicker<any>) {
+    console.log(picker._datepickerInput);
   }
 }

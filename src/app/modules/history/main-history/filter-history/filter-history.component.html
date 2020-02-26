@@ -1,14 +1,21 @@
 
 <div style="margin-right: 8px">
   <form>
-    <input matInput [matDatepicker]="picker" placeholder="Choose  start Date ">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+<!--    <input matInput [matDatepicker]="picker" placeholder="Choose  start Date ">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
 
-    <input matInput [matDatepicker]="picker2" placeholder="Choose End Date ">
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
+<!--    <input matInput [matDatepicker]="picker2" placeholder="Choose End Date ">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker2></mat-datepicker>-->
 
-    <button mat-flat-button color="primary" (click)="filter()"> Filter</button>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" (click)="filter(picker)"> Filter</button>
   </form>
   </div>
