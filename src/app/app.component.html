@@ -1,14 +1,24 @@
 <nz-layout>
   <nz-header id="header">
     <img src="../../../assets/SVG/Logo 2x.png" id="logo"/>
+
+    <div class="header-nav-container">
+      <span>
+        <img src="../assets/PNG/Operational@2x.png" id="icon-operational"/> OPERATIONAL
+      </span>
+      <span id="profile-button">
+        <nz-avatar nzSize="large" nzIcon="user"></nz-avatar> JOHN DOE
+      </span>
+    </div>
   </nz-header>
   <nz-layout>
-    <nz-sider id="sidebar">
-      <a routerLink="/camera">CAMERA</a>
-      <a routerLink="/history">HISTORY</a>
+    <nz-sider nzWidth="61" id="sidebar">
+      <app-sidebuttons></app-sidebuttons>
     </nz-sider>
-    <router-outlet></router-outlet>
-<!--    <nz-content>Content</nz-content>-->
+
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
   </nz-layout>
   <nz-footer>Footer</nz-footer>
 </nz-layout>

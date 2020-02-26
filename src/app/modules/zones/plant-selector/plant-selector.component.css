@@ -1,0 +1,33 @@
+div{
+  width: 100%;
+}
+
+.lbl{
+  height: 18px;
+  /*width: 102px;*/
+  color: #6A7C92;
+  /*font-family: Antenna;*/
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#plant{
+  box-sizing: border-box;
+  height: 44px;
+  width: 403px;
+  border: 1px solid #E9E9E9;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+
+.sel{
+  padding-left: 20px;
+  /*padding-left: 24px;*/
+  height: 17px;
+  width: 291px;
+  color: #6879A4;
+  /*font-family: Antenna;*/
+  font-size: 14px;
+  line-height: 17px;
+}
