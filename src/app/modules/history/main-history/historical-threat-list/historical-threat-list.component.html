@@ -1,1 +1,40 @@
-<p>historical-threat-list works!</p>
+<div>
+  <h1>
+    <Strong> Historical Threat</Strong>
+
+  </h1>
+    <input matInput [matDatepicker]="picker" placeholder="Choose Date ">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</div>
+<!---->
+<section fxLayout fxLayoutAlign="center" >
+  <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
+    <mat-card-title>
+      {{threatsList.plantName}}
+
+      <span> {{threatsList.zone}} </span>
+    </mat-card-title>
+    <mat-card-content>
+      <p> Location </p>
+      <p> {{threatsList.location}} </p>
+
+      <p> Confidence </p>
+      <p> {{threatsList.confidence}} </p>
+
+      <p> Date </p>
+      <p> {{threatsList.eventDate}} </p>
+      <p> Timing </p>
+      <p> {{threatsList.timing}} </p>
+      <span></span>
+    </mat-card-content>
+    <mat-card-actions>
+      <!--      <button type="submit" mat-button> ViewAll</button>-->
+    </mat-card-actions>
+  </mat-card>
+  <br>
+  <div class="example-button-row">
+    <button mat-flat-button color="primary">ViewAll</button>
+  </div>
+
+</section>

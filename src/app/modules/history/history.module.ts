@@ -14,6 +14,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatNativeDateModule} from '@angular/material/core';
 import { HistoricalThreatListComponent } from './main-history/historical-threat-list/historical-threat-list.component';
+import {MatInputModule} from "@angular/material/input";
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { HistoricalThreatListComponent } from './main-history/historical-threat-
     FormsModule,
     MatDatepickerModule,
     MatGridListModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule
   ]
 })
 export class HistoryModule { }
