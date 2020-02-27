@@ -3,5 +3,5 @@
   <select id="plant" #plant class="sel" (change)="onChange(plant.value)">
     <option *ngFor="let p of getPlants(); let j = idx" value="{{ p.id }}" [selected]="j===1">{{ p.plantName }}</option>
   </select>
-  <app-zone-selector [plant]="getSelected()"></app-zone-selector>
+  <app-zone-selector [plant]='selectedPlant'></app-zone-selector>
 </div>

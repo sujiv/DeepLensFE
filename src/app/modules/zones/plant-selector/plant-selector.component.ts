@@ -13,6 +13,7 @@ export class PlantSelectorComponent implements OnInit {
 
   constructor(cameraZoneService: CameraZoneService) {
     this.plants = cameraZoneService.getPlants();
+    console.log("plants:"+this.plants)
   }
 
   ngOnInit(): void {
@@ -25,9 +26,12 @@ export class PlantSelectorComponent implements OnInit {
   }
 
   onChange(plantId: string) {
+    console.log("Plant changed...")
     for(let p of this.plants){
-      if(p.id === plantId)
+      if(p.id === plantId){
+        console.log("plant id "+plantId+" found");
         this.selectedPlant = p;
+      }
     }
   }
 
