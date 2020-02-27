@@ -1,1 +1,46 @@
-<p>historical-threat-list works!</p>
+<div>
+  <p class="historical-threat">
+    Historical Threat </p>
+
+  <div class="group-5 rectangle">
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <hr>
+  </div>
+  <!---->
+  <section fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
+      <div class="rectangle">
+<!--        <mat-card-title>-->
+          <div>
+            <p class="chennai-sholingana">
+              {{threatsList.plantName}}</p>
+            <p class="group-3 zone-1 rectangle2"> {{threatsList.zone}} </p>
+          </div>
+<!--        </mat-card-title>-->
+<!--        <mat-card-content>-->
+          <p class="location"> Location </p>
+          <p class="fivith-floor"> {{threatsList.location}} </p>
+
+          <p class="confidence"> Confidence </p>
+          <p class="conf-99-80203247070312"> {{threatsList.confidence}} </p>
+
+          <p class="date"> Date </p>
+          <p class="dateValue-12-02-2020"> {{threatsList.eventDate}} </p>
+          <p class="timing"> Timing </p>
+          <p class ="timingValue-10-34-14-pm"> {{threatsList.timing}} </p>
+          <span></span>
+<!--        </mat-card-content>-->
+        <mat-card-actions>
+          <!--      <button type="submit" mat-button> ViewAll</button>-->
+        </mat-card-actions>
+      </div>
+    </mat-card>
+    <br>
+    <div  class="rectangleButton">
+      <button class="view-all">ViewAll</button>
+    </div>
+
+  </section>
+</div>

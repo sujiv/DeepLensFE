@@ -12,8 +12,8 @@ export class CameraZoneService {
       {
         id:1,
         threats:0,
-        timestamp:"20/02/2020 10.34.14PM",
-        active:true,
+        timestamp:'20/02/2020 10.34.14PM',
+        active: true,
         frame:null
       },
       {

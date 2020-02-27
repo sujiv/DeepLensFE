@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "DeepLensFE"
+  "defaultProject": "DeepLensFE",
+  "cli": {
+    "analytics": false
+  }
 }
