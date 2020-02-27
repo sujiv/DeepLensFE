@@ -6,9 +6,10 @@ import {Time} from '@angular/common';
 import {Timestamp} from 'rxjs/internal-compatibility';
 
 import {DatePipe} from '@angular/common';
-import {Camera} from "../models/camera";
-import {Plant} from "../models/plant";
-import {Zone} from "../models/zone";
+import {Camera} from '../models/camera';
+import {Plant} from '../models/plant';
+import {Zone} from '../models/zone';
+import {ZonesModule} from '../modules/zones/zones.module';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class HistoryService {
   myShortFormat: Date;
 
   plants: Plant [] = [];
-  zones: Zone[] = []
+  zones: Zone[] = [];
   camers: Camera[] = [];
 
   // = this.pipe.transform(this.now, 'short');
@@ -135,8 +136,8 @@ export class HistoryService {
   }
 
   getThreatsSummaryByStartDateAndEndDate(startDate, endDate): ThreatsSummary[] {
-    console.log('======my date data at Service class ' + startDate + '    ' + endDate)
-    let myfilteredData: ThreatsSummary[] = [];
+    console.log('======my date data at Service class ' + startDate + '    ' + endDate);
+    const myfilteredData: ThreatsSummary[] = [];
     let k = 0;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.getThreatsSummary().length; i++) {
@@ -160,4 +161,17 @@ export class HistoryService {
   getPlants(): Plant[] {
     return this.plants;
   }
+
+//  returning all Zone from each plants
+  getAllZones(): Zone[] {
+    return this.zones;
+  }
+
+
+////////  return  list of zones give a plant ID
+
+  getZonesByPlantId(plantId: string): Zone[] {
+    return this.getAllZones().filter(res => res.plantId == plantId);
+  }
+
 }

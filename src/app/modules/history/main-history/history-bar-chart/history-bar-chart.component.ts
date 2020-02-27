@@ -40,6 +40,7 @@ export class HistoryBarChartComponent implements OnInit {
   isInint = false; // used for  tracking if the initailzation method  was call  not
   plants: any[] = [];
   zones: any[] = [];
+  plantId: string;
 
   constructor(public fb: FormBuilder, private historyService: HistoryService) {
     this.pipe = new DatePipe('en-US');
@@ -111,10 +112,11 @@ export class HistoryBarChartComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
     // tslint:disable-next-line:label-position
-    this.plants=  this.historyService.getPlants();
+    this.plants = this.historyService.getPlants();
+    this.plantId = '01'
+    this.zones = this.historyService.getZones(this.plantId);
     this.reactiveForm();
     this.populateChart();
     this.isInint = true;
