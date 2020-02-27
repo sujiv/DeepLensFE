@@ -6,7 +6,7 @@
   height: 18px;
   /*width: 102px;*/
   color: #6A7C92;
-  /*font-family: Antenna;*/
+  font-family: Antenna-Medium;
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -36,7 +36,7 @@
   height: 17px;
   width: 291px;
   color: #6879A4;
-  /*font-family: Antenna;*/
+  font-family: Antenna-Regular;
   font-size: 14px;
   line-height: 17px;
 }

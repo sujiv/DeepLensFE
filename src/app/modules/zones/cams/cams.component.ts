@@ -8,6 +8,8 @@ import {CameraSummary} from "../../../models/camera-summary";
 })
 export class CamsComponent implements OnInit {
   @Input()camSummary:CameraSummary;
+  @Input()zid:string;
+  @Input()pid:string;
 
   constructor() { }
 
@@ -19,7 +21,6 @@ export class CamsComponent implements OnInit {
       return String(this.camSummary.threats)
 
     return "None";
-
   }
 
   getPriority() {
@@ -32,6 +33,6 @@ export class CamsComponent implements OnInit {
   }
 
   getLink() {
-    return "/zone1/camera/"+this.camSummary.id;
+    return '/plants/${this.pid}/zones/${this.zid}/cameras/${this.camSummary.id}';
   }
 }

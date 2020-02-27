@@ -1,0 +1,29 @@
+#overview {
+  text-align: left;
+}
+
+.label{
+  /*height: 16px;*/
+  /*width: 79px;*/
+  color: #003379;
+  font-family: Antenna-Bold;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 19px;
+}
+
+.hs {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: repeat(4, calc(24%));
+  grid-template-rows: minmax(160px, 1fr);
+  list-style-type: none;
+  padding: 0 20px;
+  /*left:50px;*/
+  /*position:absolute;*/
+}
+
+li{
+  margin-left:-20px;
+  padding-left: 0px;
+}
