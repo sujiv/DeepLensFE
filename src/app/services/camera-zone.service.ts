@@ -47,32 +47,62 @@ export class CameraZoneService {
   getThreatsOverview() {
     return [
       {
-        plantId:1,
+        plantId:"1",
         plantName:"Chennai Vehicle & Engine Assembly Plant",
         zoneId:"Zone 01",
         cameraId:"camera 4",
         totalThreats:2
       },
       {
-        plantId:2,
+        plantId:"2",
         plantName:"Ford's Sanand Vehicle & Engine Assembly Plant",
         zoneId:"Zone 05",
         cameraId:"camera 3",
         totalThreats:4
       },
       {
-        plantId:3,
+        plantId:"3",
         plantName:"Silverton Assembly Plant",
         zoneId:"Zone 08",
         cameraId:"camera 4",
         totalThreats:1
       },
       {
-        plantId:4,
+        plantId:"4",
         plantName:"Struandale Engine Plant",
         zoneId:"Zone 10",
         cameraId:"camera 3",
         totalThreats:5
+      }
+    ];
+  }
+
+  getPlants() {
+    return [
+      {
+        id:"1",
+        plantName:"Chennai Vehicle & Engine Assembly Plant"
+      },
+      {
+        id:"2",
+        plantName:"Ford's Sanan Vehicle & Engine Assembly Plant"
+      }
+    ];
+  }
+
+  getZones(id:string){
+    return [
+      {
+        id:"1",
+        zoneName:"Zone01"
+      },
+      {
+        id:"2",
+        zoneName:"Zone02"
+      },
+      {
+        id:"3",
+        zoneName:"Zone03"
       }
     ];
   }

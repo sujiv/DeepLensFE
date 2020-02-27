@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {ThreatsOverview} from "../../../models/threats-overview";
 
 @Component({
   selector: 'app-threat-overview',
   templateUrl: './threat-overview.component.html',
-  styleUrls: ['./threat-overview.component.css']
+  styleUrls: ['./threat-overview.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThreatOverviewComponent implements OnInit {
   @Input()threat:ThreatsOverview;

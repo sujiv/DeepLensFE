@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import { CameraSummary } from '../../../models/camera-summary';
 import { CameraZoneService } from "../../../services/camera-zone.service";
-
+import { Zone } from "../../../models/zone"
+import {Plant} from "../../../models/plant";
 @Component({
   selector: 'app-zone-selector',
   templateUrl: './zone-selector.component.html',
-  styleUrls: ['./zone-selector.component.css']
+  styleUrls: ['./zone-selector.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZoneSelectorComponent implements OnInit {
-  title: string = "Chennai Vehicle & Engine Assembly Plant";
-  zoneid: string = "";
+  @Input() plant:Plant;
+  zones:Zone[];
+  title: string = "";
+  // zoneid: string = "";
   codec: string = "H264";
   format:string = "QUICKTIME/MOV";
   duration: string = "2 SEC";
@@ -18,7 +22,10 @@ export class ZoneSelectorComponent implements OnInit {
 
   cameras: CameraSummary[];
 
-  constructor(private cameraZS:CameraZoneService) { }
+  constructor(private cameraZS:CameraZoneService) {
+    if(this.plant != null )
+      this.title = this.plant.plantName;
+  }
 
   ngOnInit(): void {
     this.cameras = this.cameraZS.getCameraSummary();
@@ -31,13 +38,13 @@ export class ZoneSelectorComponent implements OnInit {
       c = c+this.cols;
       row = row+1;
     }
-    console.log("count::   :"+row);
-    return [Array(row).keys()];
+    // console.log("count::   :"+row);
+    return [Array(3).keys()];
   }
 
   getCams(row:number){
     let cams: CameraSummary[];
-    console.log("rows::"+row);
+    // console.log("rows::"+row);
     if(row*this.cols >this.cameras.length)
       return null;
     cams = this.cameras.slice((row)*this.cols,(row+1)*this.cols);

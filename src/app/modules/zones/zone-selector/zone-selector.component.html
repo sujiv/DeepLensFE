@@ -1,8 +1,8 @@
 <div id="z_inp">
   <span id="z_title">{{ title }}</span><br/>
   <label for="zone" class="lbl">Choose Zone</label><br/>
-  <select id="zone" class="sel">
-    <option *ngFor="let i of [1,2,3]; let j = idx" value="{{i}}" [selected]="j === 2" >Zone {{ i }}</option>
+  <select #zone id="zone" class="sel">
+    <option *ngFor="let i of [1,2]; let j = idx" value="{{i}}" [selected]="j === 2" >Zone {{ i }}</option>
   </select>
   <div id="vid_info">
     <div class="left">
@@ -16,10 +16,10 @@
   </div>
   <div id="allCams" *ngFor="let i of getRows()">
     <div class="camRows" *ngFor="let c of getCams(0)">
-      <app-cams [camSummary] = "c" [zid] = zoneid class="cells"></app-cams>
+      <app-cams [camSummary] = "c" [zid] = zone.value class="cells"></app-cams>
     </div><br/>
     <div class="camRows" *ngFor="let c of getCams(1)">
-      <app-cams [camSummary] = "c" [zid] = zoneid class="cells"></app-cams>
+      <app-cams [camSummary] = "c" [zid] = zone.value class="cells"></app-cams>
     </div>
   </div>
 </div>
