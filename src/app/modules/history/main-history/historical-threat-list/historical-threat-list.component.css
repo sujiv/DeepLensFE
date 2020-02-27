@@ -2,3 +2,162 @@
 .example-button-row a {
   margin-right: 8px;
 }
+.chennai-sholingana {
+  height: 14px;
+  width: 190px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 17px;
+
+}
+
+.historical-threat {
+  height: 24px;
+  width: 211px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+}
+.rectangle {
+  box-sizing: border-box;
+  height: 241.2px;
+  width: 431.2px;
+  border: 0.2px dashed #395A72;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.25);
+}
+.group-5 {
+  /*height: 44px;*/
+  height:59px;
+  width: 417px;
+}
+.group-3 {
+  height: 24px;
+  width: 82px;
+  /*margin-right: 3px;*/
+}
+.zone-1 {
+  height: 12px;
+  width: 39px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.rectangle2 {
+  box-sizing: border-box;
+  height: 24.7px;
+  width: 82.7px;
+  border: 0.7px solid #00317B;
+  opacity: 0.17;
+  border-radius: 1px;
+}
+.location {
+  height: 12px;
+  width: 53px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: justify;
+}
+
+.fivith-floor {
+    height: 14px;
+    width: 61px;
+    color: #003379;
+    font-family: Antenna;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: justify;
+  }
+
+.confidence {
+  height: 12px;
+  width: 69px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: justify;
+}
+.conf-99-80203247070312 {
+  height: 14px;
+  width: 151px;
+  color: #EA1F22;
+  font-family: Antenna;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: justify;
+}
+.date {
+  height: 12px;
+  width: 29px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: justify;
+}
+
+.dateValue-12-02-2020 {
+  height: 14px;
+  width: 87px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: justify;
+}
+
+
+.timing {
+  height: 12px;
+  width: 42px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: justify;
+}
+.timingValue-10-34-14-pm {
+           height: 14px;
+           width: 84px;
+           color: #003379;
+           font-family: Antenna;
+           font-size: 14px;
+           font-weight: 500;
+           line-height: 17px;
+           text-align: justify;
+         }
+.rectangleButton {
+  height: 66px;
+  width: 289px;
+  border-radius: 6px;
+  background-color: #003379;
+  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.2);
+}
+
+.view-all {
+  height: 18px;
+  width: 93px;
+  color: #FFFFFF;
+  font-family: Antenna;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  text-align: justify;
+  align-content: center;
+}
+
+

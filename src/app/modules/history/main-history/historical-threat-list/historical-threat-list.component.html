@@ -1,40 +1,46 @@
 <div>
-  <h1>
-    <Strong> Historical Threat</Strong>
+  <p class="historical-threat">
+    Historical Threat </p>
 
-  </h1>
-    <input matInput [matDatepicker]="picker" placeholder="Choose Date ">
+  <div class="group-5 rectangle">
+    <input matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-</div>
-<!---->
-<section fxLayout fxLayoutAlign="center" >
-  <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
-    <mat-card-title>
-      {{threatsList.plantName}}
-
-      <span> {{threatsList.zone}} </span>
-    </mat-card-title>
-    <mat-card-content>
-      <p> Location </p>
-      <p> {{threatsList.location}} </p>
-
-      <p> Confidence </p>
-      <p> {{threatsList.confidence}} </p>
-
-      <p> Date </p>
-      <p> {{threatsList.eventDate}} </p>
-      <p> Timing </p>
-      <p> {{threatsList.timing}} </p>
-      <span></span>
-    </mat-card-content>
-    <mat-card-actions>
-      <!--      <button type="submit" mat-button> ViewAll</button>-->
-    </mat-card-actions>
-  </mat-card>
-  <br>
-  <div class="example-button-row">
-    <button mat-flat-button color="primary">ViewAll</button>
+    <hr>
   </div>
+  <!---->
+  <section fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
+      <div class="rectangle">
+<!--        <mat-card-title>-->
+          <div>
+            <p class="chennai-sholingana">
+              {{threatsList.plantName}}</p>
+            <p class="group-3 zone-1 rectangle2"> {{threatsList.zone}} </p>
+          </div>
+<!--        </mat-card-title>-->
+<!--        <mat-card-content>-->
+          <p class="location"> Location </p>
+          <p class="fivith-floor"> {{threatsList.location}} </p>
 
-</section>
+          <p class="confidence"> Confidence </p>
+          <p class="conf-99-80203247070312"> {{threatsList.confidence}} </p>
+
+          <p class="date"> Date </p>
+          <p class="dateValue-12-02-2020"> {{threatsList.eventDate}} </p>
+          <p class="timing"> Timing </p>
+          <p class ="timingValue-10-34-14-pm"> {{threatsList.timing}} </p>
+          <span></span>
+<!--        </mat-card-content>-->
+        <mat-card-actions>
+          <!--      <button type="submit" mat-button> ViewAll</button>-->
+        </mat-card-actions>
+      </div>
+    </mat-card>
+    <br>
+    <div  class="rectangleButton">
+      <button class="view-all">ViewAll</button>
+    </div>
+
+  </section>
+</div>
