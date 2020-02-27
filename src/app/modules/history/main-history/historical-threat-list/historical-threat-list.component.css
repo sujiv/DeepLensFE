@@ -160,4 +160,24 @@
   align-content: center;
 }
 
+.group-5 {
+  height: 44px;
+  width: 417px;
+}
 
+.rectangleCal {
+  box-sizing: border-box;
+  height: 44px;
+  width: 417px;
+  border: 1px solid #E9E9E9;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+.filters {
+  height: 17px;
+  width: 87px;
+  color: #6879A4;
+  font-family: Antenna;
+  font-size: 14px;
+  line-height: 17px;
+}
