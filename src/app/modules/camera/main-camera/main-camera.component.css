@@ -59,3 +59,42 @@
   flex-wrap: wrap;
   margin:-15px;
 }
+
+
+
+
+
+app-main-camera {
+  padding: 10px;
+  height: auto;
+  overflow: hidden;
+}
+
+.page-content{
+  /*background-color: red;*/
+  width: auto;
+  overflow: hidden;
+}
+
+.page-side {
+  float: right;
+  width: 487pt;
+  background-color: white;
+}
+
+
+
+/*3 with table*/
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  /*width: 100%;*/
+  /*margin-left: 61px;*/
+}
+td {
+  border: 1px solid #000;
+  width: auto;
+}
+#threat-sidebar {
+  width: 487px;
+}

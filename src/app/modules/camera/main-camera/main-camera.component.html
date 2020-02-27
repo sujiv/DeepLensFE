@@ -1,41 +1,52 @@
-<nz-layout>
+<div>
+  <nz-layout>
 
-  <nz-content id="events-section">
-    <a id="btn-back">
-      <img src="../../../../assets/PNG/arrow-left@2x.png" class="arrow-left"/>BACK
-    </a>
-    <h1>{{cameraName}}</h1>
-    <p>[ANALYSING...]</p>
+    <nz-content id="events-section">
+      <a id="btn-back">
+        <img src="../../../../assets/PNG/arrow-left@2x.png" class="arrow-left"/>BACK
+      </a>
+      <h1>{{cameraName}}</h1>
+      <p>[ANALYSING...]</p>
 
-    <div class="row camera-media-info">
-      <div class="col-7 camera-media-info-paragraph">
-        <p> CODEC: {{codec}}</p>
-        <p> FORMAT: {{format}}</p>
+      <div class="row camera-media-info">
+        <div class="col-7 camera-media-info-paragraph">
+          <p> CODEC: {{codec}}</p>
+          <p> FORMAT: {{format}}</p>
+        </div>
+        <div class="col-5 camera-media-info-paragraph right-aligned">
+          <p>DURATION: {{duration}}</p>
+          <p>FRAME RATE: {{frameRate}}</p>
+        </div>
       </div>
-      <div class="col-5 camera-media-info-paragraph right-aligned">
-        <p>DURATION: {{duration}}</p>
-        <p>FRAME RATE: {{frameRate}}</p>
+
+      <div id="camera-events-scrollable">
+        <div id="events-flex-container">
+          <app-camera-event></app-camera-event>
+          <app-camera-event></app-camera-event>
+          <app-camera-event></app-camera-event>
+          <app-camera-event></app-camera-event>
+        </div>
       </div>
-    </div>
+    </nz-content>
 
-    <div id="camera-events-scrollable">
-      <div id="events-flex-container">
-        <app-camera-event></app-camera-event>
-        <app-camera-event></app-camera-event>
-        <app-camera-event></app-camera-event>
-        <app-camera-event></app-camera-event>
+    <nz-sider [nzWidth]="487" id="sider-threat">
+      <h1 class="sider-header">THREAT DETECTED</h1>
+
+      <div id="threat-scrollview">
+        <app-threat></app-threat>
+        <app-threat></app-threat>
+        <app-threat></app-threat>
       </div>
-    </div>
-  </nz-content>
+    </nz-sider>
 
-  <nz-sider [nzWidth]="487" id="sider-threat">
-    <h1 class="sider-header">THREAT DETECTED</h1>
-
-    <div id="threat-scrollview">
-      <app-threat></app-threat>
-      <app-threat></app-threat>
-      <app-threat></app-threat>
-    </div>
-  </nz-sider>
-
-</nz-layout>
+  </nz-layout>
+</div>
+<!--
+<div class="page-main">
+  <div class="page-side">
+    Sidebar
+  </div>
+  <div class="page-content">
+    Content
+  </div>
+</div>-->

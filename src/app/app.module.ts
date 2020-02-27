@@ -10,8 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import {CameraModule} from './modules/camera/camera.module';
-import {SidebuttonsComponent} from "./components/sidebuttons/sidebuttons.component";
-import {SbuttonComponent} from "./components/sbutton/sbutton.component";
+import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
+import {SbuttonComponent} from './components/sbutton/sbutton.component';
+import {ZonesModule} from './modules/zones/zones.module';
+import {HistoryModule} from './modules/history/history.module';
 
 registerLocaleData(en);
 
@@ -28,7 +30,9 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CameraModule
+    CameraModule,
+    ZonesModule,
+    HistoryModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
