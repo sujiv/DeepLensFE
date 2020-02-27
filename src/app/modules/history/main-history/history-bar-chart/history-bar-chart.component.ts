@@ -116,7 +116,7 @@ export class HistoryBarChartComponent implements OnInit {
     // tslint:disable-next-line:label-position
     this.plants = this.historyService.getPlants();
     this.plantId = '01'
-    this.zones = this.historyService.getZones(this.plantId);
+    this.zones = this.historyService.getZonesByPlantId(this.plantId);
     this.reactiveForm();
     this.populateChart();
     this.isInint = true;
