@@ -11,8 +11,8 @@
     </div>
     <div [ngClass]="getPriority()"></div>
     <div class="bottomInfo">
-      <span>Camera : {{ camSummary.id }}</span><br/>
-      <span>Threats Detected: <span class="getPriority()">{{ getThreats() }}</span></span>
+      <span id="camName">Camera : {{ camSummary.id }}</span>
+      <span id="threats">Threats Detected: <span [ngClass]="getPriority()">{{ getThreats() }}</span></span>
     </div>
   </a>
 </div>

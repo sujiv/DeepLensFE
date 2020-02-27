@@ -10,7 +10,7 @@
   /*width: 431px;*/
   /*opacity: 0.2;*/
   /*background-color: #003379;*/
-  background-color: #DEE5FE;
+  background-color: #D5E0EE;
 }
 .center{
   height:200px;
@@ -27,13 +27,13 @@
   /*height: 14px;*/
   /*width: 86px;*/
   color: #FFFFFF;
-  /*font-family: Antenna;*/
-  /*font-size: 14px;*/
-  font-size: 18px;
+  font-family: Antenna-Bold;
+  font-size: 14px;
+  /*font-size: 18px;*/
   font-weight: bold;
   letter-spacing: 0.17px;
   line-height: 17px;
-  text-align: justify;
+  /*text-align: justify;*/
 }
 
 .bottomInfo{
@@ -42,25 +42,37 @@
   /*width: 350px;*/
   background-color: #FFFFFF;
   padding-left: 22px;
-  padding-top: 24px ;
+  padding-top: 20px ;
+  /*padding-top: 24px ;*/
   /*height: 12px;*/
   /*width: 171px;*/
   color: #003379;
-  font-family: Antenna;
+  font-family: Antenna-Medium;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.15px;
   line-height: 14px;
-  text-align: justify;
+  /*text-align: justify;*/
 }
+
+#camName{
+  height: 20px;
+  display: table-row;
+}
+
+#threats{
+  margin-top:50px;
+  display: table-row;
+}
+
 #ts{
   /*position: absolute;*/
   margin-left: 10px;
   /*top: 50px;*/
-  height: 12px;
-  width: 174px;
+  /*height: 12px;*/
+  /*width: 174px;*/
   color: #FFFFFF;
-  /*font-family: Antenna;*/
+  font-family: Antenna-Bold;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.93px;
@@ -85,4 +97,20 @@ div.liner{
 
 a:hover{
   text-decoration: none;
+}
+
+span.critical{
+  background-color: #EA1F22;
+  display:inline-block;
+  padding-left:3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color:#FFFFFF;
+  /*width:15px;*/
+}
+
+span.normal,span.off{
+  width:50px;
+  background-color: #6A7C92;
 }
