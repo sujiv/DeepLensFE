@@ -1,25 +1,40 @@
 #header {
-  height: 70px;
+  /*height: 70px;*/
+  width:100%;
   border-radius: 2px;
+  /*background-color: #00FFFF;*/
   background-color: #FFFFFF;
+  vertical-align: center;
+  min-height: 70px;
   box-shadow: 0 18px 40px -12px rgba(0,0,0,0.10);
   z-index: 2;
 }
-
+#side-n-content{
+  display: inline-flex;
+  width:100%;
+}
 #sidebar {
   /*height: 998px;*/
   /*height:998px;*/
-  nzwidth: 61px;
+  /*margin-top:70px;*/
+  width: 61px;
+  display: inline-block;
   border-radius: 2px;
   background-color: #FFFFFF;
   box-shadow: 0 18px 40px -12px rgba(0,0,0,0.25);
   z-index: 1;
 }
 
+#content{
+  display:inline-block;
+  width:90%;
+  margin-left: 61px;
+}
+
 #logo{
   height: 30px;
-  /*display: inline-flex;*/
-  float: left;
+  display: inline-flex;
+  /*float: left;*/
   margin-left: 50px;
   margin-top: 20px;
 
@@ -31,10 +46,14 @@
 /*************USING FLEX**********/
 .header-nav-container {
   float: right;
-  flex-direction: row-reverse;
+  display: inline-flex;
+  text-align: right;
+  margin-top: 20px;
+  /*flex-direction: row-reverse;*/
 }
 #profile-button {
   cursor: pointer;
   margin-left: 20px;
+  padding-right: 10px;
+  align:left;
 }
-

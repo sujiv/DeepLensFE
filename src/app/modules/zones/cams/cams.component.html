@@ -4,15 +4,15 @@
     <div class="imgHolder">
       <div class="center">
         <span class = "helper"></span>
-        <img *ngIf="camSummary.active" src="../../../../assets/PNG/tempCam.png"/>
+        <img *ngIf="camSummary.active" src="../../../../assets/PNG/Group21.png"/>
         <span class="signal" *ngIf="!camSummary.active">No signal</span>
       </div>
       <div id="ts">{{ camSummary.timestamp }}</div>
     </div>
     <div [ngClass]="getPriority()"></div>
     <div class="bottomInfo">
-      <span>Camera : {{ camSummary.id }}</span><br/>
-      <span>Threats Detected: <span class="getPriority()">{{ getThreats() }}</span></span>
+      <span id="camName">Camera : {{ camSummary.id }}</span>
+      <span id="threats">Threats Detected: <span [ngClass]="getPriority()">{{ getThreats() }}</span></span>
     </div>
   </a>
 </div>

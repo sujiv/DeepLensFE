@@ -29,12 +29,36 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
+    MatDatepickerModule,
     BrowserAnimationsModule,
+    ChartsModule,
+    // MatButtonModule,
+    // MatDatepickerModule,
+    // BrowserAnimationsModule,
+    // MatInputModule,
+    // MatInputModule,
+    // MatButtonModule,
+    // MatCardModule,
+    // MatFormFieldModule,
+    // MatCheckboxModule,
+    // MatDatepickerModule,
+    // MatRadioModule,
+    // MatSelectModule,
+    // MatNativeDateModule,
+    // MatMomentDateModule,
     CameraModule,
-    ZonesModule,
-    HistoryModule
+    HistoryModule,
+    ZonesModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+
+  exports: [
+    MatDatepickerModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    // BarchartComponent
+  ],
+  providers: [{provide: NZ_I18N, useValue: en_US}, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

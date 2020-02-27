@@ -1,0 +1,8 @@
+<div id="overview">
+  <span class="label">Overview</span>
+  <ul class="hs">
+    <li *ngFor="let t of getThreats()">
+      <app-threat-overview [threat] = t></app-threat-overview>
+    </li>
+  </ul>
+</div>
