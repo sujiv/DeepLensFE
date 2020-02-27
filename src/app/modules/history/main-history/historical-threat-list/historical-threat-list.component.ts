@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Threat} from '../../../../models/threat';
+import {HistoryService} from '../../../../services/history.service';
+import {MaterialModule} from '../../../../material.module';
 
 @Component({
   selector: 'app-historical-threat-list',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricalThreatListComponent implements OnInit {
 
-  constructor() { }
+  historicalThreatsList: Threat[] = [];
+  constructor(private historyService: HistoryService) { }
 
   ngOnInit(): void {
+     this.historicalThreatsList = this.historyService.getThreatHistoryList();
   }
 
 }

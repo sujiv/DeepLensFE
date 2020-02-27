@@ -1,69 +1,21 @@
-<!--<mat-card>-->
-<!--  <mat-card-header>-->
-<!--    <mat-card-title>Filtering History by Date </mat-card-title>-->
-<!--  </mat-card-header>-->
-<!--  <mat-card-content>-->
-<!--    &lt;!&ndash; put the form here &ndash;&gt;-->
-<!--    <form>-->
-<!--      <mat-form-field>-->
 
-<!--        <mat-label>Contact Name</mat-label>-->
-<!--        <input  matInput  placeholder="Contact Name" [(ngModel)]="contactName"  name="contactName"  required>-->
-<!--      </mat-form-field>-->
+<div style="margin-right: 8px">
+  <form>
+<!--    <input matInput [matDatepicker]="picker" placeholder="Choose  start Date ">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
 
-<!--      <mat-form-field>-->
-<!--        <mat-label>Date</mat-label>-->
-<!--        <input  [value]="date.value" matInput [matDatepicker]="myPicker"  placeholder="date">-->
-<!--        <mat-datepicker-toggle  matSuffix [for]="myPicker"></mat-datepicker-toggle>-->
-<!--        <mat-datepicker #myPicker></mat-datepicker>-->
-<!--      </mat-form-field>-->
-<!--      <mat-form-field>-->
+<!--    <input matInput [matDatepicker]="picker2" placeholder="Choose End Date ">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker2></mat-datepicker>-->
 
-<!--        <mat-label>Source of Contact</mat-label>-->
-<!--        <mat-select [(value)]="contactSource" placeholder="Source of contact">-->
-<!--          <mat-option value="email">Email</mat-option>-->
-<!--          <mat-option value="website">Website</mat-option>-->
-<!--          <mat-option value="direct">Direct</mat-option>-->
-<!--        </mat-select>-->
-<!--      </mat-form-field>-->
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
 
-<!--      <mat-card-actions>-->
-<!--        <button  mat-raised-button (click)="filterHistory()"  color="primary"> Filter History </button>-->
-<!--      </mat-card-actions>-->
-
-<!--    </form>-->
-
-<!--  </mat-card-content>-->
-
-<!--  <mat-card-actions>-->
-<!--    &lt;!&ndash; put buttons here &ndash;&gt;-->
-<!--  </mat-card-actions>-->
-<!--</mat-card>-->
-<!--/////////////////////////////////////////////////
--->
-
-<mat-grid-list cols="4">
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <mat-calendar
-      [selected]="selectedDate"
-      [startAt]="startAt"
-      [minDate]="minDate"
-      [maxDate]="maxDate"
-      [dateFilter]="myDateFilter"
-      (selectedChange)="onSelect($event)">
-    </mat-calendar>
-
-  </mat-grid-tile>
-<!--  <mat-grid-tile>-->
-
-<!--    <p class="cal_date">{{DayAndDate}}, {{year}}</p>-->
-
-<!--  </mat-grid-tile>-->
-
-  <mat-grid-tile></mat-grid-tile>
-
-  <div class="example-button-row">
-    <button mat-flat-button color="primary"> Filter</button>
+    <button mat-flat-button color="primary" (click)="filter(picker)"> Filter</button>
+  </form>
   </div>
-</mat-grid-list>

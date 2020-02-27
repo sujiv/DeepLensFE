@@ -1,56 +1,36 @@
-
 <!-- wrapper -->
 <!--<mat-sidenav-container>-->
 <!--  <mat-sidenav-content>-->
 <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
-<!--Plant  and zone selction -->
- <div>
-
-
- </div>
-
   <!--       Date picker : Start Date-->
-
-
-
   <mat-form-field>
     <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate"
            (dateChange)="startDate($event)">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
     <!-- error -->
-    <!--    <mat-error *ngIf="errorHandling('startDate', 'required')">-->
-    <!--      Please enter <strong>Start Date</strong>-->
-    <!--    </mat-error>-->
+<!--    <mat-error *ngIf="errorHandling('startDate', 'required')">-->
+<!--      Please enter <strong>Start Date</strong>-->
+<!--    </mat-error>-->
   </mat-form-field>
-  <!--//////-->
+<!--//////-->
+
 
   <mat-form-field>
     <input matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
            (dateChange)="endDate($event)">
     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
-    <!--    &lt;!&ndash; error &ndash;&gt;-->
-    <!--    <mat-error *ngIf="errorHandling('endDate', 'required')">-->
-    <!--      Please enter <strong>End Date</strong>-->
-    <!--    </mat-error>-->
+<!--    &lt;!&ndash; error &ndash;&gt;-->
+<!--    <mat-error *ngIf="errorHandling('endDate', 'required')">-->
+<!--      Please enter <strong>End Date</strong>-->
+<!--    </mat-error>-->
   </mat-form-field>
 
+
+
   <span></span>
-  <button class="button-wrapper" mat-flat-button color="primary" (click)="filterThreatsHistoryByDate()">Filter</button>
+          <button class="button-wrapper" mat-flat-button color="primary">Filter</button>
 </form>
 <!--  </mat-sidenav-content>-->
 <!--</mat-sidenav-container>-->
-
-
-
-<div style="display: block;">
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [plugins]="barChartPlugins"
-          [legend]="barChartLegend"
-          [chartType]="barChartType">
-  </canvas>
-</div>
