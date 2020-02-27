@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
+import {ChartOptions, ChartType, ChartDataSets, ChartColor} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {HistoryService} from '../../../../services/history.service';
 
@@ -9,6 +9,9 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ThreatsSummary} from '../../../../models/threats-summary';
 import {Threat} from '../../../../models/threat';
 import {DatePipe} from '@angular/common';
+import {Plant} from '../../../../models/plant';
+import {Zone} from '../../../../models/zone';
+import {Camera} from '../../../../models/camera';
 
 
 @Component({
@@ -38,9 +41,13 @@ export class HistoryBarChartComponent implements OnInit {
   mySmpleFormatEndDate: Date;
   myShortFormat: Date;
   isInint = false; // used for  tracking if the initailzation method  was call  not
-  plants: any[] = [];
-  zones: any[] = [];
+  plants: Plant[] = [];
+  zones: Zone[] = [];
+  cameras: Camera[] = [];
   plantId: string;
+  zoneId: string;
+
+  // plantName:string;
 
   constructor(public fb: FormBuilder, private historyService: HistoryService) {
     this.pipe = new DatePipe('en-US');
@@ -49,11 +56,6 @@ export class HistoryBarChartComponent implements OnInit {
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
 
   }
-
-  // // tslint:disable-next-line:use-lifecycle-interface
-  // ngOnInit(): void {
-  //   this.reactiveForm();
-  // }
 
 
   ////////////// using Service////////////
@@ -68,19 +70,17 @@ export class HistoryBarChartComponent implements OnInit {
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[];
-  //   = [
-  //   // { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-  // ]
+  // public barCharColor: Char;
+
   /* Reactive form */
   reactiveForm() {
     this.myForm = this.fb.group({
       startDate: ['', [Validators.required]],
-      plants: [''],
-      zones: [''],
+      plantName: [''],
+      ZoneName: [''],
+      CameraName: [''],
     });
   }
-
 
   /* Date */
   startDate(e) {
@@ -117,6 +117,8 @@ export class HistoryBarChartComponent implements OnInit {
     this.plants = this.historyService.getPlants();
     this.plantId = '01'
     this.zones = this.historyService.getZonesByPlantId(this.plantId);
+    this.zoneId = 'z001';
+    this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
     this.populateChart();
     this.isInint = true;
@@ -149,6 +151,22 @@ export class HistoryBarChartComponent implements OnInit {
     this.barChartData = [{data: myData, label: 'Number of Threats'}];
     console.log(' my start date' + this.mySmpleFormatStartDate + 'my End Date ' + this.mySmpleFormatEndDate);
 
+  }
+
+// / Choose plant using select dropdown
+  changePlant(e) {
+    // this.plantName.setValue(e.target.value, {
+    //   onlySelf: true
+    // });
+
+  }
+
+  // used to  select a  given zone
+  changeZone($event: Event) {
+  }
+
+///////////// Camer selction method//////////////////
+  changeCamera($event: Event) {
 
   }
 }

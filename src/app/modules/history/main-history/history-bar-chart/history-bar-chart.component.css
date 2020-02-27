@@ -1,0 +1,56 @@
+.choose-camera {
+  height: 18px;
+  width: 97px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  /**/
+  margin-left: 15px;
+}
+.group-8 {
+  height: 44px;
+  width: 300px;
+}
+
+.camera-04 {
+  height: 17px;
+  width: 82px;
+  color: #6879A4;
+  font-family: Antenna;
+  font-size: 14px;
+  line-height: 17px;
+}
+.choose-zone {
+  height: 18px;
+  width: 80px;
+  color: #6A7C92;
+  font-family: Antenna;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+
+
+  margin-left: 10px;
+}
+.zone-1 {
+  height: 17px;
+  width: 45px;
+  color: #6879A4;
+  font-family: Antenna;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.threats {
+  height: 24px;
+  width: 98px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  margin-left: 20px
+;
+}

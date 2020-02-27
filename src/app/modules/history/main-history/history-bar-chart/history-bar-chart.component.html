@@ -2,16 +2,35 @@
 <!-- wrapper -->
 <!--<mat-sidenav-container>-->
 <!--  <mat-sidenav-content>-->
-<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate xmlns="http://www.w3.org/1999/html">
 <!--Plant  and zone selction -->
  <div>
+   <!-- Plant Options -->
+<label class="choose-zone"> Plant :</label>
+   <select class="group-8" (change)="changePlant($event)" formControlName="plantName">
+     <option  class="zone-1" value="">Choose Plant </option>
+     <option *ngFor="let pl of plants" [ngValue]="pl">{{pl.plantName}}</option>
+   </select>
 
+<!--selecting  Zone-->
+   <label class="choose-zone"> Zone </label>
+   <select class="group-8" (change)="changeZone($event)" formControlName="ZoneName">
+     <option class="zone-1" value="">Choose Zone </option>
+     <option *ngFor="let zone of zones" [ngValue]="zone">{{zone.zoneName}}</option>
+   </select>
+
+
+
+   <!--selecting  Camera-->
+   <label class="choose-camera"> Camera</label>
+   <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8">
+     <option value="" class="camera-04">Choose Camera </option>
+     <option *ngFor="let cam of cameras" [ngValue]="cam.id">{{cam.cameraName}}</option>
+   </select>
 
  </div>
 
   <!--       Date picker : Start Date-->
-
-
 
   <mat-form-field>
     <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate"
@@ -42,9 +61,8 @@
 <!--  </mat-sidenav-content>-->
 <!--</mat-sidenav-container>-->
 
-
-
 <div style="display: block;">
+  <label class="threats"> Threats </label>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"

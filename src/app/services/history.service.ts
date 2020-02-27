@@ -32,6 +32,21 @@ export class HistoryService {
     this.now = Date.now();
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
+    // Andding Plant Dummy Data
+    this.plants = [{id: '01', plantName: 'Plant-I'}, {id: '02', plantName: 'Plant-2'}, {id: '03', plantName: 'Plant-3'}]
+
+    this.zones = [{zoneId: 'z001', zoneName: 'zone-I', plantId: '01'}, {
+      zoneId: 'z002',
+      zoneName: 'zone-II',
+      plantId: '02'
+    }, , {zoneId: 'z003', zoneName: 'zone-3', plantId: '03'},]
+
+
+    this.camers = [{id: 'c001', cameraName: 'Camera-I', zoneId: 'z001'}, {
+      id: 'c002',
+      cameraName: 'Camera-2',
+      zoneId: 'z002'
+    }, {id: 'c003', cameraName: 'Camera-3', zoneId: 'z003'}]
 
     this.threatHistorySummary = [
       {day: 1, eventDate: this.myShortFormat, numberOfThreats: 2},
@@ -171,7 +186,11 @@ export class HistoryService {
 ////////  return  list of zones give a plant ID
 
   getZonesByPlantId(plantId: string): Zone[] {
-    return this.getAllZones().filter(res => res.plantId == plantId);
+    return this.getAllZones().filter(res => res.plantId === plantId);
   }
 
+  ///////  return Cameras in a given plant and region
+  getCamerasByPlantAndZone(plantId, zoneId): Camera[] {
+    return this.camers.filter(res => res.zoneId === zoneId);
+  }
 }
