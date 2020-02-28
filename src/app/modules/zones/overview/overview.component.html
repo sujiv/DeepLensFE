@@ -1,8 +1,42 @@
-<div id="overview">
+<!--<div class="menu-wrapper">-->
+<!--  <ul class="menu">-->
+<!--    <li class="item">1</li>&lt;!&ndash;-->
+<!--&ndash;&gt;<li class="item">2</li>&lt;!&ndash;-->
+<!--&ndash;&gt;<li class="item">3</li>&lt;!&ndash;-->
+<!--&ndash;&gt;<li class="item">4</li>&lt;!&ndash;-->
+<!--&ndash;&gt;<li class="item">5</li>&lt;!&ndash;-->
+<!--&ndash;&gt;<li class="item">6</li>-->
+<!--  </ul>-->
+
+<!--  <div class="paddles">-->
+<!--    <button class="left-paddle paddle hidden">-->
+<!--      <-->
+<!--    </button>-->
+<!--    <button class="right-paddle paddle">-->
+<!--      >-->
+<!--    </button>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+<!--<div class="print" id="print-wrapper-size"><span></span> Wrapper / visible menu size</div>-->
+<!--<div class="print" id="print-menu-size"><span></span> Total menu size</div>-->
+<!--<div class="print" id="print-menu-invisible-size"><span></span> Invisible menu size</div>-->
+<!--<div class="print" id="print-menu-position"><span></span> Scroll position</div>-->
+
+<div id="overview" class="menu-wrapper">
   <span class="label">Overview</span>
-  <ul class="hs">
-    <li *ngFor="let t of getThreats()">
+  <ul class="menu">
+    <li *ngFor="let t of getThreats()" class="item" id="t.id">
       <app-threat-overview [threat] = t></app-threat-overview>
     </li>
   </ul>
+<!--  <div class="paddles">-->
+<!--    <button class="left-paddle paddle hidden" (click)="clickR()">-->
+<!--      <-->
+<!--    </button>-->
+<!--    <button class="right-paddle paddle" (click)="clickL()">-->
+<!--      >-->
+<!--    </button>-->
+<!--  </div>-->
 </div>

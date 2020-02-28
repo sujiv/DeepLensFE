@@ -1,14 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartOptions, ChartType, ChartDataSets} from 'chart.js';
+import {ChartOptions, ChartType, ChartDataSets, ChartColor} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {HistoryService} from '../../../../services/history.service';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material/chips';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ThreatsSummary} from '../../../../models/threats-summary';
-import {Threat} from '../../../../models/threat';
 import {DatePipe} from '@angular/common';
+import {Plant} from '../../../../models/plant';
+import {Zone} from '../../../../models/zone';
+import {Camera} from '../../../../models/camera';
 
 
 @Component({
@@ -17,11 +18,6 @@ import {DatePipe} from '@angular/common';
   styleUrls: ['./history-bar-chart.component.css']
 })
 export class HistoryBarChartComponent implements OnInit {
-  // @Input() startDate: Date;
-  // @Input() endDate: Date;
-  // @Input() mySmpleFormatStartDate;
-  // @Input() mySmpleFormatEndDate;
-
   myDate: Date = new Date();
   visible = true;
   selectable = true;
@@ -30,57 +26,50 @@ export class HistoryBarChartComponent implements OnInit {
   myStartDate: string;
   myEndDate: string;
   myForm: FormGroup;
-
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   pipe;
   now;
   mySmpleFormatStartDate: Date;
   mySmpleFormatEndDate: Date;
   myShortFormat: Date;
-  isInint = false; // used for  tracking if the initailzation method  was call  not
-  plants: any[] = [];
-  zones: any[] = [];
+  isInint: boolean; // used for  tracking if the initailzation method  was call  not
+  plants: Plant[] = [];
+  zones: Zone[] = [];
+  cameras: Camera[] = [];
   plantId: string;
+  zoneId: string;
 
   constructor(public fb: FormBuilder, private historyService: HistoryService) {
     this.pipe = new DatePipe('en-US');
     this.now = Date.now();
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
+    this.isInint = false;
+    // this.ngOnInit();
+//     this.populateChart();
 
   }
 
-  // // tslint:disable-next-line:use-lifecycle-interface
-  // ngOnInit(): void {
-  //   this.reactiveForm();
-  // }
-
-
   ////////////// using Service////////////
-
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
   public barChartLabels: Label[];
-  // = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
-
   public barChartData: ChartDataSets[];
-  //   = [
-  //   // { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-  // ]
+  // public barCharColor: Char;
+
   /* Reactive form */
   reactiveForm() {
     this.myForm = this.fb.group({
       startDate: ['', [Validators.required]],
-      plants: [''],
-      zones: [''],
+      plantName: [''],
+      ZoneName: [''],
+      CameraName: [''],
     });
   }
-
 
   /* Date */
   startDate(e) {
@@ -114,9 +103,12 @@ export class HistoryBarChartComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:label-position
-    this.plants = this.historyService.getPlants();
-    this.plantId = '01'
+    this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
+    console.log('this is from  bar chart compnents >= ' +  this.plants);
+    this.plantId = '01';
     this.zones = this.historyService.getZonesByPlantId(this.plantId);
+    this.zoneId = 'z001';
+    this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
     this.populateChart();
     this.isInint = true;
@@ -132,6 +124,7 @@ export class HistoryBarChartComponent implements OnInit {
 
     if (!this.isInint) {
       myJsonData = this.historyService.getThreatsSummary();
+      this.isInint = true;
     } else {
       myJsonData = this.historyService.getThreatsSummaryByStartDateAndEndDate(this.mySmpleFormatStartDate, this.mySmpleFormatEndDate);
     }
@@ -149,7 +142,27 @@ export class HistoryBarChartComponent implements OnInit {
     this.barChartData = [{data: myData, label: 'Number of Threats'}];
     console.log(' my start date' + this.mySmpleFormatStartDate + 'my End Date ' + this.mySmpleFormatEndDate);
 
+  }
 
+  // get plant() {
+  //   return this.myForm.get('plant');
+  // }
+
+// / Choose plant using select dropdown
+  changePlant(e) {
+    // this.plantId = e.value.plantId;
+    // // e.target.value.plantId;
+    // console.log('new plant ID from Selection' + this.plantId);
+    //
+    // this.zones = this.historyService.getZonesByPlantId(this.plantId);
+  }
+
+  // used to  select a  given zone
+  changeZone($event: Event) {
+  }
+
+///////////// Camer selction method//////////////////
+  changeCamera($event: Event) {
   }
 }
 

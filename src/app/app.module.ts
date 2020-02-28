@@ -14,8 +14,11 @@ import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.compone
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';
 import {HistoryModule} from './modules/history/history.module';
-import {MatDatepickerModule, MatInputModule} from '@angular/material';
-import {ChartsModule} from 'ng2-charts';
+import {MatNativeDateModule} from '@angular/material/core';
+import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
+import {SbuttonComponent} from './components/sbutton/sbutton.component';
+import {ZonesModule} from './modules/zones/zones.module';
+import {CameraModule} from './modules/camera/camera.module';
 
 registerLocaleData(en);
 
@@ -34,20 +37,20 @@ registerLocaleData(en);
     MatDatepickerModule,
     BrowserAnimationsModule,
     ChartsModule,
-    // MatButtonModule,
-    // MatDatepickerModule,
-    // BrowserAnimationsModule,
-    // MatInputModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatFormFieldModule,
-    // MatCheckboxModule,
-    // MatDatepickerModule,
-    // MatRadioModule,
-    // MatSelectModule,
-    // MatNativeDateModule,
-    // MatMomentDateModule,
+      MatButtonModule,
+      MatDatepickerModule,
+      BrowserAnimationsModule,
+      MatInputModule,
+      MatInputModule,
+      MatButtonModule,
+      MatCardModule,
+      MatFormFieldModule,
+      MatCheckboxModule,
+      MatDatepickerModule,
+      MatRadioModule,
+      MatSelectModule,
+      MatNativeDateModule,
+      // MatMomentDateModule,
     CameraModule,
     HistoryModule,
     ZonesModule

@@ -1,5 +1,13 @@
 #overview {
   text-align: left;
+  /*scrolling*/
+  position: relative;
+  max-width: 1280px;
+  height: 250px; /*!/ hide the scroll bar*/
+  /*margin: 1em auto;*/
+  /*border: 1px solid black;*/
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .label{
@@ -12,18 +20,108 @@
   line-height: 19px;
 }
 
-.hs {
-  display: grid;
-  grid-gap: 25px;
-  grid-template-columns: repeat(4, calc(24%));
-  grid-template-rows: minmax(160px, 1fr);
-  list-style-type: none;
+.menu {
+  /*display: grid;*/
+  /*grid-gap: 25px;*/
+  /*grid-template-columns: repeat(4, calc(24%));*/
+  /*grid-template-rows: minmax(160px, 1fr);*/
+  /*list-style-type: none;*/
   padding: 0 20px;
-  /*left:50px;*/
-  /*position:absolute;*/
+  height: 250px; /*!/ hide the scroll bar*/
+  /*background: #f3f3f3;*/
+  box-sizing: border-box;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 li{
-  margin-left:-20px;
-  padding-left: 0px;
+  margin-left:-30px;
+  margin-right: 20px;
+  padding-left: 5px;
+
+  display: inline-block;
+  width: 330px;
+  height: 135%;
+  /*outline: 1px dotted gray;*/
+  padding: 1em;
+  box-sizing: border-box;
 }
+
+.paddles {
+}
+.paddle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3em;
+}
+.left-paddle {
+  left: 0;
+}
+.right-paddle {
+  right: 0;
+}
+.hidden {
+  display: none;
+}
+
+
+/*.menu-wrapper {*/
+/*  position: relative;*/
+/*  max-width: 500px;*/
+/*  height: 100px;*/
+/*  margin: 1em auto;*/
+/*  border: 1px solid black;*/
+/*  overflow-x: hidden;*/
+/*  overflow-y: hidden;*/
+/*}*/
+
+/*.menu {*/
+/*  height: 120px;*/
+/*  background: #f3f3f3;*/
+/*  box-sizing: border-box;*/
+
+/*  white-space: nowrap;*/
+/*  overflow-x: auto;*/
+/*  overflow-y: hidden;*/
+/*  -webkit-overflow-scrolling: touch;*/
+/*}*/
+
+/*.item {*/
+/*  display: inline-block;*/
+/*  width: 100px;*/
+/*  height: 100%;*/
+/*  outline: 1px dotted gray;*/
+/*  padding: 1em;*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+/*.paddles {*/
+/*}*/
+/*.paddle {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  width: 3em;*/
+/*}*/
+/*.left-paddle {*/
+/*  left: 0;*/
+/*}*/
+/*.right-paddle {*/
+/*  right: 0;*/
+/*}*/
+/*.hidden {*/
+/*  display: none;*/
+/*}*/
+
+/*.print {*/
+/*  margin: auto;*/
+/*  max-width: 500px;*/
+/*}*/
+/*span {*/
+/*  display: inline-block;*/
+/*  width: 100px;*/
+/*}*/

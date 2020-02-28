@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CameraZoneService} from "../../../services/camera-zone.service";
 import {Plant} from "../../../models/plant";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-plant-selector',
@@ -8,15 +9,23 @@ import {Plant} from "../../../models/plant";
   styleUrls: ['./plant-selector.component.css']
 })
 export class PlantSelectorComponent implements OnInit {
+  pid:string;
   plants:Plant[];
   selectedPlant:Plant;
 
-  constructor(cameraZoneService: CameraZoneService) {
+  constructor(private cameraZoneService: CameraZoneService,private route: ActivatedRoute) {
     this.plants = cameraZoneService.getPlants();
+    // console.log("plants:"+this.plants)
   }
 
   ngOnInit(): void {
     this.selectedPlant = this.plants[0];
+    this.route.queryParams
+      // .filter (param=>param.pid)
+      .subscribe(param=>{
+        console.log("plant navigated:"+param[0]);
+        this.onChange(param.pid);
+      });
   }
 
   getPlants() {
@@ -25,9 +34,12 @@ export class PlantSelectorComponent implements OnInit {
   }
 
   onChange(plantId: string) {
+    console.log("Plant changed...")
     for(let p of this.plants){
-      if(p.id === plantId)
+      if(p.id === plantId){
+        console.log("plant id "+plantId+" found");
         this.selectedPlant = p;
+      }
     }
   }
 
