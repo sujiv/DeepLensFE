@@ -1,24 +1,23 @@
-<div>
+ <div id="app">
   <div id="header">
     <img src="../../../assets/SVG/Logo 2x.png" id="logo"/>
 
     <div class="header-nav-container">
-      <span>
-        <img src="../assets/PNG/Operational@2x.png" id="icon-operational"/> OPERATIONAL
+      <span id="txt-operational">
+        <img src="../assets/PNG/Operational@2x.png" id="icon-operational"/>OPERATIONAL
       </span>
       <span id="profile-button">
         <nz-avatar nzSize="large" nzIcon="user"></nz-avatar> JOHN DOE
       </span>
     </div>
   </div>
+<!--   <div id="sidebar-bk"></div>-->
   <div id="side-n-content">
-    <div nzWidth="61" id="sidebar">
+    <div id="sidebar">
       <app-sidebuttons></app-sidebuttons>
     </div>
-
     <div id="content">
       <router-outlet></router-outlet>
     </div>
   </div>
-<!--  <nz-footer></nz-footer>-->
-</div>
+ </div>

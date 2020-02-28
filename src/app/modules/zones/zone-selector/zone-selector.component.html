@@ -1,25 +1,22 @@
 <div id="z_inp">
-  <span id="z_title">{{ title }}</span><br/>
+  <span id="z_title">{{ getPlantName() }}</span><br/>
   <label for="zone" class="lbl">Choose Zone</label><br/>
-  <select #zone id="zone" class="sel">
-    <option *ngFor="let i of [1,2]; let j = idx" value="{{i}}" [selected]="j === 2" >Zone {{ i }}</option>
+  <select #zone id="zone" class="sel" (change)="onChange(zone.value)">
+    <option *ngFor="let i of getZones(); let j = idx" value="{{i.zoneId}}" [selected]="j === 2" >{{ i.zoneName }}</option>
   </select>
   <div id="vid_info">
     <div class="left">
-      <span class="info">CODEC:{{ codec }}</span><br/>
+      <span class="info">CODEC:{{ codec }}</span>
       <span class="info">FORMAT:{{ format }}</span>
     </div>
     <div class="right">
-      <span class="info">DURATION: {{ duration }}</span><br/>
-      <span class="info">FRAME RATE: {{ frameRate }}</span>
+      <span class="info r-text">DURATION: {{ duration }}</span>
+      <span class="info r-text">FRAME RATE: {{ frameRate }}</span>
     </div>
   </div>
-  <div id="allCams" *ngFor="let i of getRows()">
-    <div class="camRows" *ngFor="let c of getCams(0)">
-      <app-cams [camSummary] = "c" [zid] = zone.value class="cells"></app-cams>
+  <div id="allCams">
+    <div class="camRows" *ngFor="let i of getRows()">
+      <app-cams *ngFor="let c of getCams(i)" [camSummary] = "c" [zone] = this.selectedZone class="cells"></app-cams>
     </div><br/>
-    <div class="camRows" *ngFor="let c of getCams(1)">
-      <app-cams [camSummary] = "c" [zid] = zone.value class="cells"></app-cams>
-    </div>
   </div>
 </div>
