@@ -20,11 +20,6 @@ import {Camera} from '../../../../models/camera';
   styleUrls: ['./history-bar-chart.component.css']
 })
 export class HistoryBarChartComponent implements OnInit {
-  // @Input() startDate: Date;
-  // @Input() endDate: Date;
-  // @Input() mySmpleFormatStartDate;
-  // @Input() mySmpleFormatEndDate;
-
   myDate: Date = new Date();
   visible = true;
   selectable = true;
@@ -33,42 +28,38 @@ export class HistoryBarChartComponent implements OnInit {
   myStartDate: string;
   myEndDate: string;
   myForm: FormGroup;
-
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   pipe;
   now;
   mySmpleFormatStartDate: Date;
   mySmpleFormatEndDate: Date;
   myShortFormat: Date;
-  isInint = false; // used for  tracking if the initailzation method  was call  not
+  isInint: boolean; // used for  tracking if the initailzation method  was call  not
   plants: Plant[] = [];
   zones: Zone[] = [];
   cameras: Camera[] = [];
   plantId: string;
   zoneId: string;
 
-  // plantName:string;
-
   constructor(public fb: FormBuilder, private historyService: HistoryService) {
     this.pipe = new DatePipe('en-US');
     this.now = Date.now();
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
+    this.isInint = false;
+    // this.ngOnInit();
+    // this.populateChart();
 
   }
 
-
   ////////////// using Service////////////
-
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
   public barChartLabels: Label[];
-  // = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
-
   public barChartData: ChartDataSets[];
   // public barCharColor: Char;
 
@@ -121,7 +112,7 @@ export class HistoryBarChartComponent implements OnInit {
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
     this.populateChart();
-    this.isInint = true;
+    // this.isInint = true;
   }
 
   filterThreatsHistoryByDate() {
@@ -134,6 +125,7 @@ export class HistoryBarChartComponent implements OnInit {
 
     if (!this.isInint) {
       myJsonData = this.historyService.getThreatsSummary();
+      this.isInint = true;
     } else {
       myJsonData = this.historyService.getThreatsSummaryByStartDateAndEndDate(this.mySmpleFormatStartDate, this.mySmpleFormatEndDate);
     }

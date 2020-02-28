@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CameraSummary} from "../../../models/camera-summary";
+import {CameraSummary} from '../../../models/camera-summary';
 
 @Component({
   selector: 'app-cams',

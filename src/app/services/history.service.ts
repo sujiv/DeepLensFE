@@ -33,20 +33,41 @@ export class HistoryService {
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
     // Andding Plant Dummy Data
+
     this.plants = [{id: '01', plantName: 'Plant-I'}, {id: '02', plantName: 'Plant-2'}, {id: '03', plantName: 'Plant-3'}]
 
-    this.zones = [{zoneId: 'z001', zoneName: 'zone-I', plantId: '01'}, {
-      zoneId: 'z002',
-      zoneName: 'zone-II',
-      plantId: '02'
-    }, , {zoneId: 'z003', zoneName: 'zone-3', plantId: '03'},]
+    this.zones = [
+      {zoneId: 'z001', zoneName: 'p1 and z00I', plantId: '01'},
+      {zoneId: 'z002', zoneName: 'p1 and z002', plantId: '01'},
+      {zoneId: 'z003', zoneName: 'p1 and z003', plantId: '01'},
+      {
+        zoneId: 'z001', zoneName: 'p2  and z001', plantId: '02'
+      },
+      {
+        zoneId: 'z002', zoneName: 'p2 and z002', plantId: '02'
+      },
+      {
+        zoneId: 'z003', zoneName: 'zone-2', plantId: '02'
+      },
+      {
+        zoneId: 'z002', zoneName: 'zone-3', plantId: '02'
+      },
+
+      {zoneId: 'z001', zoneName: ' p3 and z001', plantId: '03'},
+
+      {zoneId: 'z002', zoneName: 'p3 and z002', plantId: '03'},
+
+      {zoneId: 'z003', zoneName: ' p3 and z003', plantId: '03'}
+
+      ,]
 
 
-    this.camers = [{id: 'c001', cameraName: 'Camera-I', zoneId: 'z001'}, {
-      id: 'c002',
-      cameraName: 'Camera-2',
-      zoneId: 'z002'
-    }, {id: 'c003', cameraName: 'Camera-3', zoneId: 'z003'}]
+    this.camers = [
+      {id: 'c001', cameraName: 'P1 and z001 and c001', zoneId: 'z001'},
+      {id: 'c001', cameraName: 'p1 and  z001 and c001', zoneId: 'z001'},
+      {id: 'c002', cameraName: 'p1 and  z002 and c002', zoneId: 'z001'},
+      {id: 'c004', cameraName: 'P2 and z002 and c004', zoneId: 'z001'},
+      {id: 'c005', cameraName: 'p3 and z001 an c005', zoneId: 'z001'}]
 
     this.threatHistorySummary = [
       {day: 1, eventDate: this.myShortFormat, numberOfThreats: 2},
@@ -142,12 +163,15 @@ export class HistoryService {
 
   getThreatsSummary(): ThreatsSummary[] {
     return this.threatHistorySummary;
-
   }
 
   getThreatHistoryList(): Threat[] {
     return this.threatsHistoryList;
 
+  }
+  //////  return list of Threat filter by a given Date
+  getThreatHistoryListByDate(searchDate: Date): Threat[] {
+    return this.getThreatHistoryList().filter(res => res.eventDate === searchDate);
   }
 
   getThreatsSummaryByStartDateAndEndDate(startDate, endDate): ThreatsSummary[] {

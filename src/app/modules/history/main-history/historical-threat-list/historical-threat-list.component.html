@@ -2,44 +2,70 @@
   <p class="historical-threat">
     Historical Threat </p>
 
-  <div class="rectangleCal">
-    <input matInput [matDatepicker]="picker" class="filters">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-    <hr>
+  <!--  <div class="rectangleCal">-->
+  <!--    <input matInput [matDatepicker]="picker" class="filters">-->
+  <!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+  <!--    <mat-datepicker #picker></mat-datepicker>-->
+  <!--    <hr>-->
+  <!--  </div>-->
+
+
+  <div class="left">
+    <mat-form-field class="rectangleDate">
+      <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="DateForSearch"
+             (dateChange)="filiterByDate($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
   </div>
   <!---->
   <section fxLayout fxLayoutAlign="center">
     <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
-      <div class="rectangle">
-<!--        <mat-card-title>-->
-          <div>
-            <p class="chennai-sholingana">
-              {{threatsList.plantName}}</p>
-            <p class="group-3 zone-1 rectangle2"> {{threatsList.zone}} </p>
-          </div>
-<!--        </mat-card-title>-->
-<!--        <mat-card-content>-->
-          <p class="location"> Location </p>
-          <p class="fivith-floor"> {{threatsList.location}} </p>
+      <div class="rectangle" style="display: inline-block">
+        <!--        <mat-card-title>-->
+        <div style="display: inline-block">
+          <span class="chennai-sholingana">
+            {{threatsList.plantName}}</span>
+        </div>
+        <div class="right" style="display: inline-block">
+          <span class="zone-1  right"> {{threatsList.zone}} </span>
+        </div>
+        <!--        </mat-card-title>-->
+        <!--        <mat-card-content>-->
+        <div style="display: block">
+          <span class="location"> Location </span>
+          <br>
+          <span class="fivith-floor"> {{threatsList.location}} </span>
+        </div>
+        <div style="display: block">
+          <span class="confidence"> Confidence </span>
+          <br>
+          <span class="conf-99-80203247070312"> {{threatsList.confidence}} </span>
+        </div>
 
-          <p class="confidence"> Confidence </p>
-          <p class="conf-99-80203247070312"> {{threatsList.confidence}} </p>
+        <div style="display: inline-block">
+          <span class="date"> Date </span>
+          <br>
+          <span class="dateValue-12-02-2020"> {{threatsList.eventDate}} </span>
+        </div>
 
-          <p class="date"> Date </p>
-          <p class="dateValue-12-02-2020"> {{threatsList.eventDate}} </p>
-          <p class="timing"> Timing </p>
-          <p class ="timingValue-10-34-14-pm"> {{threatsList.timing}} </p>
-          <span></span>
-<!--        </mat-card-content>-->
+        <div style="display: inline-block">
+          <span class="timing"> Timing </span>
+          <br>
+          <span class="timingValue-10-34-14-pm"> {{threatsList.timing}} </span>
+        </div>
+
+        <!--        </mat-card-content>-->
         <mat-card-actions>
           <!--      <button type="submit" mat-button> ViewAll</button>-->
         </mat-card-actions>
       </div>
     </mat-card>
     <br>
-    <div  class="rectangleButton">
-      <button class="view-all">ViewAll</button>
+    <div>
+      <button class="buttonFilter" (click)="ViewAll()">ViewAll</button>
     </div>
 
   </section>

@@ -2,6 +2,7 @@
 .example-button-row a {
   margin-right: 8px;
 }
+
 .chennai-sholingana {
   height: 14px;
   width: 190px;
@@ -15,32 +16,40 @@
 
 .historical-threat {
   height: 24px;
-  width: 211px;
+  width: 180px;
   color: #003379;
   font-family: Antenna;
   font-size: 24px;
   font-weight: bold;
   line-height: 29px;
 }
+
 .rectangle {
   box-sizing: border-box;
-  height: 241.2px;
-  width: 431.2px;
+  height: 200.2px;
+  width: 300.2px;
   border: 0.2px dashed #395A72;
   border-radius: 2px;
   background-color: #FFFFFF;
-  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.25);
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.25);
+
 }
+.right{
+  float: right;
+}
+
 .group-5 {
   /*height: 44px;*/
-  height:59px;
+  height: 59px;
   width: 417px;
 }
+
 .group-3 {
   height: 24px;
   width: 82px;
   /*margin-right: 3px;*/
 }
+
 .zone-1 {
   height: 12px;
   width: 39px;
@@ -49,7 +58,10 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
+  /*border: 1px dashed #395A72;*/
+
 }
+
 
 .rectangle2 {
   box-sizing: border-box;
@@ -57,8 +69,8 @@
   width: 82.7px;
   border: 0.7px solid #00317B;
   opacity: 0.17;
-  border-radius: 1px;
 }
+
 .location {
   height: 12px;
   width: 53px;
@@ -67,18 +79,21 @@
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
+  margin-left: 15px
+;
 }
 
 .fivith-floor {
-    height: 14px;
-    width: 61px;
-    color: #003379;
-    font-family: Antenna;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 17px;
-    text-align: justify;
-  }
+  height: 14px;
+  width: 61px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: justify;
+  margin-left: 15px;
+}
 
 .confidence {
   height: 12px;
@@ -88,7 +103,9 @@
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
+  margin-left: 15px;
 }
+
 .conf-99-80203247070312 {
   height: 14px;
   width: 151px;
@@ -98,7 +115,9 @@
   font-weight: 500;
   line-height: 17px;
   text-align: justify;
+  margin-left: 15px;
 }
+
 .date {
   height: 12px;
   width: 29px;
@@ -107,6 +126,7 @@
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
+  margin-left: 15px;
 }
 
 .dateValue-12-02-2020 {
@@ -118,6 +138,7 @@
   font-weight: 500;
   line-height: 17px;
   text-align: justify;
+  margin-left: 15px;
 }
 
 
@@ -129,28 +150,38 @@
   font-size: 12px;
   line-height: 14px;
   text-align: justify;
+  margin-left: 40px;
 }
+
 .timingValue-10-34-14-pm {
-           height: 14px;
-           width: 84px;
-           color: #003379;
-           font-family: Antenna;
-           font-size: 14px;
-           font-weight: 500;
-           line-height: 17px;
-           text-align: justify;
-         }
+  height: 14px;
+  width: 84px;
+  color: #003379;
+  font-family: Antenna;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: justify;
+  margin-left: 40px;
+}
+
 .rectangleButton {
-  height: 66px;
-  width: 289px;
-  border-radius: 6px;
+  height: 40px;
+  width: 150px;
+  border-radius: 16px;
   background-color: #003379;
-  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.2);
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.2);
+}
+
+.centerViewALl {
+  float: inside;
+  float-displace: 400px;
 }
 
 .view-all {
-  height: 18px;
-  width: 93px;
+  margin-top: 6px;
+  height: 25px;
+  width: 80px;
   color: #FFFFFF;
   font-family: Antenna;
   font-size: 18px;
@@ -173,6 +204,7 @@
   border-radius: 3px;
   background-color: #FFFFFF;
 }
+
 .filters {
   height: 17px;
   width: 87px;
@@ -180,4 +212,16 @@
   font-family: Antenna;
   font-size: 14px;
   line-height: 17px;
+
+}
+
+.buttonFilter {
+  box-sizing: border-box;
+  height: 50px;
+  width: 90px;
+  border: 1px solid #E9E9E9;
+  color: #DEE5FE;
+  border-radius: 3px;
+  background-color:#00317B;
+  margin-left: 5px;
 }

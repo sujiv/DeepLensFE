@@ -19,10 +19,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {HistoryModule} from './modules/history/history.module';
 import {MatNativeDateModule} from '@angular/material/core';
-import {SidebuttonsComponent} from "./components/sidebuttons/sidebuttons.component";
-import {SbuttonComponent} from "./components/sbutton/sbutton.component";
-import {ZonesModule} from "./modules/zones/zones.module";
-import {CameraModule} from "./modules/camera/camera.module";
+import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
+import {SbuttonComponent} from './components/sbutton/sbutton.component';
+import {ZonesModule} from './modules/zones/zones.module';
+import {CameraModule} from './modules/camera/camera.module';
 
 registerLocaleData(en);
 
