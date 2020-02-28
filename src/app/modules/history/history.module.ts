@@ -30,8 +30,7 @@ import {MaterialModule} from "../../material.module";
     FiliteringCriteriaComponent
   ],
   exports: [
-    FilterHistoryComponent,
-    MaterialModule
+    FilterHistoryComponent
   ],
   imports: [
     CommonModule,

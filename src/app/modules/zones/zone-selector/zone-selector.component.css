@@ -46,10 +46,12 @@
 }
 
 .info{
+  margin-bottom: 10px;
   height: 14px;
   /*width: 95px;*/
+  display: block;
   color: #003379;
-  /*font-family: "Ford Antenna";*/
+  font-family: "Antenna-Medium";
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.93px;
@@ -64,12 +66,17 @@
   float: right;
 }
 
+.r-text{
+  text-align: right;
+}
 #allCams{
   margin-top:70px;
+  margin-bottom: 30px;
 }
 
 .camRows{
   display: inline-flex;
-  margin-top:20px;
+  /*margin-top:10px;*/
+  margin-bottom: 30px;
   /*display: table-row;*/
 }
