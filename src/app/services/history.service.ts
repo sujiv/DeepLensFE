@@ -20,6 +20,8 @@ export class HistoryService {
   remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
   localpath = '/dl/plants';
 
+  // https://sujiv-portfolio.herokuapp.com/dl/plants/01/zones
+
   threatHistorySummary: ThreatsSummary[];
   threatsHistoryList: Threat[] = [];
   pipe;
@@ -206,17 +208,20 @@ export class HistoryService {
   getPlants() {
     return this.httpClient.get<Plant[]>(this.remoteUrl + this.localpath);
     console.log('this is from  service class');
-      // .subscribe((res) => this.plants = res);
+    // .subscribe((res) => this.plants = res);
   }
 
 //  returning all Zone from each plants
   getAllZones(): Zone[] {
     return this.zones;
   }
+
 ////////  return  list of zones give a plant ID
 
-  getZonesByPlantId(plantId: string ): Zone[] {
-    return this.getAllZones().filter(res => res.plantId === plantId);
+  getZonesByPlantId(plantId: string): Observable<Zone[]> {
+    // return this.getAllZones().filter(res => res.plantId === plantId);
+    return this.httpClient.get<Zone[]>(this.remoteUrl + this.localpath + '/' + plantId + '/zones');
+
   }
 
 ///////  return Cameras in a given plant and region

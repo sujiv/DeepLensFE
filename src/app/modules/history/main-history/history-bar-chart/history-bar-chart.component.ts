@@ -104,9 +104,10 @@ export class HistoryBarChartComponent implements OnInit {
   ngOnInit() {
     // tslint:disable-next-line:label-position
     this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
-    console.log('this is from  bar chart compnents >= ' +  this.plants);
+    console.log('this is from  bar chart compnents >= ' + this.plants);
     this.plantId = '01';
-    this.zones = this.historyService.getZonesByPlantId(this.plantId);
+    this.historyService.getZonesByPlantId(this.plantId)
+      .subscribe((res: Zone[]) => this.zones = res);
     this.zoneId = 'z001';
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
