@@ -56,6 +56,7 @@
       <!--      Please enter <strong>End Date</strong>-->
       <!--    </mat-error>-->
     </mat-form-field>
+
     <button class="filterAllButton" (click)="filterThreatsHistoryByDate()">Filter</button>
   </div>
 </form>
@@ -67,7 +68,7 @@
 
 <div style="display: block;">
 <br>
-  <label class="threats"> Threats </label>
+  <label class="threats left"> Threats </label>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"

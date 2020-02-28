@@ -4,10 +4,8 @@ import {Label} from 'ng2-charts';
 import {HistoryService} from '../../../../services/history.service';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material/chips';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ThreatsSummary} from '../../../../models/threats-summary';
-import {Threat} from '../../../../models/threat';
 import {DatePipe} from '@angular/common';
 import {Plant} from '../../../../models/plant';
 import {Zone} from '../../../../models/zone';
@@ -48,7 +46,7 @@ export class HistoryBarChartComponent implements OnInit {
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
     this.isInint = false;
     // this.ngOnInit();
-    // this.populateChart();
+//     this.populateChart();
 
   }
 
@@ -105,14 +103,15 @@ export class HistoryBarChartComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:label-position
-    this.plants = this.historyService.getPlants();
-    this.plantId = '01'
+    this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
+    console.log('this is from  bar chart compnents >= ' +  this.plants);
+    this.plantId = '01';
     this.zones = this.historyService.getZonesByPlantId(this.plantId);
     this.zoneId = 'z001';
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
     this.populateChart();
-    // this.isInint = true;
+    this.isInint = true;
   }
 
   filterThreatsHistoryByDate() {
@@ -145,12 +144,17 @@ export class HistoryBarChartComponent implements OnInit {
 
   }
 
+  // get plant() {
+  //   return this.myForm.get('plant');
+  // }
+
 // / Choose plant using select dropdown
   changePlant(e) {
-    // this.plantName.setValue(e.target.value, {
-    //   onlySelf: true
-    // });
-
+    // this.plantId = e.value.plantId;
+    // // e.target.value.plantId;
+    // console.log('new plant ID from Selection' + this.plantId);
+    //
+    // this.zones = this.historyService.getZonesByPlantId(this.plantId);
   }
 
   // used to  select a  given zone
@@ -159,7 +163,6 @@ export class HistoryBarChartComponent implements OnInit {
 
 ///////////// Camer selction method//////////////////
   changeCamera($event: Event) {
-
   }
 }
 

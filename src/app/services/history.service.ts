@@ -10,11 +10,16 @@ import {Camera} from '../models/camera';
 import {Plant} from '../models/plant';
 import {Zone} from '../models/zone';
 import {ZonesModule} from '../modules/zones/zones.module';
+import {Observable, Subscription} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
+  const;
+  remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
+  localpath = '/dl/plants';
+
   threatHistorySummary: ThreatsSummary[];
   threatsHistoryList: Threat[] = [];
   pipe;
@@ -169,6 +174,7 @@ export class HistoryService {
     return this.threatsHistoryList;
 
   }
+
   //////  return list of Threat filter by a given Date
   getThreatHistoryListByDate(searchDate: Date): Threat[] {
     return this.getThreatHistoryList().filter(res => res.eventDate === searchDate);
@@ -197,23 +203,23 @@ export class HistoryService {
 
 ////////  return  list of plants
 
-  getPlants(): Plant[] {
-    return this.plants;
+  getPlants() {
+    return this.httpClient.get<Plant[]>(this.remoteUrl + this.localpath);
+    console.log('this is from  service class');
+      // .subscribe((res) => this.plants = res);
   }
 
 //  returning all Zone from each plants
   getAllZones(): Zone[] {
     return this.zones;
   }
-
-
 ////////  return  list of zones give a plant ID
 
-  getZonesByPlantId(plantId: string): Zone[] {
+  getZonesByPlantId(plantId: string ): Zone[] {
     return this.getAllZones().filter(res => res.plantId === plantId);
   }
 
-  ///////  return Cameras in a given plant and region
+///////  return Cameras in a given plant and region
   getCamerasByPlantAndZone(plantId, zoneId): Camera[] {
     return this.camers.filter(res => res.zoneId === zoneId);
   }
