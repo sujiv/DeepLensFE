@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0945b9e3-1d06-46ef-8560-afc3e424526d" name="Default Changelist" comment="Threats and event cards done">
+      <change beforePath="$PROJECT_DIR$/.idea/DeepLensFE.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev_ogabek" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="ProjectId" id="1Y8ANVClQS5VowyW73KHneVa87p" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="ts.external.directory.path" value="C:\Users\Ogabek Yuldashov\Documents\Collider\deeplens-surveillancefe\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ogabek Yuldashov\Documents\Collider\deeplens-surveillancefe\src\assets\fonts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (DeepLensFE)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests (angular-playground)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/src/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (angular-playground-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="Karma.Tests (angular-playground)" />
+      <item itemvalue="Karma.Tests (DeepLensFE)" />
+      <item itemvalue="npm.Angular CLI Server" />
+      <item itemvalue="Protractor.E2E Tests (angular-playground-e2e)" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0945b9e3-1d06-46ef-8560-afc3e424526d" name="Default Changelist" comment="" />
+      <created>1582313808793</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582313808793</updated>
+      <workItem from="1582313815026" duration="1448000" />
+      <workItem from="1582350569590" duration="2262000" />
+      <workItem from="1582391080174" duration="7454000" />
+      <workItem from="1582412069833" duration="1154000" />
+      <workItem from="1582432730363" duration="4531000" />
+      <workItem from="1582555847845" duration="1136000" />
+      <workItem from="1582566354775" duration="5210000" />
+      <workItem from="1582574933580" duration="483000" />
+      <workItem from="1582575436216" duration="552000" />
+      <workItem from="1582576005783" duration="1356000" />
+      <workItem from="1582641245059" duration="15243000" />
+      <workItem from="1582663381385" duration="22969000" />
+    </task>
+    <task id="LOCAL-00001" summary="Info File renamed">
+      <created>1582313978402</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1582313978403</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Basic Template initial.">
+      <created>1582437159280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582437159280</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Header and global fonts done">
+      <created>1582662515174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582662515174</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Threats and event cards done">
+      <created>1582750869370</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1582750869370</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/node_modules/karma/config.tpl.js" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Info File renamed" />
+    <MESSAGE value="Basic Template initial." />
+    <MESSAGE value="Header and global fonts done" />
+    <MESSAGE value="Threats and event cards done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Threats and event cards done" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="402" y="62" key="#Angular_CLI_Server" timestamp="1582356732488">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="402" y="62" key="#Angular_CLI_Server/0.0.1366.728@0.0.1366.728" timestamp="1582356732488" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582405073150">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1582405073150" />
+    <state x="688" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582737978586">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="688" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1582737978586" />
+    <state x="548" y="0" key="CommitChangelistDialog2" timestamp="1582750868311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="390" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1582557105129" />
+    <state x="548" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582750868311" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1582412946624">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582412946624" />
+    <state width="1899" height="297" key="GridCell.Tab.0.bottom" timestamp="1582751980802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582556990615" />
+    <state width="1899" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582609759115" />
+    <state width="1899" height="297" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1582751980802" />
+    <state width="1899" height="297" key="GridCell.Tab.0.center" timestamp="1582751980802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582556990615" />
+    <state width="1899" height="273" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582609759115" />
+    <state width="1899" height="297" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1582751980802" />
+    <state width="1899" height="297" key="GridCell.Tab.0.left" timestamp="1582751980802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582556990615" />
+    <state width="1899" height="273" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582609759114" />
+    <state width="1899" height="297" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1582751980802" />
+    <state width="1899" height="297" key="GridCell.Tab.0.right" timestamp="1582751980802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1345" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582556990615" />
+    <state width="1899" height="273" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582609759115" />
+    <state width="1899" height="297" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582751980802" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1582751419464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582751419464" />
+    <state x="672" y="235" key="MultipleFileMergeDialog" timestamp="1582751438770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582751438770" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1582391266188">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582391266188" />
+    <state x="387" y="121" key="Vcs.Push.Dialog.v2" timestamp="1582750875347">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="275" y="85" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1582557120326" />
+    <state x="387" y="121" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582750875347" />
+    <state x="691" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1582574990358">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582574990358" />
+    <state x="412" y="221" key="git4idea.merge.GitPullDialog" timestamp="1582575891199">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="293" y="155" key="git4idea.merge.GitPullDialog/0.0.1366.728@0.0.1366.728" timestamp="1582350648570" />
+    <state x="412" y="221" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582575891199" />
+    <state x="400" y="172" key="jetbrains.nodejs.interpreters-dialog" timestamp="1582405062793">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="400" y="172" key="jetbrains.nodejs.interpreters-dialog/0.0.1366.728@0.0.1366.728" timestamp="1582405062793" />
+  </component>
+</project>

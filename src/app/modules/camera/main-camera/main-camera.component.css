@@ -1,0 +1,105 @@
+#sider-threat {
+  background-color: #FFFFFF;
+  height: 1533px;
+  overflow: hidden;
+}
+#sider-threat h1 {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+#threat-scrollview {
+  /*position: absolute;*/
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#btn-back {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+#btn-back img {
+  width: 13px;
+  height: 13px;
+  margin-right: 5px;
+}
+
+/***EVENTS SECTION***/
+#events-section{
+  padding: 30px;
+}
+#events-section h1 {
+  margin-top: 15px;
+}
+
+
+.camera-media-info {
+  margin: auto;
+}
+.camera-media-info-paragraph{
+  margin: 0;
+  padding: 0;
+}
+
+.camera-media-info-paragraph p {
+  margin: 0;
+  padding: 0;
+  font-family: Antenna-Medium;
+}
+.right-aligned {
+  text-align: right;
+}
+#camera-events-scrollable {
+  margin-top: 15pt;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#events-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin:-15px;
+  height: 1000px;
+}
+
+
+
+
+
+app-main-camera {
+  padding: 10px;
+  height: auto;
+  overflow: hidden;
+}
+
+.page-content{
+  /*background-color: red;*/
+  width: auto;
+  overflow: hidden;
+}
+
+.page-side {
+  float: right;
+  width: 487pt;
+  background-color: white;
+}
+
+
+
+/*3 with table*/
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  /*width: 100%;*/
+  /*margin-left: 61px;*/
+}
+td {
+  border: 1px solid #000;
+  width: auto;
+}
+#threat-sidebar {
+  width: 487px;
+}

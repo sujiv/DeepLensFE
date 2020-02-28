@@ -1,7 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Antenna-Regular;
+  color: #003379;
+  /*overflow: hidden;*/
+}
+body {
+  overflow: hidden;
+  height: 100%;
+}
 
-/* styles.css */
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+h1 {
+  font-family: Antenna-Bold;
+  font-size: 24px !important;
+  color: #003379;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6pt;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004378;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #004378;
+}
