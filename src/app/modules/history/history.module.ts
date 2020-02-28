@@ -14,9 +14,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatNativeDateModule} from '@angular/material/core';
 import { HistoricalThreatListComponent } from './main-history/historical-threat-list/historical-threat-list.component';
-import {MatInputModule} from "@angular/material/input";
+import {MatInputModule} from '@angular/material/input';
 import { FiliteringCriteriaComponent } from './main-history/filitering-criteria/filitering-criteria.component';
-import {MaterialModule} from "../../material.module";
+import {MaterialModule} from '../../material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserModule} from '@angular/platform-browser';
 
 
 
@@ -46,7 +48,11 @@ import {MaterialModule} from "../../material.module";
     MatInputModule,
     MatDatepickerModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    BrowserModule,
+    MatSelectModule
   ]
 })
 export class HistoryModule { }
