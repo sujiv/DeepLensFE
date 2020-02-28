@@ -14,6 +14,8 @@ import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.compone
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';
 import {HistoryModule} from './modules/history/history.module';
+import {MatDatepickerModule, MatInputModule} from '@angular/material';
+import {ChartsModule} from 'ng2-charts';
 
 registerLocaleData(en);
 

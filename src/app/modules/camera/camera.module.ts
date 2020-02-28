@@ -4,14 +4,16 @@ import { MainCameraComponent } from './main-camera/main-camera.component';
 import {NzLayoutModule} from 'ng-zorro-antd';
 import { ThreatComponent } from './threat/threat.component';
 import { CameraEventComponent } from './camera-event/camera-event.component';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
   declarations: [MainCameraComponent, ThreatComponent, CameraEventComponent],
-  imports: [
-    CommonModule,
-    NzLayoutModule
-  ]
+    imports: [
+        CommonModule,
+        NzLayoutModule,
+        RouterModule
+    ]
 })
 export class CameraModule { }

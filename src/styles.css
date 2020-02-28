@@ -2,10 +2,37 @@
 * {
   font-family: Antenna-Regular;
   color: #003379;
+  /*overflow: hidden;*/
+}
+body {
+  overflow: hidden;
+  height: 100%;
 }
 
 h1 {
   font-family: Antenna-Bold;
-  font-size: 24px!important;
+  font-size: 24px !important;
   color: #003379;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 6pt;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004378;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #004378;
 }
