@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {ThreatsOverview} from "../../../models/threats-overview";
+import {ThreatsOverview} from "../../../../models/threats-overview";
 
 @Component({
   selector: 'app-threat-overview',

@@ -5,8 +5,9 @@
   /*overflow: hidden;*/
 }
 body {
-  overflow: hidden;
-  height: 100%;
+  /*overflow: hidden;*/
+  /*overflow-y: scroll;*/
+  /*height: 100%;*/
 }
 
 h1 {

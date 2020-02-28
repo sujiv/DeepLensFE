@@ -1,8 +1,8 @@
 <div>
-  <nz-layout>
+  <div>
 
-    <nz-content id="events-section">
-      <a id="btn-back" [routerLink]="//">
+    <div id="events-section">
+      <a id="btn-back" routerLink="/plants">
         <img src="../../../../assets/PNG/arrow-left@2x.png" class="arrow-left"/>BACK
       </a>
       <h1>{{cameraName}}</h1>
@@ -36,9 +36,9 @@
           <app-camera-event></app-camera-event>
         </div>
       </div>
-    </nz-content>
+    </div>
 
-    <nz-sider [nzWidth]="487" id="sider-threat">
+    <div style="width:487px;" id="sider-threat">
       <h1 class="sider-header">THREAT DETECTED</h1>
 
       <div id="threat-scrollview">
@@ -52,9 +52,9 @@
         <app-threat></app-threat>
         <app-threat></app-threat>
       </div>
-    </nz-sider>
+    </div>
 
-  </nz-layout>
+  </div>
 </div>
 <!--
 <div class="page-main">

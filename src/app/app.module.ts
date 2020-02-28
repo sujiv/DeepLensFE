@@ -9,16 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import {CameraModule} from './modules/camera/camera.module';
-import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
-import {SbuttonComponent} from './components/sbutton/sbutton.component';
-import {ZonesModule} from './modules/zones/zones.module';
 import {HistoryModule} from './modules/history/history.module';
 import {MatNativeDateModule} from '@angular/material/core';
 import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';
 import {CameraModule} from './modules/camera/camera.module';
+import {ChartsModule} from "ng2-charts";
 
 registerLocaleData(en);
 
@@ -34,35 +31,19 @@ registerLocaleData(en);
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
-    MatDatepickerModule,
     BrowserAnimationsModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
     ChartsModule,
-      MatButtonModule,
-      MatDatepickerModule,
-      BrowserAnimationsModule,
-      MatInputModule,
-      MatInputModule,
-      MatButtonModule,
-      MatCardModule,
-      MatFormFieldModule,
-      MatCheckboxModule,
-      MatDatepickerModule,
-      MatRadioModule,
-      MatSelectModule,
-      MatNativeDateModule,
-      // MatMomentDateModule,
     CameraModule,
     HistoryModule,
     ZonesModule
   ],
 
   exports: [
-    MatDatepickerModule,
-    MatInputModule,
     BrowserAnimationsModule,
-    // BarchartComponent
   ],
-  providers: [{provide: NZ_I18N, useValue: en_US}, MatDatepickerModule],
+  providers: [{provide: NZ_I18N, useValue: en_US}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
