@@ -1,6 +1,11 @@
 @font-face {
-  font-family: "Antenna-Regular";
-  src: url("./antenna/Antenna-Regular.otf");
+  font-family: "Antenna-Bold";
+  src: url("./antenna/Antenna-Bold.otf");
+}
+
+@font-face {
+  font-family: "Antenna-Light";
+  src: url("./antenna/Antenna-Light.otf");
 }
 
 @font-face {
@@ -9,6 +14,6 @@
 }
 
 @font-face {
-  font-family: "Antenna-Light";
-  src: url("./antenna/Antenna-Light.otf");
+  font-family: "Antenna-Regular";
+  src: url("./antenna/Antenna-Regular.otf");
 }

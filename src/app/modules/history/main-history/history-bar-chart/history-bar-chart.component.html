@@ -1,80 +1,56 @@
+
 <!-- wrapper -->
 <!--<mat-sidenav-container>-->
 <!--  <mat-sidenav-content>-->
-<!--<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate >-->
-<form [formGroup]="myForm">
-  <!--Plant  and zone selction -->
-<!--  <div class="left">-->
-    <!-- Plant Options -->
-<div style="display:inline-block">
-    <label class="choose-zone"> Plant </label>
-  <br>
-    <select class="group-8" (change)="changePlant($event)" formControlName="plantName">
-      <option class="zone-1" value="">Choose Plant</option>
-      <option *ngFor="let pl of plants" [ngValue]="pl">{{pl.plantName}}</option>
-    </select>
-</div>
-    <div style="display:inline-block">
-    <!--selecting  Zone-->
-    <label class="choose-zone"> Zone </label> <br>
-    <select class="group-8" (change)="changeZone($event)" formControlName="ZoneName">
-      <option class="zone-1" value="">Choose Zone</option>
-      <option *ngFor="let zone of zones" [ngValue]="zone">{{zone.zoneName}}</option>
-    </select>
-    </div>
-  <div style="display:inline-block">
-<!--    selecting  Camera-->
-    <label class="choose-zone"> Camera</label>
-    <br>
-    <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8">
-      <option value="" class="zone-1">Choose Camera</option>
-      <option *ngFor="let cam of cameras" [ngValue]="cam.id">{{cam.cameraName}}</option>
-    </select>
-</div>
+<form [formGroup]="myForm" novalidate>
+<!--Plant  and zone selction -->
+ <div>
+
+
+ </div>
 
   <!--       Date picker : Start Date-->
-  <div class="right">
-    <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate "
-             (dateChange)="startDate($event)">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-      <!-- error -->
-      <!--    <mat-error *ngIf="errorHandling('startDate', 'required')">-->
-      <!--      Please enter <strong>Start Date</strong>-->
-      <!--    </mat-error>-->
-    </mat-form-field>
-    <!--//////-->
 
-    <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
-             (dateChange)="endDate($event)">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-      <!--    &lt;!&ndash; error &ndash;&gt;-->
-      <!--    <mat-error *ngIf="errorHandling('endDate', 'required')">-->
-      <!--      Please enter <strong>End Date</strong>-->
-      <!--    </mat-error>-->
-    </mat-form-field>
 
-    <button class="filterAllButton" (click)="filterThreatsHistoryByDate()">Filter</button>
-  </div>
+
+  <mat-form-field>
+    <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate"
+           (dateChange)="startDate($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <!-- error -->
+    <!--    <mat-error *ngIf="errorHandling('startDate', 'required')">-->
+    <!--      Please enter <strong>Start Date</strong>-->
+    <!--    </mat-error>-->
+  </mat-form-field>
+  <!--//////-->
+
+  <mat-form-field>
+    <input matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
+           (dateChange)="endDate($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+    <!--    &lt;!&ndash; error &ndash;&gt;-->
+    <!--    <mat-error *ngIf="errorHandling('endDate', 'required')">-->
+    <!--      Please enter <strong>End Date</strong>-->
+    <!--    </mat-error>-->
+  </mat-form-field>
+
+  <span></span>
+  <button class="button-wrapper" mat-flat-button color="primary" (click)="filterThreatsHistoryByDate()">Filter</button>
 </form>
-
-
 <!--  </mat-sidenav-content>-->
 <!--</mat-sidenav-container>-->
 
 
+
 <div style="display: block;">
-<br>
-  <label class="threats left"> Threats </label>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
           [options]="barChartOptions"
           [plugins]="barChartPlugins"
-       [legend]="barChartLegend"
+          [legend]="barChartLegend"
           [chartType]="barChartType">
   </canvas>
 </div>

@@ -32,7 +32,8 @@ import {BrowserModule} from '@angular/platform-browser';
     FiliteringCriteriaComponent
   ],
   exports: [
-    FilterHistoryComponent
+    FilterHistoryComponent,
+    MaterialModule
   ],
   imports: [
     CommonModule,

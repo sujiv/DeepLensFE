@@ -1,5 +1,5 @@
-<nz-layout>
-  <nz-header id="header">
+<div>
+  <div id="header">
     <img src="../../../assets/SVG/Logo 2x.png" id="logo"/>
 
     <div class="header-nav-container">
@@ -10,16 +10,15 @@
         <nz-avatar nzSize="large" nzIcon="user"></nz-avatar> JOHN DOE
       </span>
     </div>
-  </nz-header>
-
-  <nz-layout>
-    <nz-sider nzWidth="61" id="sidebar">
+  </div>
+  <div id="side-n-content">
+    <div nzWidth="61" id="sidebar">
       <app-sidebuttons></app-sidebuttons>
-    </nz-sider>
+    </div>
 
-    <nz-content>
+    <div id="content">
       <router-outlet></router-outlet>
-    </nz-content>
-  </nz-layout>
-  <nz-footer>Footer</nz-footer>
-</nz-layout>
+    </div>
+  </div>
+<!--  <nz-footer></nz-footer>-->
+</div>
