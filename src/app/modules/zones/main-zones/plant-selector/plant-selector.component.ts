@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CameraZoneService} from '../../../../services/camera-zone.service';
 import {Plant} from '../../../../models/plant';
 import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-plant-selector',
@@ -20,12 +22,19 @@ export class PlantSelectorComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedPlant = this.plants[0];
-    this.route.queryParams
-      // .filter (param=>param.pid)
-      .subscribe(param => {
-        console.log( 'plant navigated:' + param[0]);
-        this.onChange(param.pid);
-      });
+    // this.route.queryParams.forEach(param => console.log('params ::' + param.pid));
+    this.route.params.subscribe(p => {
+      console.log(p);
+      console.log('plant :' + p.pid);
+
+      this.pid = p.pid;
+    });
+    this.onChange( this.pid );
+      // .get (param=>param.pid)
+      // .subscribe(param => {
+      //   console.log( 'plant navigated:' + param[0]);
+      //   this.onChange(param.pid);
+      // });
   }
 
   getPlants() {

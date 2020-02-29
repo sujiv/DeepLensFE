@@ -18,7 +18,7 @@ export class ZoneSelectorComponent implements OnInit {
   format:string = 'QUICKTIME/MOV';
   duration: string = '2 SEC';
   frameRate: string = '30.0';
-  cols: number=3;
+  // cols: number=3;
 
   cameras: CameraSummary[];
   totalCameras: number = 5;
@@ -35,7 +35,7 @@ export class ZoneSelectorComponent implements OnInit {
 
   onChange(zoneId: string) {
     console.log('Plant changed...')
-    for (let z of this.zones) {
+    for (const z of this.zones) {
       if (z.zoneId === zoneId) {
         console.log('zone id ' + zoneId + ' selected');
         this.selectedZone = z;
@@ -44,23 +44,26 @@ export class ZoneSelectorComponent implements OnInit {
     }
   }
 
-  getRows() {
-    return [...Array(Math.ceil(this.totalCameras/this.cols)).keys()];
-  }
+  // getRows() {
+  //   return [...Array(Math.ceil(this.totalCameras/this.cols)).keys()];
+  // }
 
-  getCams(row: number) {
-    let cams: CameraSummary[];
-    // console.log('rows::'+row);
-    if ( row * this.cols > this.cameras.length ){
-      return null;
-    }
-    cams = this.cameras.slice((row) * this.cols, ( row + 1 ) * this.cols);
-    // for(let i=row*this.cols;i<(row+1)*this.cols;i++){
-    //   if(i>this.cameras.length)
-    //     return cams;
-    //   cams.push(this.cameras[i]);
-    // }
-    return cams;
+  // getCams(row: number) {
+  //   let cams: CameraSummary[];
+  //   // console.log('rows::'+row);
+  //   if ( row * this.cols > this.cameras.length ){
+  //     return null;
+  //   }
+  //   cams = this.cameras.slice((row) * this.cols, ( row + 1 ) * this.cols);
+  //   // for(let i=row*this.cols;i<(row+1)*this.cols;i++){
+  //   //   if(i>this.cameras.length)
+  //   //     return cams;
+  //   //   cams.push(this.cameras[i]);
+  //   // }
+  //   return cams;
+  // }
+  getCams() {
+    return this.cameras;
   }
 
   getZones() {

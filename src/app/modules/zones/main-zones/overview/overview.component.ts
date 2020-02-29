@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ThreatsOverview} from '../../../models/threats-overview';
-import {CameraZoneService} from '../../../services/camera-zone.service';
-import {ScrollToService} from '../../../services/scroll-to.service';
+import {ThreatsOverview} from '../../../../models/threats-overview';
+import {CameraZoneService} from '../../../../services/camera-zone.service';
+// import {ScrollToService} from '../../../../services/scroll-to.service';
 
 // declare var l_clk: Function;
 // declare var r_clk: Function;

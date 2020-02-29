@@ -15,8 +15,8 @@
     </div>
   </div>
   <div id="allCams">
-    <div class="camRows" *ngFor="let i of getRows()">
-      <app-cams *ngFor="let c of getCams(i)" [camSummary] = "c" [zone] = this.selectedZone class="cells"></app-cams>
-    </div><br/>
+<!--    <div class="camRows" *ngFor="let i of getRows()">-->
+      <app-cams *ngFor="let c of getCams()" [camSummary] = "c" [zone] = this.selectedZone class="cells"></app-cams>
+<!--    </div><br/>-->
   </div>
 </div>
