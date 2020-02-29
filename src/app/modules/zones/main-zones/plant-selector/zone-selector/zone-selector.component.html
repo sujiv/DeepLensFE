@@ -2,7 +2,7 @@
   <span id="z_title">{{ getPlantName() }}</span><br/>
   <label for="zone" class="lbl">Choose Zone</label><br/>
   <select #zone id="zone" class="sel" (change)="onChange(zone.value)">
-    <option *ngFor="let i of getZones(); let j = idx" value="{{i.zoneId}}" [selected]="j === 2" >{{ i.zoneName }}</option>
+    <option *ngFor="let i of this.zones;" value="{{i.zoneId}}" [selected]="i.zoneId === selectedZone.zoneId" >{{ i.zoneName }}</option>
   </select>
   <div id="vid_info">
     <div class="left">
@@ -16,7 +16,7 @@
   </div>
   <div id="allCams">
 <!--    <div class="camRows" *ngFor="let i of getRows()">-->
-      <app-cams *ngFor="let c of getCams()" [camSummary] = "c" [zone] = this.selectedZone class="cells"></app-cams>
+      <app-cams *ngFor="let c of this.cameras" [camSummary] = "c" [zone] = this.selectedZone class="cells"></app-cams>
 <!--    </div><br/>-->
   </div>
 </div>

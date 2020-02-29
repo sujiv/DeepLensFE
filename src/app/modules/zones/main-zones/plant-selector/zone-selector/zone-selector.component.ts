@@ -1,8 +1,10 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit, SimpleChange} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { CameraSummary } from '../../../../../models/camera-summary';
 import { CameraZoneService } from '../../../../../services/camera-zone.service';
 import { Zone } from '../../../../../models/zone';
 import {Plant} from '../../../../../models/plant';
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-zone-selector',
   templateUrl: './zone-selector.component.html',
@@ -13,24 +15,38 @@ export class ZoneSelectorComponent implements OnInit {
   @Input() plant: Plant;
   zones: Zone[];
   selectedZone: Zone;
+
   title: string;
   codec: string = 'H264';
-  format:string = 'QUICKTIME/MOV';
+  format: string = 'QUICKTIME/MOV';
   duration: string = '2 SEC';
   frameRate: string = '30.0';
-  // cols: number=3;
 
   cameras: CameraSummary[];
-  totalCameras: number = 5;
 
-  constructor(private cameraZS: CameraZoneService) {
-    this.plant = cameraZS.getPlants()[0];
-    this.zones = cameraZS.getZones('01');
-    this.cameras = this.cameraZS.getCameraSummary();
+  constructor(private cameraZS: CameraZoneService, private route: ActivatedRoute) {
+    this.loadZones(this.cameraZS.pid);
+    console.log('constructor called & pid is:');
   }
 
   ngOnInit(): void {
-    this.cameras = this.cameraZS.getCameraSummary();
+    // this.loadZones(this.plant.id);
+  }
+  ngOnChanges(Channge: SimpleChanges): void {
+    console.log('ngOnChange called' + this.cameraZS.pid);
+    this.loadZones(this.plant.id);
+  }
+  loadZones(pid: any): void {
+    this.cameraZS.getZones(pid).subscribe(zones => {
+      this.zones = zones;
+      // this.cameras = this.cameraZS.getCameraSummary();
+      const zid = this.cameraZS.zid;
+      if (zid !== undefined) {
+        this.onChange(zid);
+      } else {
+        this.selectedZone = this.zones[0];
+      }
+    });
   }
 
   onChange(zoneId: string) {
@@ -39,7 +55,8 @@ export class ZoneSelectorComponent implements OnInit {
       if (z.zoneId === zoneId) {
         console.log('zone id ' + zoneId + ' selected');
         this.selectedZone = z;
-        this.cameras = this.cameraZS.getCameraSummary();
+        this.cameraZS.setCurrentZoneId(zoneId);
+        this.cameraZS.getCameraSummary(this.selectedZone.zoneId).subscribe( cs => this.cameras = cs );
       }
     }
   }
@@ -62,14 +79,6 @@ export class ZoneSelectorComponent implements OnInit {
   //   // }
   //   return cams;
   // }
-  getCams() {
-    return this.cameras;
-  }
-
-  getZones() {
-    this.zones = this.cameraZS.getZones(this.plant.id);
-    return this.zones;
-  }
 
   getPlantName() {
     return this.plant.plantName;

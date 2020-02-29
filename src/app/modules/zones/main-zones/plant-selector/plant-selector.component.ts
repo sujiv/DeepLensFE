@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, SimpleChanges} from '@angular/core';
 import {CameraZoneService} from '../../../../services/camera-zone.service';
 import {Plant} from '../../../../models/plant';
 import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-plant-selector',
@@ -11,48 +9,36 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./plant-selector.component.css']
 })
 export class PlantSelectorComponent implements OnInit {
-  pid: string;
   plants: Plant[];
   selectedPlant: Plant;
 
   constructor(private cameraZoneService: CameraZoneService, private route: ActivatedRoute) {
-    this.plants = cameraZoneService.getPlants();
-    // console.log("plants:"+this.plants)
+    this.loadPlant();
   }
-
   ngOnInit(): void {
-    this.selectedPlant = this.plants[0];
-    // this.route.queryParams.forEach(param => console.log('params ::' + param.pid));
-    this.route.params.subscribe(p => {
-      console.log(p);
-      console.log('plant :' + p.pid);
-
-      this.pid = p.pid;
-    });
-    this.onChange( this.pid );
-      // .get (param=>param.pid)
-      // .subscribe(param => {
-      //   console.log( 'plant navigated:' + param[0]);
-      //   this.onChange(param.pid);
-      // });
+    // this.loadPlant();
   }
-
-  getPlants() {
-    // console.log(this.plants);
-    return this.plants;
+  loadPlant() {
+    this.cameraZoneService.getPlants().subscribe(plants => {
+      this.plants = plants;
+      const pid: string = this.cameraZoneService.pid;
+      if (pid !== undefined) {
+        this.onChange(pid);
+      } else {
+        this.selectedPlant = this.plants[0];
+        this.cameraZoneService.setCurrentPlantId(this.selectedPlant.id);
+      }
+    });
   }
 
   onChange(plantId: string) {
-    console.log('Plant changed...');
+    this.cameraZoneService.setCurrentPlantId(plantId);
+    console.log('Plant changed to ..' + this.cameraZoneService.pid);
     for ( const p of this.plants ) {
       if ( p.id === plantId ) {
         console.log('plant id ' + plantId + 'found');
         this.selectedPlant = p;
       }
     }
-  }
-
-  getSelected() {
-    return this.selectedPlant;
   }
 }
