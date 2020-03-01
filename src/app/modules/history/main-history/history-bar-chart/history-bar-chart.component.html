@@ -4,34 +4,44 @@
 <!--<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate >-->
 <form [formGroup]="myForm">
   <!--Plant  and zone selction -->
-<!--  <div class="left">-->
 
-    <!-- Plant Options -->
-<div style="display:inline-block">
-    <label class="choose-zone"> Plant </label>
-  <br>
-    <select class="group-8" (change)="changePlant($event)" formControlName="plantName">
+  <!-- Plant Options -->
+  <!--<div style="display:inline-block">-->
+  <!--    <label class="choose-zone"> Plant </label>-->
+  <!--  <br>-->
+  <!--    <select class="group-8" (change)="changePlant($event)" formControlName="plantName">-->
+  <!--      <option class="zone-1" value="">Choose Plant</option>-->
+  <!--      <option *ngFor="let pl of plants" [ngValue]="pl">{{pl.plantName}}</option>-->
+  <!--    </select>-->
+  <!--</div>-->
+
+  <!--///////////////////////mukera two ///////-->
+  <div style="display:inline-block">
+    <label class="choose-zone"> Plant </label> <br>
+    <select formControlName="plantName" (change)="onChangePlant($event)" class="group-8">
       <option class="zone-1" value="">Choose Plant</option>
-      <option *ngFor="let pl of plants" [ngValue]="pl">{{pl.plantName}}</option>
+      <option *ngFor="let pl of plants" [ngValue]="pl.id">{{pl.plantName}}</option>
     </select>
-</div>
-    <div style="display:inline-block">
-    <!--selecting  Zone-->
+  </div>
+
+  <!--selecting  Zone-->
+  <div style="display:inline-block">
     <label class="choose-zone"> Zone </label> <br>
     <select class="group-8" (change)="changeZone($event)" formControlName="ZoneName">
-      <option class="zone-1" value="">Choose Zone</option>
-      <option *ngFor="let zone of zones" [ngValue]="zone">{{zone.zoneName}}</option>
+      <option class="zone-1" selected value="">Choose Zone</option>
+      <option *ngFor="let zone of zones" [ngValue]="zone.zoneId">{{zone.zoneName}}</option>
     </select>
-    </div>
+  </div>
   <div style="display:inline-block">
-<!--    selecting  Camera-->
+    <!--    selecting  Camera-->
     <label class="choose-zone"> Camera</label>
     <br>
-    <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8">
-      <option value="" class="zone-1">Choose Camera</option>
+    <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8"
+            [disabled]="plantSelected && zoneSelected">
+      <option value="" class="zone-1" selected>Choose Camera</option>
       <option *ngFor="let cam of cameras" [ngValue]="cam.id">{{cam.cameraName}}</option>
     </select>
-</div>
+  </div>
 
   <!--       Date picker : Start Date-->
   <div class="right">
@@ -63,19 +73,24 @@
 </form>
 
 
+
 <!--  </mat-sidenav-content>-->
 <!--</mat-sidenav-container>-->
 
 
+
 <div style="display: block;">
-<br>
+  <br>
   <label class="threats left"> Threats </label>
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
           [options]="barChartOptions"
           [plugins]="barChartPlugins"
-       [legend]="barChartLegend"
-          [chartType]="barChartType">
+          [legend]="barChartLegend"
+          [colors]="barcharColor"
+          [chartType]="barChartType"
+          [chartType]="barChartType"
+  >
   </canvas>
 </div>
