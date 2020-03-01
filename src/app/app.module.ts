@@ -23,6 +23,7 @@ import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.compone
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';
 import {CameraModule} from './modules/camera/camera.module';
+import {LoginModule} from "./login/login.module";
 
 registerLocaleData(en);
 
@@ -34,33 +35,34 @@ registerLocaleData(en);
     SidebuttonsComponent,
     SbuttonComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgZorroAntdModule,
-    FormsModule,
-    HttpClientModule,
-    MatDatepickerModule,
-    BrowserAnimationsModule,
-    ChartsModule,
-    // MatButtonModule,
-    // MatDatepickerModule,
-    // BrowserAnimationsModule,
-    // MatInputModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatFormFieldModule,
-    // MatCheckboxModule,
-    // MatDatepickerModule,
-    // MatRadioModule,
-    // MatSelectModule,
-    // MatNativeDateModule,
-    // MatMomentDateModule,
-    CameraModule,
-    HistoryModule,
-    ZonesModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgZorroAntdModule,
+        FormsModule,
+        HttpClientModule,
+        MatDatepickerModule,
+        BrowserAnimationsModule,
+        ChartsModule,
+        // MatButtonModule,
+        // MatDatepickerModule,
+        // BrowserAnimationsModule,
+        // MatInputModule,
+        // MatInputModule,
+        // MatButtonModule,
+        // MatCardModule,
+        // MatFormFieldModule,
+        // MatCheckboxModule,
+        // MatDatepickerModule,
+        // MatRadioModule,
+        // MatSelectModule,
+        // MatNativeDateModule,
+        // MatMomentDateModule,
+        CameraModule,
+        HistoryModule,
+        ZonesModule,
+        LoginModule
+    ],
 
   exports: [
     MatDatepickerModule,

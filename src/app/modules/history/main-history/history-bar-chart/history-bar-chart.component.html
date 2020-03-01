@@ -3,19 +3,7 @@
 <!--  <mat-sidenav-content>-->
 <!--<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate >-->
 <form [formGroup]="myForm">
-  <!--Plant  and zone selction -->
-
   <!-- Plant Options -->
-  <!--<div style="display:inline-block">-->
-  <!--    <label class="choose-zone"> Plant </label>-->
-  <!--  <br>-->
-  <!--    <select class="group-8" (change)="changePlant($event)" formControlName="plantName">-->
-  <!--      <option class="zone-1" value="">Choose Plant</option>-->
-  <!--      <option *ngFor="let pl of plants" [ngValue]="pl">{{pl.plantName}}</option>-->
-  <!--    </select>-->
-  <!--</div>-->
-
-  <!--///////////////////////mukera two ///////-->
   <div style="display:inline-block">
     <label class="choose-zone"> Plant </label> <br>
     <select formControlName="plantName" (change)="onChangePlant($event)" class="group-8">
@@ -32,6 +20,8 @@
       <option *ngFor="let zone of zones" [ngValue]="zone.zoneId">{{zone.zoneName}}</option>
     </select>
   </div>
+
+
   <div style="display:inline-block">
     <!--    selecting  Camera-->
     <label class="choose-zone"> Camera</label>
@@ -50,10 +40,6 @@
              (dateChange)="startDate($event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-      <!-- error -->
-      <!--    <mat-error *ngIf="errorHandling('startDate', 'required')">-->
-      <!--      Please enter <strong>Start Date</strong>-->
-      <!--    </mat-error>-->
     </mat-form-field>
     <!--//////-->
 
@@ -62,21 +48,11 @@
              (dateChange)="endDate($event)">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
-      <!--    &lt;!&ndash; error &ndash;&gt;-->
-      <!--    <mat-error *ngIf="errorHandling('endDate', 'required')">-->
-      <!--      Please enter <strong>End Date</strong>-->
-      <!--    </mat-error>-->
     </mat-form-field>
 
     <button class="filterAllButton" (click)="filterThreatsHistoryByDate()">Filter</button>
   </div>
 </form>
-
-
-
-<!--  </mat-sidenav-content>-->
-<!--</mat-sidenav-container>-->
-
 
 
 <div style="display: block;">

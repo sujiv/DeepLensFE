@@ -1,4 +1,11 @@
 <div id="sideButton">
-  <app-sbutton url="/camera" [src]="['../assets/SVG/Camera.svg','../assets/SVG/CameraH.svg']"></app-sbutton>
-  <app-sbutton url="/history" [src]="['../assets/SVG/activity.svg','../assets/SVG/activityH.svg']"></app-sbutton>
+
+
+
+  <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+
+  <app-sbutton url="/camera" [src]="['../assets/SVG/Camera.svg','../assets/SVG/CameraH.svg']"*ngIf="loginService.isUserLoggedIn()"> </app-sbutton>
+
+  <app-sbutton url="/history" [src]="['../assets/SVG/activity.svg','../assets/SVG/activityH.svg']"*ngIf="loginService.isUserLoggedIn()" ></app-sbutton>
+  <app-sbutton url="/login" *ngIf="!loginService.isUserLoggedIn()" ></app-sbutton>
 </div>

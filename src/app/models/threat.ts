@@ -7,5 +7,4 @@ export class Threat {
   confidence: number;
   eventDate: Date;
   timing: any;
-
 }

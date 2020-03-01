@@ -70,7 +70,7 @@ export class HistoryBarChartComponent implements OnInit {
       backgroundColor: 'rgba(0,0, 255,0.8)',
     },
   ];
- public options: ChartOptions = {
+  public options: ChartOptions = {
     scales: {
       xAxes: [{
         gridLines: {
@@ -85,8 +85,6 @@ export class HistoryBarChartComponent implements OnInit {
     }
   };
 
-
-  // public barCharColor: Char;
 
   /* Reactive form */
   reactiveForm() {
@@ -195,19 +193,23 @@ export class HistoryBarChartComponent implements OnInit {
   changeZone(e) {
     this.zoneId = e.target.value;
     alert('this is a zone is from HTML page ==>' + this.zoneId);
+    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
 
   }
 
-///////////// Camer selction method//////////////////
+///////////// Camers selection method//////////////////
   changeCamera(e) {
     this.cameraId = e.target.value;
-    alert(this.cameraId);
+    alert(e.target.value);
+    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
   }
 
+
+
   onChangePlant(e) {
-    this.plantId = e.target.value.toString();
-    alert(' this is my plant Id from --->' + this.plantId);
-    this.historyService.getZonesByPlantId(this.plantId)
+    this.plantId = e.target.value;
+    alert(' this is my plant Id from --->' + this.plantId.substring(2));
+    this.historyService.getZonesByPlantId(this.plantId.substring(2))
       .subscribe((res: Zone[]) => {
           console.log('mukera two of list ' + res.toString());
           this.zones = res;
