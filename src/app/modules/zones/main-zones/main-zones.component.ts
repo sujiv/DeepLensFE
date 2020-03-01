@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 import {CameraZoneService} from '../../../services/camera-zone.service';
+import {Plant} from '../../../models/plant';
 
 @Component({
   selector: 'app-main-zones',
@@ -9,8 +10,14 @@ import {CameraZoneService} from '../../../services/camera-zone.service';
   styleUrls: ['./main-zones.component.css']
 })
 export class MainZonesComponent implements OnInit {
+  plants: Plant[];
 
-  constructor(private cameraZoneService: CameraZoneService, private route: ActivatedRoute) { }
+  constructor(private cameraZoneService: CameraZoneService, private route: ActivatedRoute) {
+    // this.cameraZoneService.getPlants().subscribe( ps =>{
+    //   this.plants = ps;
+    // });
+    this.plants = this.cameraZoneService.getAllPlants();
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {

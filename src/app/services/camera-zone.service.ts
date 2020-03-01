@@ -3,7 +3,9 @@ import { Zone } from '../models/zone';
 import {CameraSummary} from '../models/camera-summary';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Plant} from '../models/plant';
-import {Observable} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
+import {Topology} from '../models/topology';
+import {Camera} from '../models/camera';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,12 +16,61 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CameraZoneService {
-  baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
+  topologies: Topology[];
+  plants: Plant[] = new Array();
+  zones: Zone[] = new Array();
+  cameras: Camera[] = new Array();
+  baseUrl: any = 'http://localhost:8080/dl/';
+  // baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
   pid: any = undefined;
   zid: any = undefined;
   cid: any = undefined;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.loadTopologies();
+  }
+
+  loadTopologies() {
+    if (this.topologies === undefined) {
+      this.httpClient.get<Topology[]>(`${this.baseUrl}meta`, httpOptions).subscribe( tp => {
+        this.topologies = tp;
+        console.log('Loading ...' + tp[0].pName);
+        const pset: Set<any> = new Set();
+        const zset: Set<any> = new Set();
+        const cset: Set<any> = new Set();
+        // for (let i = 0; i < this.topologies.length; i++) {
+        for (const topo of this.topologies) {
+          // console.log(this.topologies[i].pName);
+          // const topo = this.topologies[i];
+          if (!pset.has(topo.pid)) {
+            const p = new Plant();
+            p.id = topo.pid;
+            p.plantName = topo.pName;
+            this.plants.push(p);
+            pset.add(topo.pid);
+          }
+          if (!zset.has(topo.pid + 'z' + topo.zid)) {
+            const z = new Zone();
+            z.zoneId = topo.zid;
+            z.zoneName = topo.zName;
+            z.plantId = topo.pid;
+            this.zones.push(z);
+            zset.add(topo.pid + 'z' + topo.zid);
+          }
+          if (!cset.has(topo.pid + 'z' + topo.zid + 'c' + topo.cid)) {
+            const c = new Camera();
+            c.id = topo.cid;
+            c.cameraName = topo.cLabel;
+            c.zoneId = topo.zid;
+            c.plantId = topo.pid;
+            this.cameras.push(c);
+            cset.add(topo.pid + 'z' + topo.zid + 'c' + topo.cid);
+          }
+        }
+        console.log('metadata loaded');
+      });
+    }
+  }
 
   getCameraSummary(zid: any): Observable<CameraSummary[]> {
     // return [
@@ -119,6 +170,15 @@ export class CameraZoneService {
     ];
   }
 
+  getAllPlants(): Plant[] {
+    // const plants: Plant[] = new Array();
+    // this.loadTopologies();
+    // while (this.topologies === undefined){}
+    // console.log(this.topologies);
+
+    return this.plants;
+  }
+
   getPlants(): Observable<Plant[]> {
     return this.httpClient.get<Plant[]>(`${this.baseUrl}plants`, httpOptions);
     // return [
@@ -133,49 +193,61 @@ export class CameraZoneService {
     // ];
   }
 
-  getZones(id: string): Observable<Zone[]> {
-    // const zone1 = [
-    //   {
-    //     zoneId: '1',
-    //     zoneName: 'Zone01',
-    //     plantId: '01'
-    //   },
-    //   {
-    //     zoneId: '2',
-    //     zoneName: 'Zone02',
-    //     plantId: '01'
-    //   },
-    //   {
-    //     zoneId: '3',
-    //     zoneName: 'Zone03',
-    //     plantId: '01'
-    //   }
-    // ];
-    //
-    // const zone2 = [
-    //   {
-    //     zoneId: '1',
-    //     zoneName: 'Zone A',
-    //     plantId: '01'
-    //   },
-    //   {
-    //     zoneId: '2',
-    //     zoneName: 'Zone B',
-    //     plantId: '01'
-    //   }
-    // ];
-    //
-    // switch (id) {
-    //   case '01':
-    //     return zone1;
-    //   case '02':
-    //     return zone2;
-    // }
-    if (id === undefined){
-      id = '01';
+  // getZones(id: string): Observable<Zone[]> {
+  //   // const zone1 = [
+  //   //   {
+  //   //     zoneId: '1',
+  //   //     zoneName: 'Zone01',
+  //   //     plantId: '01'
+  //   //   },
+  //   //   {
+  //   //     zoneId: '2',
+  //   //     zoneName: 'Zone02',
+  //   //     plantId: '01'
+  //   //   },
+  //   //   {
+  //   //     zoneId: '3',
+  //   //     zoneName: 'Zone03',
+  //   //     plantId: '01'
+  //   //   }
+  //   // ];
+  //   //
+  //   // const zone2 = [
+  //   //   {
+  //   //     zoneId: '1',
+  //   //     zoneName: 'Zone A',
+  //   //     plantId: '01'
+  //   //   },
+  //   //   {
+  //   //     zoneId: '2',
+  //   //     zoneName: 'Zone B',
+  //   //     plantId: '01'
+  //   //   }
+  //   // ];
+  //   //
+  //   // switch (id) {
+  //   //   case '01':
+  //   //     return zone1;
+  //   //   case '02':
+  //   //     return zone2;
+  //   // }
+  //   if (id === undefined) {
+  //     // id = '01';
+  //     console.log('plant id req for zones search...');
+  //   } else {
+  //     return this.httpClient.get<Zone[]>(`${this.baseUrl}plants/${id}/zones`, httpOptions);
+  //   }
+  //   return null;
+  // }
+
+  getZones(pid: string) {
+    const zarr: Zone[] = new Array();
+    for (const z of this.zones) {
+      if (z.plantId === pid) {
+        zarr.push(z);
+      }
     }
-    return this.httpClient.get<Zone[]>(`${this.baseUrl}plants/${id}/zones`, httpOptions);
-    // return null;
+    return zarr;
   }
 
   setCurrentPlantId(pid: any) {

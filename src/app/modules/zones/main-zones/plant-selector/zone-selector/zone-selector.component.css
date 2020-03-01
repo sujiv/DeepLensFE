@@ -69,14 +69,4 @@
 .r-text{
   text-align: right;
 }
-#allCams{
-  margin-top:70px;
-  margin-bottom: 30px;
-}
 
-.camRows{
-  display: inline-flex;
-  /*margin-top:10px;*/
-  margin-bottom: 30px;
-  /*display: table-row;*/
-}

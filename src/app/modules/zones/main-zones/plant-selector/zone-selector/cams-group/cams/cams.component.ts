@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CameraSummary} from '../../../../../../models/camera-summary';
+import {CameraSummary} from '../../../../../../../models/camera-summary';
 import { Zone } from 'src/app/models/zone';
-import {CameraZoneService} from '../../../../../../services/camera-zone.service';
+import {CameraZoneService} from '../../../../../../../services/camera-zone.service';
 
 @Component({
   selector: 'app-cams',
@@ -30,11 +30,11 @@ export class CamsComponent implements OnInit {
   getPriority() {
     if ( this.camSummary.threats > 0 ) {
       return ['liner', 'critical'];
-    }
-    else if ( this.camSummary.active === false ) {
+    } else if ( this.camSummary.active === false ) {
       return ['liner', 'off' ];
+    } else {
+      return ['liner', 'normal'];
     }
-    else return ['liner', 'normal'];
   }
 
   getLink() {
