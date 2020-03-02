@@ -1,7 +1,7 @@
 <div class="threat">
   <div class="container">
     <div class="row threat-media-info">
-      <div class="col-7 threat-media-info-paragraph">
+      <div class="col-6 threat-media-info-paragraph">
         <p> CODEC: {{codec}}</p>
         <p> FORMAT: {{format}}</p>
       </div>
@@ -13,10 +13,10 @@
   </div>
   <hr>
   <div class="threat-body">
-    <span class="text-white">[TIMESTAMP]: {{timestamp}}</span>
-    <p>[LABEL]: {{label}}</p>
-    <p>[CONFIDENCE]: <span class="text-danger">{{confidence}}</span></p>
-    <p>[INSTANCES]: {{instances}}</p>
+    <span class="text-white">[TIMESTAMP]: {{ threat.timestamp }}</span>
+    <p>[LABEL]: {{ threat.lbl }}</p>
+    <p>[CONFIDENCE]: <span class="text-danger">{{ threat.confidence }}</span></p>
+    <p>[INSTANCES]: {{ threat.inst }}</p>
     <hr>
   </div>
   <a class="btn-view-threat" [href]="">VIEW THREAT</a>

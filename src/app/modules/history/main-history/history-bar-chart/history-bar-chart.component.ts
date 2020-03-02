@@ -10,6 +10,7 @@ import {DatePipe} from '@angular/common';
 import {Plant} from '../../../../models/plant';
 import {Zone} from '../../../../models/zone';
 import {Camera} from '../../../../models/camera';
+import {CameraZoneService} from '../../../../services/camera-zone.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HistoryBarChartComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  myStartDate: string;
+  @Input()myStartDate: string;
   myEndDate: string;
   myForm: FormGroup;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -42,7 +43,7 @@ export class HistoryBarChartComponent implements OnInit {
   plantSelected;
   zoneSelected;
 
-  constructor(public fb: FormBuilder, private historyService: HistoryService) {
+  constructor(public fb: FormBuilder, private historyService: HistoryService, private cameraZS: CameraZoneService) {
     this.pipe = new DatePipe('en-US');
     this.now = Date.now();
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
@@ -90,6 +91,7 @@ export class HistoryBarChartComponent implements OnInit {
   reactiveForm() {
     this.myForm = this.fb.group({
       startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
       plantName: [''],
       ZoneName: [''],
       CameraName: [''],
@@ -128,12 +130,16 @@ export class HistoryBarChartComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:label-position
-    this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
+    // this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
+
+    console.log(this.historyService.getThreatHistoryList_Rest());
+    this.plants = this.cameraZS.getAllPlants();
     console.log('this is the list of Plants ' + this.plants)
     console.log('this is from  bar chart compnents >= ' + this.plants);
     this.plantId = '01';
-    this.historyService.getZonesByPlantId(this.plantId)
-      .subscribe((res: Zone[]) => this.zones = res);
+    // this.historyService.getZonesByPlantId(this.plantId)
+    //   .subscribe((res: Zone[]) => this.zones = res);
+    this.zones = this.cameraZS.getZones(this.plantId);
     this.zoneId = 'z001';
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
@@ -193,23 +199,23 @@ export class HistoryBarChartComponent implements OnInit {
   // used to  select a  given zone
   changeZone(e) {
     this.zoneId = e.target.value;
-    alert('this is a zone is from HTML page ==>' + this.zoneId);
-    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
+    // alert('this is a zone is from HTML page ==>' + this.zoneId);
+    // alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
 
   }
 
 ///////////// Camers selection method//////////////////
   changeCamera(e) {
     this.cameraId = e.target.value;
-    alert(e.target.value);
-    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
+    // alert(e.target.value);
+    // alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
   }
 
 
 
   onChangePlant(e) {
     this.plantId = e.target.value;
-    alert(' this is my plant Id from --->' + this.plantId.substring(2));
+    // alert(' this is my plant Id from --->' + this.plantId.substring(2));
     this.historyService.getZonesByPlantId(this.plantId.substring(2))
       .subscribe((res: Zone[]) => {
           console.log('mukera two of list ' + res.toString());
@@ -217,7 +223,11 @@ export class HistoryBarChartComponent implements OnInit {
         }
       );
     console.log('this is the list of zone in  plant Id =? ' + this.plantId + '   list' + this.zones);
-    alert(this.zones.toString());
+    // alert(this.zones.toString());
+  }
+
+  set(value: string) {
+    this.myStartDate = value;
   }
 }
 
