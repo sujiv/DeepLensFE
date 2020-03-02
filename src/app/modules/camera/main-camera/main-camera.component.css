@@ -1,7 +1,22 @@
+#main-content{
+  display: inline-flex;
+  /*width: 90vw;*/
+}
+#left-section{
+  width: 62vw;
+  height: 89vh;
+  margin-top:10px;
+  margin-left: 20px;
+  height: 90vh;
+  display: inline-block;
+}
 #sider-threat {
   background-color: #FFFFFF;
-  height: 1533px;
+  /*height: 1533px;*/
+  height:89vh;
   overflow: hidden;
+  width:420px;
+  /*display: inline-block;*/
 }
 #sider-threat h1 {
   margin-top: 50px;
@@ -10,8 +25,9 @@
 #threat-scrollview {
   /*position: absolute;*/
   margin-top: 30px;
-  margin-left: 30px;
+  padding-left: 50px;
   margin-right: 30px;
+  height:70vh;
   overflow: hidden;
   overflow-y: scroll;
 }
@@ -29,77 +45,100 @@
 
 /***EVENTS SECTION***/
 #events-section{
-  padding: 30px;
+  padding: 10px;
+  width: 60vw;
+  height: 62vh;
+  overflow-x: hidden ;
 }
 #events-section h1 {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 
-.camera-media-info {
-  margin: auto;
-}
-.camera-media-info-paragraph{
-  margin: 0;
-  padding: 0;
-}
+/*.camera-media-info {*/
+/*  margin: auto;*/
+/*}*/
+/*.camera-media-info-paragraph{*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
 
-.camera-media-info-paragraph p {
-  margin: 0;
-  padding: 0;
-  font-family: Antenna-Medium;
-}
-.right-aligned {
-  text-align: right;
-}
-#camera-events-scrollable {
-  margin-top: 15pt;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-#events-flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin:-15px;
-  height: 1000px;
-}
-
-
+/*.camera-media-info-paragraph p {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  font-family: Antenna-Medium;*/
+/*}*/
+/*.right-aligned {*/
+/*  text-align: right;*/
+/*}*/
+/*#camera-events-scrollable {*/
+/*  margin-top: 15pt;*/
+/*  overflow-y: scroll;*/
+/*  overflow-x: hidden;*/
+/*}*/
+/*#events-flex-container {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  flex-wrap: wrap;*/
+/*  margin:-15px;*/
+/*  height: 1000px;*/
+/*}*/
 
 
 
-app-main-camera {
-  padding: 10px;
-  height: auto;
-  overflow: hidden;
-}
-
-.page-content{
-  /*background-color: red;*/
-  width: auto;
-  overflow: hidden;
-}
-
-.page-side {
-  float: right;
-  width: 487pt;
-  background-color: white;
-}
 
 
+/*app-main-camera {*/
+/*  padding: 10px;*/
+/*  height: auto;*/
+/*  overflow: hidden;*/
+/*}*/
 
-/*3 with table*/
-table {
-  table-layout: fixed;
-  border-collapse: collapse;
-  /*width: 100%;*/
-  /*margin-left: 61px;*/
+/*.page-content{*/
+/*  !*background-color: red;*!*/
+/*  width: auto;*/
+/*  overflow: hidden;*/
+/*}*/
+
+/*.page-side {*/
+/*  float: right;*/
+/*  width: 487pt;*/
+/*  background-color: white;*/
+/*}*/
+
+
+
+/*!*3 with table*!*/
+/*table {*/
+/*  table-layout: fixed;*/
+/*  border-collapse: collapse;*/
+/*  !*width: 100%;*!*/
+/*  !*margin-left: 61px;*!*/
+/*}*/
+/*td {*/
+/*  border: 1px solid #000;*/
+/*  width: auto;*/
+/*}*/
+/*#threat-sidebar {*/
+/*  width: 487px;*/
+/*}*/
+/* width */
+::-webkit-scrollbar {
+  width: 6pt;
 }
-td {
-  border: 1px solid #000;
-  width: auto;
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
-#threat-sidebar {
-  width: 487px;
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #004378;
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #004378;
 }

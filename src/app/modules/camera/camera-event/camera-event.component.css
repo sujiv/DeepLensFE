@@ -1,7 +1,8 @@
 .camera-event {
   box-sizing: border-box;
   height: 193px;
-  width: 390px;
+  /*width: 390px;*/
+  width: 350px;
   margin: 15px;
   border: 0.2px dashed #395A72;
   border-radius: 2px;
@@ -14,7 +15,8 @@
   margin-top: 15pt;
 }
 .camera-event p {
-  padding: 4pt;
+  /*padding: 4pt;*/
+  padding: 5pt;
   margin: 0;
   margin-left: 29pt;
   margin-right: 29pt;

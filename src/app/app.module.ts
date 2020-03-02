@@ -13,6 +13,7 @@ import {ChartsModule} from 'ng2-charts';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {HistoryModule} from './modules/history/history.module';
+import {MatNativeDateModule} from '@angular/material/core';
 import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';

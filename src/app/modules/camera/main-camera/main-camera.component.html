@@ -1,8 +1,6 @@
-<div>
-  <nz-layout>
-
-    <nz-content id="events-section">
-      <a id="btn-back" [routerLink]="//">
+<div id ="main-content">
+  <div id = "left-section">
+      <a id="btn-back" routerLink="/plants">
         <img src="../../../../assets/PNG/arrow-left@2x.png" class="arrow-left"/>BACK
       </a>
       <h1>{{cameraName}}</h1>
@@ -18,7 +16,7 @@
           <p>FRAME RATE: {{frameRate}}</p>
         </div>
       </div>
-
+    <div id="events-section">
       <div id="camera-events-scrollable">
         <div id="events-flex-container">
           <app-camera-event></app-camera-event>
@@ -36,9 +34,9 @@
           <app-camera-event></app-camera-event>
         </div>
       </div>
-    </nz-content>
-
-    <nz-sider [nzWidth]="487" id="sider-threat">
+    </div>
+  </div>
+  <div id="sider-threat">
       <h1 class="sider-header">THREAT DETECTED</h1>
 
       <div id="threat-scrollview">
@@ -52,9 +50,7 @@
         <app-threat></app-threat>
         <app-threat></app-threat>
       </div>
-    </nz-sider>
-
-  </nz-layout>
+    </div>
 </div>
 <!--
 <div class="page-main">

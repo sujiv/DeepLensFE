@@ -42,7 +42,7 @@
 }
 #vid_info{
   margin-top: 16px;
-  width:95%;
+  width:90vw;
 }
 
 .info{
@@ -69,9 +69,12 @@
 .r-text{
   text-align: right;
 }
+
 #allCams{
   margin-top:70px;
   margin-bottom: 30px;
+  min-height: 10vh;
+  min-width: 100%;
 }
 
 .camRows{

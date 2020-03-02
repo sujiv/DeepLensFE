@@ -1,0 +1,6 @@
+<div id="allCams">
+  <h1>{{ this.getName() }}</h1>
+  <!--    <div class="camRows" *ngFor="let i of getRows()">-->
+  <app-cams *ngFor="let c of this.cameras" [camSummary] = "c"></app-cams>
+  <!--    </div><br/>-->
+</div>

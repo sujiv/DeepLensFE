@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {ThreatsOverview} from "../../../models/threats-overview";
+import {ThreatsOverview} from '../../../../../models/threats-overview';
 
 @Component({
   selector: 'app-threat-overview',
@@ -8,7 +8,7 @@ import {ThreatsOverview} from "../../../models/threats-overview";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThreatOverviewComponent implements OnInit {
-  @Input()threat:ThreatsOverview;
+  @Input()threat: ThreatsOverview;
 
   constructor() { }
 
@@ -16,15 +16,15 @@ export class ThreatOverviewComponent implements OnInit {
   }
 
   getMessage() {
-    return "Threats Detected";
+    return 'Threats Detected';
   }
 
   getTotalThreats():string{
-    if (this.threat.totalThreats<10){
-      return '0'+this.threat.totalThreats;
+    if (this.threat.totalThreats < 10) {
+      return '0' + this.threat.totalThreats;
     }
 
-    return this.threat.totalThreats+'';
+    return this.threat.totalThreats + '';
   }
 
   getZoneIdCamId() {

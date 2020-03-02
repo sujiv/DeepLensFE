@@ -2,7 +2,9 @@
   box-sizing: border-box;
   /*height: 254.2px;*/
   margin-bottom: 15px;
-  width: 426.2px;
+  /*width: 426.2px;*/
+  /*width: 350px;*/
+  width: 330px;
   border: 0.2px dashed #395A72;
   border-radius: 2px;
   background-color: #EA1F22;
@@ -29,7 +31,8 @@
   font-family: Antenna-Medium;
 }
 .threat-body {
-  width: 365px;
+  /*width: 365px;*/
+  width: 300px;
   margin: 30px auto 0; /*top left-right bottom*/
   color: #FFFFFF;
 }
