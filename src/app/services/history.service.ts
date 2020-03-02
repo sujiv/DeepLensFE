@@ -11,6 +11,7 @@ import {Plant} from '../models/plant';
 import {Zone} from '../models/zone';
 import {ZonesModule} from '../modules/zones/zones.module';
 import {Observable} from 'rxjs';
+import {Metadata} from '../models/metadata';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -18,7 +19,7 @@ const httpOptions = {
       'Content-Type': 'application/json'
     }
   )
-}
+};
 
 @Injectable({
   providedIn: 'root'
@@ -43,6 +44,7 @@ export class HistoryService {
   camers: Camera[] = [];
 
   // = this.pipe.transform(this.now, 'short');
+  private metatadata: Metadata[];
   constructor(private httpClient: HttpClient) {
     this.pipe = new DatePipe('en-US');
     this.now = Date.now();
@@ -50,7 +52,7 @@ export class HistoryService {
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
     // Andding Plant Dummy Data
 
-    this.plants = [{id: '01', plantName: 'Plant-I'}, {id: '02', plantName: 'Plant-2'}, {id: '03', plantName: 'Plant-3'}]
+    this.plants = [{id: '01', plantName: 'Plant-I'}, {id: '02', plantName: 'Plant-2'}, {id: '03', plantName: 'Plant-3'}];
 
     this.zones = [
       {zoneId: 'z001', zoneName: 'p1 and z00I', plantId: '01'},
@@ -75,15 +77,15 @@ export class HistoryService {
 
       {zoneId: 'z003', zoneName: ' p3 and z003', plantId: '03'}
 
-      ,]
-
+      ];
 
     this.camers = [
       {id: 'c001', cameraName: 'P1 and z001 and c001', zoneId: 'z001'},
       {id: 'c001', cameraName: 'p1 and  z001 and c001', zoneId: 'z001'},
       {id: 'c002', cameraName: 'p1 and  z002 and c002', zoneId: 'z001'},
       {id: 'c004', cameraName: 'P2 and z002 and c004', zoneId: 'z001'},
-      {id: 'c005', cameraName: 'p3 and z001 an c005', zoneId: 'z001'}]
+      {id: 'c005', cameraName: 'p3 and z001 an c005', zoneId: 'z001'}
+      ];
 
     this.threatHistorySummary = [
       {day: 1, eventDate: this.myShortFormat, numberOfThreats: 2},
@@ -237,5 +239,28 @@ export class HistoryService {
 ///////  return Cameras in a given plant and region
   getCamerasByPlantAndZone(plantId, zoneId): Camera[] {
     return this.camers.filter(res => res.zoneId === zoneId);
+  }
+
+  // ========================////
+
+  getThreatHistoryList_Rest(): Threat[] {
+    if (this.threatsHistoryList === undefined) {
+      this.httpClient.get<Metadata[]>(this.remoteUrl + this.localpath, httpOptions)
+        .subscribe(tp => {
+          this.metatadata = tp;
+          for (const meta of this.metatadata) {
+            const t = new Threat();
+            t.plantName = meta.pName;
+            t.zone = meta.zName;
+            t.confidence = meta.Confidence;
+            t.location = meta.location;
+
+            t.eventDate = new Date(meta.TimeStamp);
+            t.timing = meta.TimeStamp.substring(10);
+            this.threatsHistoryList.push(t);
+          }
+        });
+    }
+    return this.threatsHistoryList;
   }
 }

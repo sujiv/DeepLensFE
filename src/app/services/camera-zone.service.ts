@@ -6,6 +6,7 @@ import {Plant} from '../models/plant';
 import {Observable, of, Subject} from 'rxjs';
 import {Topology} from '../models/topology';
 import {Camera} from '../models/camera';
+import {CameraDetails} from '../models/camera-details';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -76,53 +77,6 @@ export class CameraZoneService {
   }
 
   getCameraSummary(): Observable<CameraSummary[]>{
-    // return [
-    //   {
-    //     id: 1,
-    //     zoneId: 'zone01',
-    //     plantId: '01',
-    //     threats: 0,
-    //     timestamp: '20/02/2020 10.34.14PM',
-    //     active: true,
-    //     frame: null
-    //   },
-    //   {
-    //     id: 2,
-    //     zoneId: 'zone01',
-    //     plantId: '01',
-    //     threats: 1,
-    //     timestamp: '20/02/2020 10.34.14PM',
-    //     active: true,
-    //     frame: null
-    //   },
-    //   {
-    //     id: 3,
-    //     zoneId: 'zone01',
-    //     plantId: '01',
-    //     threats: 3,
-    //     timestamp: '20/02/2020 10.34.14PM',
-    //     active: true,
-    //     frame: null
-    //   },
-    //   {
-    //     id: 4,
-    //     zoneId: 'zone01',
-    //     plantId: '01',
-    //     threats: 0,
-    //     timestamp: '20/02/2020 10.34.14PM',
-    //     active: true,
-    //     frame: null
-    //   },
-    //   {
-    //     id: 5,
-    //     zoneId: 'zone01',
-    //     plantId: '01',
-    //     threats: 0,
-    //     timestamp: '20/02/2020 10.34.14PM',
-    //     active: false,
-    //     frame: null
-    //   }
-    // ];
     return this.httpClient.get<CameraSummary[]>(`${this.baseUrl}plants/${this.pid}/zones/${this.zid}/cameras`, httpOptions);
   }
 
@@ -177,66 +131,6 @@ export class CameraZoneService {
     return this.plants;
   }
 
-  // getPlants(): Observable<Plant[]> {
-  //   return this.httpClient.get<Plant[]>(`${this.baseUrl}plants`, httpOptions);
-  //   // return [
-  //   //   {
-  //   //     id: '01',
-  //   //     plantName: 'Chennai Vehicle & Engine Assembly Plant'
-  //   //   },
-  //   //   {
-  //   //     id: '02',
-  //   //     plantName: 'Ford\'s Sanan Vehicle & Engine Assembly Plant'
-  //   //   }
-  //   // ];
-  // }
-
-  // getZones(id: string): Observable<Zone[]> {
-  //   // const zone1 = [
-  //   //   {
-  //   //     zoneId: '1',
-  //   //     zoneName: 'Zone01',
-  //   //     plantId: '01'
-  //   //   },
-  //   //   {
-  //   //     zoneId: '2',
-  //   //     zoneName: 'Zone02',
-  //   //     plantId: '01'
-  //   //   },
-  //   //   {
-  //   //     zoneId: '3',
-  //   //     zoneName: 'Zone03',
-  //   //     plantId: '01'
-  //   //   }
-  //   // ];
-  //   //
-  //   // const zone2 = [
-  //   //   {
-  //   //     zoneId: '1',
-  //   //     zoneName: 'Zone A',
-  //   //     plantId: '01'
-  //   //   },
-  //   //   {
-  //   //     zoneId: '2',
-  //   //     zoneName: 'Zone B',
-  //   //     plantId: '01'
-  //   //   }
-  //   // ];
-  //   //
-  //   // switch (id) {
-  //   //   case '01':
-  //   //     return zone1;
-  //   //   case '02':
-  //   //     return zone2;
-  //   // }
-  //   if (id === undefined) {
-  //     // id = '01';
-  //     console.log('plant id req for zones search...');
-  //   } else {
-  //     return this.httpClient.get<Zone[]>(`${this.baseUrl}plants/${id}/zones`, httpOptions);
-  //   }
-  //   return null;
-  // }
 
   getZones(pid: string) {
     const zarr: Zone[] = new Array();
@@ -280,5 +174,18 @@ export class CameraZoneService {
       if (plant.id === this.pid)
         return plant.plantName;
     }
+  }
+
+  getCameras(pid: string, zid: string) {
+    const cams: Camera[] = new Array();
+    for (const c of this.cameras) {
+      if (c.plantId === pid && c.zoneId === zid) {
+        cams.push(c);
+      }
+    }
+    return cams;
+  }
+  getCameraDetails(pid: string, zid: string, cid: string): Observable<CameraDetails> {
+    return this.httpClient.get<CameraDetails>(`${this.baseUrl}plants/${pid}/zones/${zid}/cameras/${cid}`, httpOptions);
   }
 }
