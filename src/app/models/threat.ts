@@ -4,7 +4,8 @@ export class Threat {
   plantName: string;
   zone: string;
   location: string;
-  confidence: number;
+  confidence: string;
   eventDate: Date;
   timing: any;
 }
+;

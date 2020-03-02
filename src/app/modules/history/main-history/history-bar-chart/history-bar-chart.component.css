@@ -10,6 +10,10 @@
   margin-left: 15px;
   margin-top: 20px;
 }
+
+.barchartSide{
+  height: 400px;
+}
 .group-8 {
   height: 44px;
   width: 250px;
@@ -108,7 +112,7 @@
 .rectangleDate {
   box-sizing: border-box;
   height: 44px;
-  width: 200px;
+  width: 250px;
   border: 1px solid #E9E9E9;
   border-radius: 3px;
   background-color: #FFFFFF;

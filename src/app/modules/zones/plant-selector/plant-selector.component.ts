@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CameraZoneService} from "../../../services/camera-zone.service";
-import {Plant} from "../../../models/plant";
+import {CameraZoneService} from '../../../services/camera-zone.service';
+import {Plant} from '../../../models/plant';
 
 @Component({
   selector: 'app-plant-selector',
@@ -8,11 +8,11 @@ import {Plant} from "../../../models/plant";
   styleUrls: ['./plant-selector.component.css']
 })
 export class PlantSelectorComponent implements OnInit {
-  plants:Plant[];
-  selectedPlant:Plant;
+  plants: Plant[];
+  selectedPlant: Plant;
 
   constructor(cameraZoneService: CameraZoneService) {
-    this.plants = cameraZoneService.getPlants();
+    this.plants = cameraZoneService.getAllPlants();
   }
 
   ngOnInit(): void {
@@ -25,9 +25,10 @@ export class PlantSelectorComponent implements OnInit {
   }
 
   onChange(plantId: string) {
-    for(let p of this.plants){
-      if(p.id === plantId)
+    for (const p of this.plants) {
+      if (p.id === plantId) {
         this.selectedPlant = p;
+      }
     }
   }
 
