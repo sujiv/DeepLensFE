@@ -17,22 +17,24 @@ export class LogInComponent implements OnInit {
               private loginservice: AuthenticationService) {
   }
 
+
   ngOnInit(): void {
   }
 
   signIn() {
 
-    this.loginservice.authenticate(this.username, this.password)
-        // .subscribe(
-        // data => {
-    this.router.navigate([''])
-    this.invalidLogin = false;
-        // },
-        // error => {
-        //   this.invalidLogin = true
-        //   this.error = error.message;
-        //
-        // }
+    (this.loginservice.authenticate(this.username, this.password).subscribe(
+        data => {
+          this.router.navigate(['camera'])
+          this.invalidLogin = false;
+        },
+        error => {
+          this.invalidLogin = true;
+          // this.error = error.message;
+
+        }
+      )
+    );
 
   }
 }

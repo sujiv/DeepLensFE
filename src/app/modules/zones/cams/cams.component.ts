@@ -33,6 +33,6 @@ export class CamsComponent implements OnInit {
   }
 
   getLink() {
-    return '/plants/${this.pid}/zones/${this.zid}/cameras/${this.camSummary.id}';
+    return `/plants/${this.pid}/zones/${this.zid}/cameras/${this.camSummary.id}`;
   }
 }
