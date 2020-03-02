@@ -58,14 +58,21 @@ export class PlantSelectorComponent implements OnInit {
   }
 
   getSelected() {
-    if (this.cameraZoneService.pid !== undefined) {
-      return this.cameraZoneService.pid;
+    let i = 0;
+    for (const plant of this.plants){
+      if (plant.id === this.cameraZoneService.pid){
+        return i;
+      }
+      i++;
     }
-    if (this.selectedPlant === undefined) {
-        return this.plants[0].id;
-      // return this.cameraZoneService.pid;
-    }
-    return this.selectedPlant.id;
+    // if (this.cameraZoneService.pid !== undefined) {
+    //   return this.cameraZoneService.pid;
+    // }
+    // if (this.selectedPlant === undefined) {
+    //     return this.plants[0].id;
+    //   // return this.cameraZoneService.pid;
+    // }
+    // return this.selectedPlant.id;
   }
 
   getZones() {

@@ -1,8 +1,8 @@
 <div>
   <label for="plant" class="lbl">Choose Location</label><br/>
   <select id="plant" #plant class="sel" (change)="onChange(plant.value)">
-    <option *ngFor="let p of this.plants;" value="{{ p.id }}"
-            [selected]="p.id === getSelected()"
+    <option *ngFor="let p of this.plants; let j = idx;" value="{{ p.id }}"
+            [selected]="j === getSelected()"
     >{{ p.plantName }}</option>
   </select>
   <app-zone-selector [plant]='selectedPlant'></app-zone-selector>
