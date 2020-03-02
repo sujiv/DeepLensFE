@@ -1,0 +1,32 @@
+
+<div id="container">
+
+  <div id="content">
+  </div>
+
+  <div id="sidebar">
+    <div class="rectangle-copy">
+      <div>
+        <img src="../../../assets/SVG/Logo 1x.png" height="28" width="339" class="group-copy" alt="image"/>
+      </div>
+
+      <p class="sign-in-to-your-acco-copy"> SIGN TO YOUR ACCOUNT</p>
+
+      <input class="group-2-copy" placeholder="Username" [(ngModel)]="username" name="username" required>
+
+      <input class="group-2-copy" placeholder="Password" [(ngModel)]="password" type="password" name="password"
+             required>
+      <input class="group-5" type="checkbox" id="keepSignIn" checked="checked" name="keepSignedIn" value="">
+      <label class="keep-me-signed-in">
+        Keep me signedIn
+      </label>
+      <hr>
+      <div class="sign-in-copy">
+        <button class="button-background-copy" id="SIGNIN" (click)="signIn()">SIGN IN</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

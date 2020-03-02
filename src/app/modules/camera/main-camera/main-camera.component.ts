@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-main-camera',
@@ -14,7 +15,7 @@ export class MainCameraComponent implements OnInit {
   public frameRate = '25.0';
 
 
-  constructor() { }
+  constructor(  public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ChartOptions, ChartType, ChartDataSets, ChartColor} from 'chart.js';
-import {Label} from 'ng2-charts';
+import {ChartOptions, ChartType, ChartDataSets, ChartColor, ChartScales} from 'chart.js';
+import {Color, Label} from 'ng2-charts';
 import {HistoryService} from '../../../../services/history.service';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
@@ -38,6 +38,9 @@ export class HistoryBarChartComponent implements OnInit {
   cameras: Camera[] = [];
   plantId: string;
   zoneId: string;
+  cameraId: string;
+  plantSelected;
+  zoneSelected;
 
   constructor(public fb: FormBuilder, private historyService: HistoryService) {
     this.pipe = new DatePipe('en-US');
@@ -45,9 +48,10 @@ export class HistoryBarChartComponent implements OnInit {
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
     this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
     this.isInint = false;
+    this.plantSelected = false;
+    this.zoneSelected = false;
     // this.ngOnInit();
 //     this.populateChart();
-
   }
 
   ////////////// using Service////////////
@@ -59,7 +63,28 @@ export class HistoryBarChartComponent implements OnInit {
   public barChartLegend = true;
   public barChartPlugins = [];
   public barChartData: ChartDataSets[];
-  // public barCharColor: Char;
+  public barcharColor: Color[] = [
+    {
+      borderColor: 'black',
+      // backgroundColor: 'rgba(255,255,0,0.28)',
+      backgroundColor: 'rgba(0,0, 255,0.8)',
+    },
+  ];
+  public options: ChartOptions = {
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          display: false
+        }
+      }]
+    }
+  };
+
 
   /* Reactive form */
   reactiveForm() {
@@ -75,7 +100,6 @@ export class HistoryBarChartComponent implements OnInit {
   startDate(e) {
     this.myStartDate = new Date(e.target.value).toISOString().substring(0, 10);
     this.mySmpleFormatStartDate = this.pipe.transform(new Date(e.target.value), 'shortDate');
-    // this.myStartDate =
     this.myForm.get('startDate').setValue(this.myStartDate, {
       onlyself: true
     });
@@ -101,12 +125,15 @@ export class HistoryBarChartComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
     // tslint:disable-next-line:label-position
     this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
-    console.log('this is from  bar chart compnents >= ' +  this.plants);
+    console.log('this is the list of Plants ' + this.plants)
+    console.log('this is from  bar chart compnents >= ' + this.plants);
     this.plantId = '01';
-    this.zones = this.historyService.getZonesByPlantId(this.plantId);
+    this.historyService.getZonesByPlantId(this.plantId)
+      .subscribe((res: Zone[]) => this.zones = res);
     this.zoneId = 'z001';
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
     this.reactiveForm();
@@ -139,7 +166,13 @@ export class HistoryBarChartComponent implements OnInit {
     }
     this.barChartLabels = myLabels;
     // @ts-ignore
-    this.barChartData = [{data: myData, label: 'Number of Threats'}];
+    // @ts-ignore
+    this.barChartData = [
+      {
+        data: myData,
+        label: 'Number of Threats'
+      }
+    ];
     console.log(' my start date' + this.mySmpleFormatStartDate + 'my End Date ' + this.mySmpleFormatEndDate);
 
   }
@@ -158,11 +191,33 @@ export class HistoryBarChartComponent implements OnInit {
   }
 
   // used to  select a  given zone
-  changeZone($event: Event) {
+  changeZone(e) {
+    this.zoneId = e.target.value;
+    alert('this is a zone is from HTML page ==>' + this.zoneId);
+    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
+
   }
 
-///////////// Camer selction method//////////////////
-  changeCamera($event: Event) {
+///////////// Camers selection method//////////////////
+  changeCamera(e) {
+    this.cameraId = e.target.value;
+    alert(e.target.value);
+    alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
+  }
+
+
+
+  onChangePlant(e) {
+    this.plantId = e.target.value;
+    alert(' this is my plant Id from --->' + this.plantId.substring(2));
+    this.historyService.getZonesByPlantId(this.plantId.substring(2))
+      .subscribe((res: Zone[]) => {
+          console.log('mukera two of list ' + res.toString());
+          this.zones = res;
+        }
+      );
+    console.log('this is the list of zone in  plant Id =? ' + this.plantId + '   list' + this.zones);
+    alert(this.zones.toString());
   }
 }
 

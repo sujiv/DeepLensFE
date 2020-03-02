@@ -1,8 +1,8 @@
 // used for threats overview
-export class ThreatsOverview{
-  plantId:string;
-  plantName:string="ABC";
-  zoneId:string="Zone 1";
-  cameraId:string="camera 01";
-  totalThreats:number;
+export class ThreatsOverview {
+  plantId: string;
+  plantName = 'ABC';
+  zoneId = 'Zone 1';
+  cameraId = 'camera 01';
+  totalThreats: number;
 }

@@ -9,16 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import {CameraModule} from './modules/camera/camera.module';
-import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
-import {SbuttonComponent} from './components/sbutton/sbutton.component';
-import {ZonesModule} from './modules/zones/zones.module';
+import {ChartsModule} from 'ng2-charts';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
 import {HistoryModule} from './modules/history/history.module';
-import {MatNativeDateModule} from '@angular/material/core';
 import {SidebuttonsComponent} from './components/sidebuttons/sidebuttons.component';
 import {SbuttonComponent} from './components/sbutton/sbutton.component';
 import {ZonesModule} from './modules/zones/zones.module';
 import {CameraModule} from './modules/camera/camera.module';
+import {LoginModule} from './login/login.module';
 
 registerLocaleData(en);
 
@@ -28,33 +27,34 @@ registerLocaleData(en);
     SidebuttonsComponent,
     SbuttonComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgZorroAntdModule,
-    FormsModule,
-    HttpClientModule,
-    MatDatepickerModule,
-    BrowserAnimationsModule,
-    ChartsModule,
-      MatButtonModule,
-      MatDatepickerModule,
-      BrowserAnimationsModule,
-      MatInputModule,
-      MatInputModule,
-      MatButtonModule,
-      MatCardModule,
-      MatFormFieldModule,
-      MatCheckboxModule,
-      MatDatepickerModule,
-      MatRadioModule,
-      MatSelectModule,
-      MatNativeDateModule,
-      // MatMomentDateModule,
-    CameraModule,
-    HistoryModule,
-    ZonesModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgZorroAntdModule,
+        FormsModule,
+        HttpClientModule,
+        MatDatepickerModule,
+        BrowserAnimationsModule,
+        ChartsModule,
+        // MatButtonModule,
+        // MatDatepickerModule,
+        // BrowserAnimationsModule,
+        // MatInputModule,
+        // MatInputModule,
+        // MatButtonModule,
+        // MatCardModule,
+        // MatFormFieldModule,
+        // MatCheckboxModule,
+        // MatDatepickerModule,
+        // MatRadioModule,
+        // MatSelectModule,
+        // MatNativeDateModule,
+        // MatMomentDateModule,
+        CameraModule,
+        HistoryModule,
+        ZonesModule,
+        LoginModule
+    ],
 
   exports: [
     MatDatepickerModule,
