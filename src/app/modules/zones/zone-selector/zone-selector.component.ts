@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit, SimpleChange} from '@angular/core';
 import { CameraSummary } from '../../../models/camera-summary';
 import { CameraZoneService } from "../../../services/camera-zone.service";
 import { Zone } from "../../../models/zone"
@@ -7,39 +7,46 @@ import {Plant} from "../../../models/plant";
   selector: 'app-zone-selector',
   templateUrl: './zone-selector.component.html',
   styleUrls: ['./zone-selector.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ZoneSelectorComponent implements OnInit {
   @Input() plant:Plant;
   zones:Zone[];
+  selectedZone:Zone;
   title: string = "";
   // zoneid: string = "";
   codec: string = "H264";
   format:string = "QUICKTIME/MOV";
   duration: string = "2 SEC";
-  frameRate: number = 30.0;
+  frameRate: string = "30.0";
   cols: number=3;
 
   cameras: CameraSummary[];
+  totalCameras:number=5;
 
   constructor(private cameraZS:CameraZoneService) {
-    if(this.plant != null )
-      this.title = this.plant.plantName;
+    this.plant = cameraZS.getPlants()[0];
+    this.zones = cameraZS.getZones('01');
+    this.cameras = this.cameraZS.getCameraSummary();
   }
 
   ngOnInit(): void {
     this.cameras = this.cameraZS.getCameraSummary();
   }
 
-  getRows(){
-    let c = 0;
-    let row=0;
-    while(c<this.cameras.length){
-      c = c+this.cols;
-      row = row+1;
+  onChange(zoneId: string) {
+    console.log("Plant changed...")
+    for(let z of this.zones){
+      if(z.zoneId === zoneId){
+        console.log("zone id "+zoneId+" selected");
+        this.selectedZone = z;
+        this.cameras = this.cameraZS.getCameraSummary();
+      }
     }
-    // console.log("count::   :"+row);
-    return [Array(3).keys()];
+  }
+
+  getRows(){
+    return [...Array(Math.ceil(this.totalCameras/this.cols)).keys()];
   }
 
   getCams(row:number){
@@ -56,4 +63,13 @@ export class ZoneSelectorComponent implements OnInit {
     return cams;
   }
 
+  getZones() {
+    // if(this.plant != null)
+      this.zones = this.cameraZS.getZones(this.plant.id);
+    return this.zones;
+  }
+
+  getPlantName(){
+    return this.plant.plantName;
+  }
 }

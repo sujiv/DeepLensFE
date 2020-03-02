@@ -8,12 +8,13 @@ import {AuthGaurdService} from './services/auth-gaurd.service';
 
 
 const routes: Routes = [
-
-  {path: 'camera', component: MainZonesComponent, canActivate: [AuthGaurdService] },
-  {path: '', component: MainZonesComponent, canActivate: [AuthGaurdService]},
-  {path: 'zones/:zid/cameras/:cid', component: MainCameraComponent, canActivate: [AuthGaurdService]},
-  {path: 'history', component: MainHistoryComponent, canActivate: [AuthGaurdService]},
-  {path: 'login', component: LogInComponent}
+  {path: 'plants', component: MainZonesComponent},
+  {path: '', component: MainZonesComponent},
+  {path: 'plants/:pid', component: MainZonesComponent},
+  {path: 'plants/:pid/zones/:zid', component: MainZonesComponent},
+  {path: 'plants/:pid/zones/:zid/cameras/:cid', component: MainCameraComponent},
+  {path: 'plants/:pid/zones/:zid/cameras/:cid', component: MainCameraComponent},
+  {path: 'history', component: MainHistoryComponent}
 ];
 
 @NgModule({

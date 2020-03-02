@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CameraSummary} from '../../../models/camera-summary';
+import {CameraSummary} from "../../../models/camera-summary";
+import { Zone } from 'src/app/models/zone';
+import {CameraZoneService} from "../../../services/camera-zone.service";
 
 @Component({
   selector: 'app-cams',
@@ -8,10 +10,11 @@ import {CameraSummary} from '../../../models/camera-summary';
 })
 export class CamsComponent implements OnInit {
   @Input()camSummary:CameraSummary;
-  @Input()zid:string;
-  @Input()pid:string;
+  @Input()zone:Zone;
 
-  constructor() { }
+  constructor(cameraZS: CameraZoneService) {
+    this.zone = cameraZS.getZones('01')[0];
+  }
 
   ngOnInit(): void {
   }
@@ -33,6 +36,6 @@ export class CamsComponent implements OnInit {
   }
 
   getLink() {
-    return `/plants/${this.pid}/zones/${this.zid}/cameras/${this.camSummary.id}`;
+      return `/plants/${this.camSummary.plantId}/zones/${this.camSummary.zoneId}/cameras/${this.camSummary.id}`;
   }
 }

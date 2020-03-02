@@ -17,3 +17,8 @@
   font-family: "Antenna-Regular";
   src: url("./antenna/Antenna-Regular.otf");
 }
+
+@font-face {
+  font-family: "Antenna-Bold";
+  src: url("./antenna/Antenna-Bold.otf");
+}
