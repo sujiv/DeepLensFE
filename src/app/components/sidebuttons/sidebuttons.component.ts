@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../services/authentication.service';
 
 @Component({
   selector: 'app-sidebuttons',
@@ -8,14 +9,15 @@ import {Component, OnInit} from '@angular/core';
 export class SidebuttonsComponent implements OnInit {
   currentPg: number = 0;
 
-  constructor() {
-  }
+  constructor(public loginService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
   getPg(): number {
     return this.currentPg;
+
+    alert(sessionStorage.getItem('username'));
   }
 
   setPg(pg: number) {

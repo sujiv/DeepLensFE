@@ -8,7 +8,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainHistoryComponent } from './main-history/main-history.component';
-import {BarchartComponent} from './main-history/barchart/barchart.component';
 import {HistoryBarChartComponent} from './main-history/history-bar-chart/history-bar-chart.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -25,7 +24,6 @@ import {BrowserModule} from '@angular/platform-browser';
 @NgModule({
   declarations: [
     FilterHistoryComponent,
-    BarchartComponent,
     MainHistoryComponent,
     HistoryBarChartComponent,
     HistoricalThreatListComponent,
