@@ -21,8 +21,8 @@ export class CameraZoneService {
   plants: Plant[] = new Array();
   zones: Zone[] = new Array();
   cameras: Camera[] = new Array();
-  baseUrl: any = 'http://localhost:8080/dl/';
-  // baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
+  // baseUrl: any = 'http://localhost:8080/dl/';
+  baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
   pid: any = undefined;
   zid: any = undefined;
   cid: any = undefined;
@@ -76,7 +76,7 @@ export class CameraZoneService {
     }
   }
 
-  getCameraSummary(): Observable<CameraSummary[]>{
+  getCameraSummary(): Observable<CameraSummary[]> {
     return this.httpClient.get<CameraSummary[]>(`${this.baseUrl}plants/${this.pid}/zones/${this.zid}/cameras`, httpOptions);
   }
 
@@ -170,7 +170,7 @@ export class CameraZoneService {
   }
 
   getCurrPlantName() {
-    for (const plant of this.plants){
+    for (const plant of this.plants) {
       if (plant.id === this.pid)
         return plant.plantName;
     }

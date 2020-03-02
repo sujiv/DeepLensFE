@@ -65,6 +65,7 @@ export class PlantSelectorComponent implements OnInit {
       }
       i++;
     }
+    return i;
     // if (this.cameraZoneService.pid !== undefined) {
     //   return this.cameraZoneService.pid;
     // }
