@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
 import {ThreatsSummary} from '../models/threats-summary';
 import {Threat} from '../models/threat';
 import {Time} from '@angular/common';
@@ -10,17 +10,26 @@ import {Camera} from '../models/camera';
 import {Plant} from '../models/plant';
 import {Zone} from '../models/zone';
 import {ZonesModule} from '../modules/zones/zones.module';
-import {Observable, Subscription} from 'rxjs';
+import {Observable} from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders(
+    {
+      'Content-Type': 'application/json'
+    }
+  )
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryService {
-  const;
-  remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
-  localpath = '/dl/plants';
 
-  // https://sujiv-portfolio.herokuapp.com/dl/plants/01/zones
+  const;
+  // remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
+
+  remoteUrl = 'http://192.168.0.10:8080';
+  localpath = '/dl/plants';
 
   threatHistorySummary: ThreatsSummary[];
   threatsHistoryList: Threat[] = [];
@@ -205,11 +214,12 @@ export class HistoryService {
 
 ////////  return  list of plants
 
-  getPlants() {
-    return this.httpClient.get<Plant[]>(this.remoteUrl + this.localpath);
-    console.log('this is from  service class');
-    // .subscribe((res) => this.plants = res);
+  getPlants(): Observable<Plant[]> {
+    console.log(this.httpClient.get<Plant[]>(this.remoteUrl + this.localpath));
+    return this.httpClient.get<Plant[]>(this.remoteUrl + this.localpath, httpOptions);
+    // .subscribe(res:Plant[]=> this.plants = res);
   }
+
 
 //  returning all Zone from each plants
   getAllZones(): Zone[] {
