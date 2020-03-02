@@ -206,6 +206,7 @@ export class HistoryBarChartComponent implements OnInit {
   // used to  select a  given zone
   changeZone(e) {
     this.zoneId = e.target.value;
+    this.cameras = this.cameraService.getCameras(this.plantId, this.zoneId);
     // this.zones= this.historyService.getZonesByPlantId(this.)
     // alert('this is a zone is from HTML page ==>' + this.zoneId);
     // alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
@@ -222,7 +223,8 @@ export class HistoryBarChartComponent implements OnInit {
 
   onChangePlant(e) {
     this.plantId = e.target.value;
-    this.zones = this.cameraService.getZones(this.plantId);
+    this.zones = this.cameraService.getZones(this.plants[0].id);
+    console.log(' my zone list using  plants ' + this.zones);
     // this.zones = this.historyService.getZonesByPlantId(this.plantId.substring(2));
     // this.historyService.getZonesByPlantId(this.plantId.substring(2))
     //   .subscribe((res: Zone[]) => {

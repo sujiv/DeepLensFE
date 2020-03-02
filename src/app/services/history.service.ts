@@ -225,21 +225,17 @@ export class HistoryService {
     return this.getThreatHistoryList().filter(res => res.eventDate === searchDate);
   }
 
-  getThreatsSummaryByStartDateAndEndDate(startDate, endDate)
-    :
-    ThreatsSummary[] {
+  getThreatsSummaryByStartDateAndEndDate(startDate, endDate): ThreatsSummary[] {
     console.log('======my date data at Service class ' + startDate + '    ' + endDate);
     const myfilteredData: ThreatsSummary[] = [];
     let k = 0;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.getThreatsSummary().length; i++) {
-      console.log(' event data in side a loop =====>' + this.getThreatsSummary()[i].eventDate +
-        ' start data  :' + startDate + ' end data : ' + endDate
-      )
-      ;
+      // console.log(' event data in side a loop =====>' + this.getThreatsSummary()[i].eventDate +
+      //   ' start data  :' + startDate + ' end data : ' + endDat);
       if ((this.getThreatsSummary()[i].eventDate >= startDate && this.getThreatsSummary()[i].eventDate <= endDate)) {
-        myfilteredData[k] = this.getThreatsSummary()[i];
-        k++;
+          myfilteredData[k] = this.getThreatsSummary()[i];
+          k++;
       }
     }
     console.log('my filttred  Data ....>' + myfilteredData);
