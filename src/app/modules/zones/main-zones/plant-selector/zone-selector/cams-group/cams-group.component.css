@@ -1,6 +1,8 @@
 #allCams{
   margin-top:70px;
   margin-bottom: 30px;
+  min-height: 10vh;
+  min-width: 100%;
 }
 
 .camRows{

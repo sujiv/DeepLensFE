@@ -67,12 +67,15 @@ export class CameraZoneService {
             cset.add(topo.pid + 'z' + topo.zid + 'c' + topo.cid);
           }
         }
+        this.pid = this.plants[0].id;
+        this.zid = this.zones[0].zoneId;
+        this.cid = this.cameras[0].id;
         console.log('metadata loaded');
       });
     }
   }
 
-  getCameraSummary(zid: any): Observable<CameraSummary[]> {
+  getCameraSummary(): Observable<CameraSummary[]>{
     // return [
     //   {
     //     id: 1,
@@ -120,7 +123,7 @@ export class CameraZoneService {
     //     frame: null
     //   }
     // ];
-    return this.httpClient.get<CameraSummary[]>(`${this.baseUrl}plants/${this.pid}/zones/${zid}/cameras`, httpOptions);
+    return this.httpClient.get<CameraSummary[]>(`${this.baseUrl}plants/${this.pid}/zones/${this.zid}/cameras`, httpOptions);
   }
 
   getThreatsOverview() {
@@ -171,27 +174,22 @@ export class CameraZoneService {
   }
 
   getAllPlants(): Plant[] {
-    // const plants: Plant[] = new Array();
-    // this.loadTopologies();
-    // while (this.topologies === undefined){}
-    // console.log(this.topologies);
-
     return this.plants;
   }
 
-  getPlants(): Observable<Plant[]> {
-    return this.httpClient.get<Plant[]>(`${this.baseUrl}plants`, httpOptions);
-    // return [
-    //   {
-    //     id: '01',
-    //     plantName: 'Chennai Vehicle & Engine Assembly Plant'
-    //   },
-    //   {
-    //     id: '02',
-    //     plantName: 'Ford\'s Sanan Vehicle & Engine Assembly Plant'
-    //   }
-    // ];
-  }
+  // getPlants(): Observable<Plant[]> {
+  //   return this.httpClient.get<Plant[]>(`${this.baseUrl}plants`, httpOptions);
+  //   // return [
+  //   //   {
+  //   //     id: '01',
+  //   //     plantName: 'Chennai Vehicle & Engine Assembly Plant'
+  //   //   },
+  //   //   {
+  //   //     id: '02',
+  //   //     plantName: 'Ford\'s Sanan Vehicle & Engine Assembly Plant'
+  //   //   }
+  //   // ];
+  // }
 
   // getZones(id: string): Observable<Zone[]> {
   //   // const zone1 = [
@@ -263,6 +261,24 @@ export class CameraZoneService {
   setCurrentCameraId(cid: any) {
     if (cid !== null) {
       this.cid = cid;
+    }
+  }
+
+  getCurrentZones() {
+    console.log('current zone returned');
+    if (this.pid === undefined) {
+      if (this.plants.length === 0 ) {
+        return [];
+      }
+      return this.getZones(this.plants[0].id);
+    }
+    return this.getZones(this.pid);
+  }
+
+  getCurrPlantName() {
+    for (const plant of this.plants){
+      if (plant.id === this.pid)
+        return plant.plantName;
     }
   }
 }

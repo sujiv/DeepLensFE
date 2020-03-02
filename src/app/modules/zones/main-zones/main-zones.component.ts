@@ -21,9 +21,15 @@ export class MainZonesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(p => {
-      this.cameraZoneService.setCurrentPlantId(p.pid);
-      this.cameraZoneService.setCurrentZoneId(p.zid);
-      this.cameraZoneService.setCurrentCameraId(p.cid);
+      if(p.id !== undefined) {
+        this.cameraZoneService.setCurrentPlantId(p.pid);
+      }
+      if(p.zid !== undefined) {
+        this.cameraZoneService.setCurrentZoneId(p.zid);
+      }
+      if(p.cid !== undefined) {
+        this.cameraZoneService.setCurrentCameraId(p.cid);
+      }
     });
   }
 

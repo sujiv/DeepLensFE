@@ -10,29 +10,33 @@ import {CameraZoneService} from '../../../../../../services/camera-zone.service'
 })
 export class CamsGroupComponent implements OnInit {
   @Input()zn: Zone;
+  @Input()
   cameras: CameraSummary[];
 
   constructor(private cameraZS: CameraZoneService) {
-    this.cameraZS.getCameraSummary(this.cameraZS.zid).subscribe( cs => this.cameras = cs );
+    // this.cameraZS.getCameraSummary().subscribe( cs => this.cameras = cs );
   }
 
   ngOnInit(): void {
-    this.cameraZS.getCameraSummary(this.zn.zoneId).subscribe( cs => this.cameras = cs );
+    // this.cameraZS = this.cameraZS.getCameraSummary();
+    this.cameraZS.getCameraSummary().subscribe( cs => this.cameras = cs );
+    // this.cameras = this.cameraZS.getCameraSummary();
   }
 
   ngOnChange(change: SimpleChanges): void {
     console.log("From camsGroup");
-    this.cameraZS.getCameraSummary(this.zn.zoneId).subscribe( cs => this.cameras = cs );
+    this.cameraZS.getCameraSummary().subscribe( cs => this.cameras = cs );
+    // this.cameras = this.cameraZS.getCameraSummary();
   }
 
   getName() {
-    return (this.zn === undefined)? "Zones" : this.zn.zoneName;
+    return "Zones";
   }
 
   getCameras() {
-    if (this.zn.zoneId !== this.cameraZS.zid) {
-      this.cameraZS.getCameraSummary(this.zn.zoneId).subscribe( cs => this.cameras = cs );
-    }
+    // if (this.zn.zoneId !== this.cameraZS.zid) {
+    //   this.cameraZS.getCameraSummary().subscribe( cs => this.cameras = cs );
+    // }
     return this.cameras;
   }
 }

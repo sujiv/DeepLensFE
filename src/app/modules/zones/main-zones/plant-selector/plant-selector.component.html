@@ -5,5 +5,5 @@
             [selected]="p.id === getSelected()"
     >{{ p.plantName }}</option>
   </select>
-  <app-zone-selector [plant]='selectedPlant' [zones]="cameraZoneService.getZones(selectedPlant.id)" *ngIf="plant"></app-zone-selector>
+  <app-zone-selector [plant]='selectedPlant'></app-zone-selector>
 </div>
