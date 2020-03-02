@@ -6,18 +6,19 @@
   <!-- Plant Options -->
   <div style="display:inline-block">
     <label class="choose-zone"> Plant </label> <br>
-    <select formControlName="plantName" (change)="onChangePlant($event)" class="group-8">
+<!--    <select formControlName="plantName" (change)="onChangePlant($event)" class="group-8">-->
+    <select #plant (change)="onChangePlant(plant.value)" class="group-8">
       <option class="zone-1" value="">Choose Plant</option>
-      <option *ngFor="let pl of plants" [ngValue]="pl.id">{{pl.plantName}}</option>
+      <option *ngFor="let pl of getPlants()" [ngValue]="pl.id">{{pl.plantName}}</option>
     </select>
   </div>
 
   <!--selecting  Zone-->
   <div style="display:inline-block">
     <label class="choose-zone"> Zone </label> <br>
-    <select class="group-8" (change)="changeZone($event)" formControlName="ZoneName">
+    <select class="group-8" (change)="changeZone(zone.value)" #zone>
       <option class="zone-1" selected value="">Choose Zone</option>
-      <option *ngFor="let zone of zones" [ngValue]="zone.zoneId">{{zone.zoneName}}</option>
+      <option *ngFor="let zone of getZones()" [ngValue]="zone.zoneId">{{zone.zoneName}}</option>
     </select>
   </div>
 
@@ -26,7 +27,7 @@
     <!--    selecting  Camera-->
     <label class="choose-zone"> Camera</label>
     <br>
-    <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8"
+    <select #camera (change)="changeCamera(camera.value)" class="group-8"
             [disabled]="plantSelected && zoneSelected">
       <option value="" class="zone-1" selected>Choose Camera</option>
       <option *ngFor="let cam of cameras" [ngValue]="cam.id">{{cam.cameraName}}</option>
@@ -36,16 +37,17 @@
   <!--       Date picker : Start Date-->
   <div class="right">
     <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate "
-             (change)="startDate($event)">
+<!--      <input #startDate matInput readonly [matDatepicker]="picker" *ngIF="myStartDate === undefined" placeholder="Start Date" (change)="changeStartDate(startDate.value)">-->
+      <input #startDate matInput readonly [matDatepicker]="picker" (change)="changeStartDate(startDate.value)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <!--//////-->
 
     <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"
-             (change)="endDate($event)">
+<!--      <input #endDate matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"-->
+      <input #endDate matInput readonly [matDatepicker]="picker2" formControlName="endDate"
+             (change)="changeEndDate(endDate.value)">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>

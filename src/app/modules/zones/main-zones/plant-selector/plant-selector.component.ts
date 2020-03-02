@@ -26,14 +26,6 @@ export class PlantSelectorComponent implements OnInit {
     // this.selectedPlant = this.plants[this.loadSelected()];
   }
   loadSelected() {
-    // console.log("PlantComponent:"+this.cameraZoneService.pid+"<-pid");
-    // const pid: string = this.cameraZoneService.pid;
-    // if (pid !== undefined) {
-    //   this.onChange(pid);
-    // } else {
-    //   this.selectedPlant = this.plants[0];
-    //   this.cameraZoneService.setCurrentPlantId(this.selectedPlant.id);
-    // }
     let i = 0;
     for (const p of this.plants) {
       if (p.id === this.cameraZoneService.pid) {
@@ -59,20 +51,13 @@ export class PlantSelectorComponent implements OnInit {
 
   getSelected() {
     let i = 0;
-    for (const plant of this.plants){
-      if (plant.id === this.cameraZoneService.pid){
+    for (const plant of this.plants) {
+      if (plant.id === this.cameraZoneService.pid) {
         return i;
       }
       i++;
     }
-    // if (this.cameraZoneService.pid !== undefined) {
-    //   return this.cameraZoneService.pid;
-    // }
-    // if (this.selectedPlant === undefined) {
-    //     return this.plants[0].id;
-    //   // return this.cameraZoneService.pid;
-    // }
-    // return this.selectedPlant.id;
+    return i;
   }
 
   getZones() {

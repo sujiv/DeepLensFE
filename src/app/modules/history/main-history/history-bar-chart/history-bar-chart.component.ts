@@ -24,7 +24,7 @@ export class HistoryBarChartComponent implements OnInit {
   selectable = true;
   removable = true;
   addOnBlur = true;
-  @Input()myStartDate: string;
+  myStartDate: string;
   myEndDate: string;
   myForm: FormGroup;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -37,9 +37,9 @@ export class HistoryBarChartComponent implements OnInit {
   plants: Plant[] = [];
   zones: Zone[] = [];
   cameras: Camera[] = [];
-  plantId: string;
-  zoneId: string;
-  cameraId: string;
+  @Input()plantId: string;
+  @Input()zoneId: string;
+  @Input()cameraId: string;
   plantSelected;
   zoneSelected;
 
@@ -99,12 +99,12 @@ export class HistoryBarChartComponent implements OnInit {
   }
 
   /* Date */
-  startDate(e) {
-    this.myStartDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.mySmpleFormatStartDate = this.pipe.transform(new Date(e.target.value), 'shortDate');
-    this.myForm.get('startDate').setValue(this.myStartDate, {
-      onlyself: true
-    });
+  changeStartDate(e: string) {
+    this.myStartDate = e;
+    this.mySmpleFormatStartDate = this.pipe.transform(new Date(e), 'shortDate')
+    // this.myForm.get('startDate').setValue(this.myStartDate, {
+    //   onlyself: true
+    // });
     console.log(this.myShortFormat);
   }
 
@@ -117,12 +117,12 @@ export class HistoryBarChartComponent implements OnInit {
     console.log(this.myForm.value);
   }
 
-  endDate(e) {
-    this.myEndDate = new Date(e.target.value).toISOString().substring(0, 10);
-    this.mySmpleFormatEndDate = this.pipe.transform(new Date(e.target.value), 'shortDate');
-    this.myForm.get('startDate').setValue(this.myEndDate, {
-      onlyself: true
-    });
+  changeEndDate(e: string) {
+    this.myEndDate = e;
+    this.mySmpleFormatEndDate = this.pipe.transform(new Date(e), 'shortDate');
+    // this.myForm.get('startDate').setValue(this.myEndDate, {
+    //   onlyself: true
+    // });
     console.log(this.mySmpleFormatEndDate);
 
   }
@@ -197,8 +197,9 @@ export class HistoryBarChartComponent implements OnInit {
   }
 
   // used to  select a  given zone
-  changeZone(e) {
-    this.zoneId = e.target.value;
+  changeZone(zid: string) {
+    this.zoneId = zid;
+    this.cameras = this.cameraZS.getCameras(this.plantId, this.zoneId);
     // alert('this is a zone is from HTML page ==>' + this.zoneId);
     // alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
 
@@ -213,21 +214,31 @@ export class HistoryBarChartComponent implements OnInit {
 
 
 
-  onChangePlant(e) {
-    this.plantId = e.target.value;
+  onChangePlant(e: string) {
+    this.plantId = e;
+    this.cameraZS.setCurrentPlantId(e);
     // alert(' this is my plant Id from --->' + this.plantId.substring(2));
-    this.historyService.getZonesByPlantId(this.plantId.substring(2))
-      .subscribe((res: Zone[]) => {
-          console.log('mukera two of list ' + res.toString());
-          this.zones = res;
-        }
-      );
+    // this.historyService.getZonesByPlantId(this.plantId)
+    //   .subscribe((res: Zone[]) => {
+    //       console.log('mukera two of list ' + res.toString());
+    //       this.zones = res;
+    //     }
+    //   );
+    this.zones = this.cameraZS.getZones(this.plantId)
     console.log('this is the list of zone in  plant Id =? ' + this.plantId + '   list' + this.zones);
     // alert(this.zones.toString());
   }
 
   set(value: string) {
     this.myStartDate = value;
+  }
+
+  getPlants() {
+    return this.cameraZS.getAllPlants();
+  }
+
+  getZones() {
+    return this.cameraZS.getCurrentZones();
   }
 }
 
