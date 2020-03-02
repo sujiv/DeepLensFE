@@ -21,16 +21,18 @@ import {BrowserModule} from '@angular/platform-browser';
 
 
 
+
 @NgModule({
   declarations: [
     FilterHistoryComponent,
     MainHistoryComponent,
     HistoryBarChartComponent,
     HistoricalThreatListComponent,
-    FiliteringCriteriaComponent
+    // FiliteringCriteriaComponent
   ],
   exports: [
-    FilterHistoryComponent
+    FilterHistoryComponent,
+    MaterialModule
   ],
   imports: [
     CommonModule,

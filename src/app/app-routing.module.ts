@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'plants/:pid/zones/:zid', component: MainZonesComponent},
   {path: 'plants/:pid/zones/:zid/cameras/:cid', component: MainCameraComponent},
   {path: 'history', component: MainHistoryComponent}
+  // {path: 'history2', component: MainHistoryComponent}
 ];
 
 @NgModule({

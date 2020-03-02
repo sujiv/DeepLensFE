@@ -7,6 +7,7 @@ import {Observable, of, Subject} from 'rxjs';
 import {Topology} from '../models/topology';
 import {Camera} from '../models/camera';
 import {CameraDetails} from '../models/camera-details';
+import {DataBar} from '../models/data-bar';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,8 +22,8 @@ export class CameraZoneService {
   plants: Plant[] = new Array();
   zones: Zone[] = new Array();
   cameras: Camera[] = new Array();
-  // baseUrl: any = 'http://localhost:8080/dl/';
-  baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
+  baseUrl: any = 'http://localhost:8080/dl/';
+  // baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
   pid: any = undefined;
   zid: any = undefined;
   cid: any = undefined;
@@ -171,8 +172,9 @@ export class CameraZoneService {
 
   getCurrPlantName() {
     for (const plant of this.plants) {
-      if (plant.id === this.pid)
+      if (plant.id === this.pid) {
         return plant.plantName;
+      }
     }
   }
 
@@ -187,5 +189,11 @@ export class CameraZoneService {
   }
   getCameraDetails(pid: string, zid: string, cid: string): Observable<CameraDetails> {
     return this.httpClient.get<CameraDetails>(`${this.baseUrl}plants/${pid}/zones/${zid}/cameras/${cid}`, httpOptions);
+  }
+
+  getHistory() {
+    const param = '';
+    // if (this.pid)
+    return this.httpClient.get<DataBar[]>(`${this.baseUrl}history2`, httpOptions);
   }
 }

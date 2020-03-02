@@ -19,12 +19,12 @@ import {CameraZoneService} from '../../../../services/camera-zone.service';
   styleUrls: ['./history-bar-chart.component.css']
 })
 export class HistoryBarChartComponent implements OnInit {
-  myDate: Date = new Date();
+  myDate: Date;
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
-  @Input()myStartDate: string;
+  myStartDate: string;
   myEndDate: string;
   myForm: FormGroup;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
@@ -43,7 +43,7 @@ export class HistoryBarChartComponent implements OnInit {
   plantSelected;
   zoneSelected;
 
-  constructor(public fb: FormBuilder, private historyService: HistoryService, private cameraZS: CameraZoneService) {
+  constructor(public fb: FormBuilder, private historyService: HistoryService, private cameraService: CameraZoneService) {
     this.pipe = new DatePipe('en-US');
     this.now = Date.now();
     this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
@@ -58,6 +58,7 @@ export class HistoryBarChartComponent implements OnInit {
   ////////////// using Service////////////
   public barChartOptions: ChartOptions = {
     responsive: true,
+    maintainAspectRatio: false
   };
   public barChartLabels: Label[];
   public barChartType: ChartType = 'bar';
@@ -68,7 +69,7 @@ export class HistoryBarChartComponent implements OnInit {
     {
       borderColor: 'black',
       // backgroundColor: 'rgba(255,255,0,0.28)',
-      backgroundColor: 'rgba(0,0, 255,0.8)',
+      backgroundColor: 'rgba(0,0, 160,0.8)',
     },
   ];
   public options: ChartOptions = {
@@ -76,6 +77,10 @@ export class HistoryBarChartComponent implements OnInit {
       xAxes: [{
         gridLines: {
           display: false
+        },
+        ticks:{
+          fontSize: 7,
+          fontFamily: 'Antenna-Medium'
         }
       }],
       yAxes: [{
@@ -85,7 +90,6 @@ export class HistoryBarChartComponent implements OnInit {
       }]
     }
   };
-
 
   /* Reactive form */
   reactiveForm() {
@@ -108,10 +112,7 @@ export class HistoryBarChartComponent implements OnInit {
     console.log(this.myShortFormat);
   }
 
-  /* Handle form errors in Angular 8 */
-  // public errorHandling = (control: string, error: string) => {
-  //   return this.myForm.controls[control].hasError(error);
-  // }
+
 
   submitForm() {
     console.log(this.myForm.value);
@@ -124,24 +125,31 @@ export class HistoryBarChartComponent implements OnInit {
       onlyself: true
     });
     console.log(this.mySmpleFormatEndDate);
-
+    this.myEndDate = new Date(e.target.value).toISOString().substring(0, 10);
   }
 
-
   ngOnInit() {
+    // this.historyService.getThreatHistoryList_Rest();
     // tslint:disable-next-line:label-position
-    // this.historyService.getPlants().subscribe((res: Plant[]) => this.plants = res);
+    // this.plants = this.historyService.getPlants();
 
-    console.log(this.historyService.getThreatHistoryList_Rest());
-    this.plants = this.cameraZS.getAllPlants();
-    console.log('this is the list of Plants ' + this.plants)
-    console.log('this is from  bar chart compnents >= ' + this.plants);
-    this.plantId = '01';
+    this.plants = this.cameraService.getAllPlants();
+
+    // this.plants = this.cameraService.getAllPlants();
+    // console.log('this is the list of Plants ' + this.plants)plants
+    // console.log('this is from  bar chart compnents >= ' + this.plants);
+
+    // this.plantId = '0';
+    this.plantId = this.plants[0].id;
+    this.zones = this.cameraService.getZones(this.plantId);
+
+    // this.zones = this.historyService.getZonesByPlantId(this.plantId);
     // this.historyService.getZonesByPlantId(this.plantId)
     //   .subscribe((res: Zone[]) => this.zones = res);
-    this.zones = this.cameraZS.getZones(this.plantId);
+
     this.zoneId = 'z001';
     this.cameras = this.historyService.getCamerasByPlantAndZone(this.plantId, this.zoneId);
+    // this.cameras = this.cameraService.getAllCameras(this.plantId, this.zoneId);
     this.reactiveForm();
     this.populateChart();
     this.isInint = true;
@@ -176,9 +184,17 @@ export class HistoryBarChartComponent implements OnInit {
     this.barChartData = [
       {
         data: myData,
-        label: 'Number of Threats'
-      }
-    ];
+        label: 'Number of Threats',
+        showLine: false,
+        borderWidth: 0,
+        maxBarThickness: 12,
+
+        pointBorderWidth : 1,
+        // spanGaps : false
+
+  }
+  ]
+    ;
     console.log(' my start date' + this.mySmpleFormatStartDate + 'my End Date ' + this.mySmpleFormatEndDate);
 
   }
@@ -199,6 +215,8 @@ export class HistoryBarChartComponent implements OnInit {
   // used to  select a  given zone
   changeZone(e) {
     this.zoneId = e.target.value;
+    this.cameras = this.cameraService.getCameras(this.plantId, this.zoneId);
+    // this.zones= this.historyService.getZonesByPlantId(this.)
     // alert('this is a zone is from HTML page ==>' + this.zoneId);
     // alert(this.historyService.getCamerasByPlantAndZone('01', '01'));
 
@@ -212,22 +230,19 @@ export class HistoryBarChartComponent implements OnInit {
   }
 
 
-
   onChangePlant(e) {
     this.plantId = e.target.value;
-    // alert(' this is my plant Id from --->' + this.plantId.substring(2));
-    this.historyService.getZonesByPlantId(this.plantId.substring(2))
-      .subscribe((res: Zone[]) => {
-          console.log('mukera two of list ' + res.toString());
-          this.zones = res;
-        }
-      );
+    this.zones = this.cameraService.getZones(this.plants[0].id);
+    console.log(' my zone list using  plants ' + this.zones);
+    // this.zones = this.historyService.getZonesByPlantId(this.plantId.substring(2));
+    // this.historyService.getZonesByPlantId(this.plantId.substring(2))
+    //   .subscribe((res: Zone[]) => {
+    //       console.log('mukera two of list ' + res.toString());
+    //       this.zones = res;
+    //     }
+    //   );
     console.log('this is the list of zone in  plant Id =? ' + this.plantId + '   list' + this.zones);
     // alert(this.zones.toString());
-  }
-
-  set(value: string) {
-    this.myStartDate = value;
   }
 }
 
