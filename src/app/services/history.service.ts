@@ -24,9 +24,9 @@ const httpOptions = {
 export class HistoryService {
 
   const;
-  // remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
+  remoteUrl = 'https://sujiv-portfolio.herokuapp.com';
 
-  remoteUrl = 'http://localhost:8080';
+  // remoteUrl = 'http://localhost:8080';
   localpath = '/dl/history';
 
   threatHistorySummary: ThreatsSummary[];

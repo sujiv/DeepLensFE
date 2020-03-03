@@ -22,8 +22,8 @@ export class CameraZoneService {
   plants: Plant[] = new Array();
   zones: Zone[] = new Array();
   cameras: Camera[] = new Array();
-  baseUrl: any = 'http://localhost:8080/dl/';
-  // baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
+  // baseUrl: any = 'http://localhost:8080/dl/';
+  baseUrl: any = 'https://sujiv-portfolio.herokuapp.com/dl/';
   pid: any = undefined;
   zid: any = undefined;
   cid: any = undefined;
