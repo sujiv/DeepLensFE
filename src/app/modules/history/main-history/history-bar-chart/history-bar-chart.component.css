@@ -10,9 +10,14 @@
   margin-left: 15px;
   margin-top: 20px;
 }
+
+.barchartSide{
+  height: 200px;
+  width: 90%;
+}
 .group-8 {
-  height: 44px;
-  width: 250px;
+  height: 30px;
+  width: 200px;
   margin-left: 5px;
   margin-top: 3px;
 }
@@ -26,8 +31,8 @@
   line-height: 17px;
 }
 .choose-zone {
-  height: 18px;
-  width: 60px;
+  height: 12px;
+  width: 40px;
   color: #6A7C92;
   font-family: Antenna;
   font-size: 12px;
@@ -48,8 +53,8 @@
   line-height: 17px;
 }
 .zone-1 {
-  height: 17px;
-  width: 45px;
+  height: 12px;
+  width: 40px;
   color: #6879A4;
   font-family: Antenna;
   font-size: 14px;
@@ -90,9 +95,11 @@
   line-height: 18px;
 }
 .right{
-  float: right;
+  /*float: right;*/
   margin-top: 20px;
-  margin-right: 5px;
+  margin-right: 100px;
+  margin-left: 50px;
+  margin-top: 5px;
 }
 
 .info{
@@ -108,13 +115,13 @@
 .rectangleDate {
   box-sizing: border-box;
   height: 44px;
-  width: 200px;
+  width: 250px;
   border: 1px solid #E9E9E9;
   border-radius: 3px;
   background-color: #FFFFFF;
   margin-left: 5px;
-  margin-top: 100px;
-
+  margin-top: 20px;
+  /*margin-top: 50px;*/
 }
 
 .buttonFilter {
@@ -133,7 +140,7 @@
 }
 
 .filterAllButton {
-  height: 44px;
+  height: 30px;
   width: 90px;
   color: #FFFFFF;
   font-family: Antenna;
@@ -144,5 +151,14 @@
   align-content: center;
   border-radius: 3px;
   background-color:#00317B;
-  margin-left: 5px;
+  margin-left:1px;
+
+}
+.barchartHeight{
+  height: 200px;
+  width:100%;
+  margin-top: 30px;
+}
+#input{
+  display: inline-flex;
 }

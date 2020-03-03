@@ -1,18 +1,10 @@
-<div>
+<div style="display:block;">
   <p class="historical-threat">
     Historical Threat </p>
 
-  <!--  <div class="rectangleCal">-->
-  <!--    <input matInput [matDatepicker]="picker" class="filters">-->
-  <!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-  <!--    <mat-datepicker #picker></mat-datepicker>-->
-  <!--    <hr>-->
-  <!--  </div>-->
-
-
   <div class="left">
     <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="DateForSearch"
+      <input matInput readonly [matDatepicker]="picker" placeholder="search by Date" formControlName="DateForSearch"
              (dateChange)="filiterByDate($event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
