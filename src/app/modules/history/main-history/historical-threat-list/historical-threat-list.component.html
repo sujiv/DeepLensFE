@@ -3,18 +3,33 @@
     Historical Threat </p>
 
   <div class="left">
-    <mat-form-field class="rectangleDate">
-      <input matInput readonly [matDatepicker]="picker" placeholder="search by Date" formControlName="DateForSearch"
-             (dateChange)="filiterByDate($event)">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+<!--    <mat-form-field class="rectangleDate">-->
+<!--      <input matInput readonly [matDatepicker]="picker" placeholder="search by Date" formControlName="DateForSearch"-->
+<!--             (dateChange)="filiterByDate($event)">-->
+<!--      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--      <mat-datepicker #picker></mat-datepicker>-->
+<!--    </mat-form-field>-->
+
+<!--    <div class= "myDateformatDate form-group row">-->
+<!--      <label for="mystartDate" class="col-2 col-form-label myDateformatDate">Date</label>-->
+<!--      <div class="col-10">-->
+<!--        <input  #datePicker2 class="form-control myDateformat" type="date" value="2020-03-04" id="mystartDate" (change)="getCalendar(datePicker2.value)">-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div class= "myDateformatDate">
+      <label for="mystartDate">Search By Date:</label>
+      <div class="col-10 myDateformatDate">
+        <input  #datePicker2  type="date" value="" id="mystartDate" (change)="dateForSearching(datePicker2.value)">
+      </div>
+    </div>
 
 
   </div>
   <!---->
-  <section fxLayout fxLayoutAlign="center">
-    <mat-card fxFlex="500px" *ngFor=" let threatsList  of historicalThreatsList" style="display:inline-block;">
+  <div fxLayout fxLayoutAlign="center">
+
+    <div class="threat-list" *ngFor=" let threatsList  of historicalThreatsList">
       <div class="rectangle" style="display: inline-block">
         <!--        <mat-card-title>-->
         <div style="display: inline-block">
@@ -54,12 +69,12 @@
           <!--      <button type="submit" mat-button> ViewAll</button>-->
         </mat-card-actions>
       </div>
-    </mat-card>
+    </div>
     <br>
     <div>
       <br>
       <button class="buttonFilter" (click)="ViewAll()">ViewAll</button>
     </div>
 
-  </section>
+  </div>
 </div>
