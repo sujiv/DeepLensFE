@@ -1,77 +1,107 @@
-<!-- wrapper -->
-<!--<mat-sidenav-container>-->
-<!--  <mat-sidenav-content>-->
-<!--<form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate >-->
 <form [formGroup]="myForm">
   <div id="input">
-    <!-- Plant Options -->
-    <div style="display:inline-block">
-      <label class="choose-zone"> Plant </label> <br>
-      <select formControlName="plantName" (change)="onChangePlant($event)" class="group-8">
-        <option class="zone-1" value="">Choose Plant</option>
-        <option *ngFor="let pl of plants" [ngValue]="pl.id">{{pl.plantName}}</option>
-      </select>
+    <div id="input-group">
+      <!--    ==============Plant  Selection=====================================-->
+      <div class="input-block">
+<!--        <label class="choose-zone"> Plant </label> <br>-->
+        <div>
+          <label> Plant </label>
+        </div>
+        <div>
+          <select id="plant" #plant class="group-8" (change)="onChange(plant.value)">
+            <option class="zone-1" value="" selected>Choose Plant</option>
+            <option *ngFor="let p of this.plants; let j = idx;" value="{{ p.id }}"
+                    [selected]="j === getSelected()">{{ p.plantName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-block">
+<!--        <label class="choose-zone"> Zone </label> <br>-->
+        <div>
+          <label> Zone </label>
+        </div>
+        <div>
+          <select id="zone" #zone class="group-8" (change)="onZoneChange(zone.value)">
+            <option class="zone-1" value="" selected>Choose Zone</option>
+            <option *ngFor="let z of this.zones; let j = idx;" value="{{ z.zoneId}}"
+                    [selected]="j === getSelected()">{{ z.zoneName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+  <!--==================Camera  Selection=======================-->
+      <div class="input-block">
+        <div>
+<!--          <label class="choose-zone"> Camera</label>-->
+          <label> Camera</label>
+        </div>
+        <div>
+          <select  id="camera" #cam2 (change)="changeCamera(cam2.value)" class="group-8">
+            <option value="" class="zone-1" selected>Choose Camera</option>
+            <option *ngFor="let c of this.cameras; let j = idx;" value="{{ c.zoneId}}"
+                    [selected]="j === getSelected()">{{ c.cameraName }}
+            </option>
+          </select>
+        </div>
+      </div>
     </div>
 
-    <!--selecting  Zone-->
-    <div style="display:inline-block">
-      <label class="choose-zone"> Zone </label> <br>
-      <select class="group-8" (change)="changeZone($event)" formControlName="ZoneName">
-        <option class="zone-1" selected value="">Choose Zone</option>
-        <option *ngFor="let zone of zones" [ngValue]="zone.zoneId">{{zone.zoneName}}</option>
-      </select>
-    </div>
+    <!--    ============Start Date==========================-->
 
-
-    <div style="display:inline-block">
-      <!--    selecting  Camera-->
-      <label class="choose-zone"> Camera</label>
-      <br>
-      <select (change)="changeCamera($event)" formControlName="CameraName" class="group-8"
-              [disabled]="plantSelected && zoneSelected">
-        <option value="" class="zone-1" selected>Choose Camera</option>
-        <option *ngFor="let cam of cameras" [ngValue]="cam.id">{{cam.cameraName}}</option>
-      </select>
-    </div>
-
-    <!--       Date picker : Start Date-->
-    <div class="right">
-      <mat-form-field class="rectangleDate">
-<!--        <input matInput readonly [matDatepicker]="picker" placeholder="Start Date" formControlName="startDate"-->
-        <input class="date" matInput readonly [matDatepicker]="picker" formControlName="startDate"
-               (dateChange)="startDate($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-      <!--//////-->
-
-      <mat-form-field class="rectangleDate">
-<!--        <input matInput readonly [matDatepicker]="picker2" placeholder="End Date" formControlName="endDate"-->
-        <input class="date" matInput readonly [matDatepicker]="picker2" formControlName="endDate"
-               (dateChange)="endDate($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-
-      <button class="filterAllButton" (click)="filterThreatsHistoryByDate()">Filter</button>
+    <div class="timeBlock">
+      <div class="flex">
+        <div>
+          <label class="threats left">Threats</label>
+        </div>
+        <div class="right-top">
+          <div class="input-block" >
+            <label> Start Date
+              <input #datePicker class="form-control" type="date" value="" id="start-date-input"
+                     (change)="getStartDateCalendar(datePicker.value)">
+            </label>
+          </div>
+          <div class="input-block">
+            <label> End Date
+              <input #datePicker2 class="form-control" type="date" value="" id="end-date-input"
+                     (change)="getEndDateCalendar(datePicker2.value)">
+            </label>
+          </div>
+          <div class="filter-button">
+            <button class="filterAllButton" (click)="filterThreatsHistoryByDate()">Filter</button>
+          </div>
+        </div>
+      </div>
+      <div class="barchartSide">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [colors]="barcharColor"
+                [chartType]="barChartType"
+                [chartType]="barChartType"
+        >
+        </canvas>
+      </div>
+      <!--      </div>-->
     </div>
   </div>
 </form>
 
 
-<div class="barchartSide" style="display: block;">
 
-  <label class="threats left"> Threats </label>
-  <canvas baseChart
-          [datasets]="barChartData"
-          [labels]="barChartLabels"
-          [options]="barChartOptions"
-          [plugins]="barChartPlugins"
-          [legend]="barChartLegend"
-          [colors]="barcharColor"
-          [chartType]="barChartType"
-          [chartType]="barChartType"
 
-  >
-  </canvas>
-</div>
+<!--<div class='myDateformat input-group date datepicker'>-->
+<!--  <input type='text' class="form-control" #datePicker [ngModel]="sDate" (blur)="sDate = datePicker.value">-->
+<!--  <span class="input-group-addon">-->
+<!--    <span class="glyphicon glyphicon-calendar" (click)="getCalendar()"></span>-->
+<!--  </span>-->
+
+<!--  {{sDate}}-->
+<!--</div>-->
+
+
