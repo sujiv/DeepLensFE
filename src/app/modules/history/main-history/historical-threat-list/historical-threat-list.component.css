@@ -1,3 +1,10 @@
+.threat-list{
+  /*width: 500px;*/
+  display: inline-block;
+  padding-right: 50px;
+  padding-left: 25px;
+  padding-top: 30px;
+}
 .example-button-row button,
 .example-button-row a {
   margin-right: 8px;
@@ -26,6 +33,7 @@
 }
 
 .rectangle {
+  padding: 10px;
   box-sizing: border-box;
   height: 200.2px;
   width: 300.2px;
@@ -225,4 +233,7 @@
   border-radius: 3px;
   background-color:#00317B;
   margin-left: 5px;
+}
+. myDateformat{
+  width: 60px;
 }
