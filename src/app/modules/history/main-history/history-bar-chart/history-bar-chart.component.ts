@@ -2,8 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ChartOptions, ChartType, ChartDataSets, ChartColor, ChartScales} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
 import {HistoryService} from '../../../../services/history.service';
-
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ThreatsSummary} from '../../../../models/threats-summary';
 import {DatePipe} from '@angular/common';
@@ -11,8 +9,6 @@ import {Plant} from '../../../../models/plant';
 import {Zone} from '../../../../models/zone';
 import {Camera} from '../../../../models/camera';
 import {CameraZoneService} from '../../../../services/camera-zone.service';
-import {aliasTransformFactory} from '@angular/compiler-cli/src/ngtsc/transform';
-
 
 @Component({
   selector: 'app-history-bar-chart',
@@ -20,21 +16,13 @@ import {aliasTransformFactory} from '@angular/compiler-cli/src/ngtsc/transform';
   styleUrls: ['./history-bar-chart.component.css']
 })
 export class HistoryBarChartComponent implements OnInit {
-  myDate: Date;
   visible = true;
-  selectable = true;
-  removable = true;
-  addOnBlur = true;
-  myStartDate: string;
-  myEndDate: string;
   myForm: FormGroup;
   myJsonData: ThreatsSummary[];
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   pipe;
   now;
   mySmpleFormatStartDate: Date;
   mySmpleFormatEndDate: Date;
-  myShortFormat: Date;
   isInint: boolean; // used for  tracking if the initailzation method  was call  not
   plants: Plant[] = [];
   zones: Zone[] = [];
@@ -51,12 +39,6 @@ export class HistoryBarChartComponent implements OnInit {
   selectedZone: Zone;
 
   constructor(public fb: FormBuilder, private historyService: HistoryService, private cameraService: CameraZoneService) {
-    // this.pipe = new DatePipe('en-US');
-    // this.now = Date.now();
-    // this.myShortFormat = this.pipe.transform(this.now, 'MM/dd/yyyy');
-    // this.myShortFormat = this.pipe.transform(this.now, 'shortDate');
-    // @ts-ignore
-    // this.myForm = new FormGroup();
     this.isInint = false;
     this.plantSelected = false;
     this.zoneSelected = false;
@@ -93,56 +75,23 @@ export class HistoryBarChartComponent implements OnInit {
         }]
       },
     legend: {
-      position: 'top',
-      display: false
+      display: false,
+      position: 'right',
+      align: 'end',
     }
   };
   public barChartLabels: Label[];
   public barChartType: ChartType = 'bar';
-  public barChartLegend = true;
+  // public barChartLegend = true;
   public barChartPlugins = [];
   public barChartData: ChartDataSets[];
   public barcharColor: Color[] = [
     {
-      borderColor: 'black',
-      // backgroundColor: 'rgba(255,255,0,0.28)',
-      backgroundColor: 'rgba(0,0, 160,0.8)',
+      borderColor: 'rgba(0,100, 255,1)',
+      hoverBackgroundColor: 'rgba(100,200, 160,1)',
+      backgroundColor: 'rgba(0,0, 200,0.7)',
     },
   ];
-  public options: ChartOptions = {
-    scales: {
-      xAxes: [{
-        gridLines: {
-          color: "rgba(0, 0, 0, 0)",
-        }
-        // ,
-        // ticks: {
-        //   fontSize: 7,
-        //   fontFamily: 'Antenna-Medium'
-        // }
-      }],
-      yAxes: [{
-        gridLines: {
-          color: "rgba(0, 0, 0, 0)",
-        }
-      }]
-      // xAxes: [{
-      //   gridLines: {
-      //     display: false
-      //   },
-      //   ticks: {
-      //     fontSize: 7,
-      //     fontFamily: 'Antenna-Medium'
-      //   }
-      // }],
-      // yAxes: [{
-      //   gridLines: {
-      //     display: false
-      //   }
-      // }]
-    }
-  };
-
   /* Reactive form */
   reactiveForm() {
     this.myForm = this.fb.group({
@@ -172,7 +121,6 @@ export class HistoryBarChartComponent implements OnInit {
   ngOnInit() {
     this.plants = this.cameraService.getAllPlants();
     this.plantId = this.cameraService.pid;
-    //this.plants[0].id;
     this.zones = this.cameraService.getZones(this.plantId);
     console.log(' my current  pid  zid are '  + this.plantId + '   ===' + this.zones[0].zoneId);
     this.cameras = this.cameraService.getCameras(this.plantId, this.zones[1].zoneId);
@@ -212,12 +160,11 @@ export class HistoryBarChartComponent implements OnInit {
         data: myData,
         label: 'Number of Threats',
         showLine: false,
-        borderWidth: 0,
+        borderWidth: 1,
         maxBarThickness: 12,
 
         pointBorderWidth: 1,
         // spanGaps : false
-
       }
     ]
     ;
