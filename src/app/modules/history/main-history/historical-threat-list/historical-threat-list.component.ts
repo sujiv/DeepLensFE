@@ -15,6 +15,8 @@ export class HistoricalThreatListComponent implements OnInit {
   myForm: FormGroup;
   historicalThreatsList: Threat[] = [];
   myDateCriteriaForSearchingThreats: string;
+  StartDate1: Date = null;
+  public enddate1: Date = null;
   pipe;
   now;
   mySmpleFormatStartDate: Date;
@@ -56,5 +58,14 @@ export class HistoricalThreatListComponent implements OnInit {
 
   ViewAll() {
     this.historicalThreatsList = this.historyService.getThreatHistoryList();
+  }
+
+  dateForSearching(e: string) {
+    this.pipe = new DatePipe('en-US');
+    this.mySmpleFormatStartDate = this.pipe.transform(new Date(e), 'MM/dd/yyyy');
+
+    // alert('this is my date    >' + this.mySmpleFormatStartDate)
+
+    this.historicalThreatsList = this.historyService.getThreatHistoryListByDate(this.mySmpleFormatStartDate);
   }
 }
