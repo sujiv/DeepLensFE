@@ -48,6 +48,8 @@
   margin-top: 50px;
   /*margin-left: 360px;*/
   display: block;
+  background-color: white;
+  padding: 10px;
 }
 
 .DateValue {
